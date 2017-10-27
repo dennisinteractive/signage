@@ -1,0 +1,5 @@
+name: Signage
+type: module
+description: Digital Signage Control.
+core: 8.x
+package: Dennis
