@@ -12,14 +12,23 @@ class InputEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     $events[UrlEvent::URL][] = ['handleUrl', 800];
+    $events[MessageEvent::MESSAGE][] = ['handleMessage', 900];
     return $events;
   }
 
   /**
-   * Subscriber Callback for the event.
+   * Subscriber callback for the url event.
    * @param UrlEvent $event
    */
   public function handleUrl(UrlEvent $event) {
+    //@todo handleUrl();
+  }
+
+  /**
+   * Subscriber callback for the message event.
+   * @param MessageEvent $event
+   */
+  public function handleMessage(MessageEvent $event) {
     //@todo handleUrl();
   }
 
