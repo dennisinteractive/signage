@@ -32,14 +32,9 @@ class DemoEventDispatchForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Url'),
       '#description' => $this->t('The url for the event'),
-      '#size' => 32,
-    );
-    $form['value_1'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('Value 1'),
-      '#description' => $this->t('The value of Key 1'),
       '#size' => 64,
     );
+
     $form['key_1'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Key 1'),
@@ -50,8 +45,9 @@ class DemoEventDispatchForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Value 1'),
       '#description' => $this->t('The value of Key 1'),
-      '#size' => 64,
+      '#size' => 32,
     );
+
     $form['key_2'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Key 2'),
@@ -62,8 +58,9 @@ class DemoEventDispatchForm extends FormBase {
       '#type' => 'textfield',
       '#title' => $this->t('Value 1'),
       '#description' => $this->t('The value of Key 2'),
-      '#size' => 64,
+      '#size' => 32,
     );
+
     $form['dispatch'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Dispatch'),

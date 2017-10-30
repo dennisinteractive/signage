@@ -49,7 +49,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @param MessageEvent $event
    */
   public function handleMessage(MessageEvent $event) {
-    drupal_set_message("Url event: " . $event->getMessage());
+    drupal_set_message("Message event: " . $event->getMessage());
   }
 
 }
