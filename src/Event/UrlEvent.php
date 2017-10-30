@@ -9,8 +9,6 @@ class UrlEvent extends Event {
 
   protected $url;
 
-  protected $source;
-
   public function __construct($url = '') {
     $this->setUrl($url);
   }

@@ -1,0 +1,8 @@
+signage.demo_event_dispatcher_form:
+  path: 'signage-demo-event-dispatch-form'
+  defaults:
+    _form: '\Drupal\signage\Form\DemoEventDispatchForm'
+    _title: 'Event Dispatcher Form'
+  requirements:
+    _permission: 'access administration pages'
+

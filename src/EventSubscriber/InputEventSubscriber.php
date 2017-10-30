@@ -2,6 +2,7 @@
 
 namespace Drupal\signage\EventSubscriber;
 
+use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\MessageEvent;
 use Drupal\signage\Event\UrlEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -13,9 +14,26 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @inheritDoc
    */
   public static function getSubscribedEvents() {
+    $events[InputEvent::NAME][] = ['handleInput', 700];
     $events[UrlEvent::URL][] = ['handleUrl', 800];
     $events[MessageEvent::MESSAGE][] = ['handleMessage', 900];
     return $events;
+  }
+
+  /**
+   * Subscriber callback for the input event.
+   * @param UrlEvent $event
+   */
+  public function handleInput(InputEvent $event) {
+    $vals = $event->getPayload()->getValues();
+    drupal_set_message("Input event: " . json_encode($vals));
+
+    // If a url, dispatch the url event.
+    $dispatcher = \Drupal::service('event_dispatcher');
+    if (isset($vals['url'])) {
+      $url_event = new UrlEvent($vals['url']);
+      $dispatcher->dispatch(UrlEvent::URL, $url_event);
+    }
   }
 
   /**
@@ -23,7 +41,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @param UrlEvent $event
    */
   public function handleUrl(UrlEvent $event) {
-    //@todo handleUrl();
+    drupal_set_message("Url event: " . $event->getUrl());
   }
 
   /**
@@ -31,7 +49,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @param MessageEvent $event
    */
   public function handleMessage(MessageEvent $event) {
-    //@todo handleUrl();
+    drupal_set_message("Url event: " . $event->getMessage());
   }
 
 }
