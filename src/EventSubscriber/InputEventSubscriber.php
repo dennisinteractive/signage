@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\Signage\EventSubscriber;
+namespace Drupal\signage\EventSubscriber;
 
-use Drupal\Signage\Event\MessageEvent;
-use Drupal\Signage\Event\UrlEvent;
+use Drupal\signage\Event\MessageEvent;
+use Drupal\signage\Event\UrlEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 

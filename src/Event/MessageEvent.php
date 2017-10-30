@@ -1,5 +1,5 @@
 <?php
-namespace Drupal\Signage\Event;
+namespace Drupal\signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
