@@ -31,7 +31,12 @@ class InputEventSubscriber implements EventSubscriberInterface {
     // Handle the demo form.
     $dispatcher = \Drupal::service('event_dispatcher');
     if ($event->getSourceEventName() == 'demo.input') {
-      $url_event = new UrlEvent($vals['url']);
+      // Build the url from the key value pairs.
+      $url = $vals['url'] . '?'
+        . $vals['key_1'] . '=' . $vals['value_1'] . '&'
+        . $vals['key_2'] . '=' . $vals['value_2']
+      ;
+      $url_event = new UrlEvent($url);
       $dispatcher->dispatch(UrlEvent::URL, $url_event);
     }
 
