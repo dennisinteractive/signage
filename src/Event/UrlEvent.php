@@ -3,7 +3,7 @@ namespace Drupal\Signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class UrlEvent extends Event implements InputEventInterface {
+class UrlEvent extends Event {
 
   const URL = 'signage.url';
 
@@ -13,22 +13,6 @@ class UrlEvent extends Event implements InputEventInterface {
 
   public function __construct($url = '') {
     $this->setUrl($url);
-  }
-
-  /**
-   * @inheritdoc
-   */
-  public function getSource() {
-    return $this->source;
-  }
-
-  /**
-   * Set the source of the go to url instruction.
-   */
-  public function setSource($source) {
-    $this->source = $source;
-
-    return $this;
   }
 
   /**

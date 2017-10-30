@@ -12,4 +12,11 @@ interface InputEventInterface {
    */
   public function getSource();
 
+  /**
+   *
+   * @return EventPayload
+   */
+  public function getPayload();
+
+  public function setPayload(EventPayload $payload);
 }
