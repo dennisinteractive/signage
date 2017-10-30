@@ -9,13 +9,39 @@ class InputEvent extends Event implements InputEventInterface {
 
   protected $payload;
 
-  protected $source;
+  protected $sourceName;
+
+  protected $sourceEventName;
+
+  public function __construct($source_name, $source_event_name) {
+    $this->setSourceName($source_name);
+    $this->setSourceEventName($source_event_name);
+  }
+
+  public function setSourceName($name) {
+    $this->sourceName = $name;
+
+    return $this;
+  }
+
+  public function setSourceEventName($name) {
+    $this->sourceEventName = $name;
+
+    return $this;
+  }
 
   /**
    * @inheritDoc
    */
-  public function getSource() {
-    return 'input_event';
+  public function getSourceName() {
+    return $this->sourceName;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getSourceEventName() {
+    return $this->sourceEventName;
   }
 
   /**
@@ -27,6 +53,8 @@ class InputEvent extends Event implements InputEventInterface {
 
   public function setPayload(EventPayload $payload) {
     $this->payload = $payload;
+
+    return $this;
   }
 
 }

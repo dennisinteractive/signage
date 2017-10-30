@@ -28,12 +28,13 @@ class InputEventSubscriber implements EventSubscriberInterface {
     $vals = $event->getPayload()->getValues();
     drupal_set_message("Input event: " . json_encode($vals));
 
-    // If a url, dispatch the url event.
+    // Handle the demo form.
     $dispatcher = \Drupal::service('event_dispatcher');
-    if (isset($vals['url'])) {
+    if ($event->getSourceEventName() == 'demo.input') {
       $url_event = new UrlEvent($vals['url']);
       $dispatcher->dispatch(UrlEvent::URL, $url_event);
     }
+
   }
 
   /**

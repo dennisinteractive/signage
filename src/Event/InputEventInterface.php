@@ -10,7 +10,28 @@ interface InputEventInterface {
    *
    * @return string
    */
-  public function getSource();
+  public function getSourceName();
+
+  /**
+   * @param $name
+   *
+   * @return self
+   */
+  public function setSourceName($name);
+
+  /**
+   * The source event name.
+   * eg; site-deployment-successful
+   * @return string
+   */
+  public function getSourceEventName();
+
+  /**
+   * @param $name
+   *
+   * @return self
+   */
+  public function setSourceEventName($name);
 
   /**
    *
@@ -18,5 +39,10 @@ interface InputEventInterface {
    */
   public function getPayload();
 
+  /**
+   * @param \Drupal\signage\Event\EventPayload $payload
+   *
+   * @return self
+   */
   public function setPayload(EventPayload $payload);
 }
