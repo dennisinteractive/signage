@@ -1,0 +1,5 @@
+services:
+  signage.input_event_subscriber:
+    class: Drupal\signage\EventSubscriber\InputEventSubScriber
+    tags:
+      - { name: 'event_subscriber' }
