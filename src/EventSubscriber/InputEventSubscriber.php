@@ -35,10 +35,15 @@ class InputEventSubscriber implements EventSubscriberInterface {
         . $vals['key_2'] . '=' . $vals['value_2']
       ;
 
+      // @todo work out which event & which channel to use from the Actions content...
+      $output_event = 'Drupal\signage\Event\UrlEvent';
+      $channel = 'Floor4';
+
+
       $url_payload = new EventPayload();
       $url_payload->setValue('url', $url);
-      $url_event = new UrlEvent($url_payload);
-      $dispatcher->dispatch(UrlEvent::NAME, $url_event);
+      $url_event = new $output_event($channel, $url_payload);
+      $dispatcher->dispatch($output_event::name(), $url_event);
     }
 
   }
