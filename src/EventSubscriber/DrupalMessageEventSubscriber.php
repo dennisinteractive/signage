@@ -35,7 +35,13 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
    * @param UrlEvent $event
    */
   public function handleUrl(UrlEvent $event) {
-    drupal_set_message("Url event: " . $event->getUrl());
+    drupal_set_message(
+      sprintf(
+        'UrlEvent for channel: %s with url: %s ',
+        $event->getChannelName(),
+        $event->getUrl()
+      )
+    );
   }
 
   /**s
@@ -43,7 +49,13 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
    * @param MessageEvent $event
    */
   public function handleMessage(MessageEvent $event) {
-    drupal_set_message("Message event: " . $event->getMessage());
+    drupal_set_message(
+      sprintf(
+        'MessageEvent for channel: %s with url: %s ',
+        $event->getChannelName(),
+        $event->getMessage()
+      )
+    );
   }
 
 }
