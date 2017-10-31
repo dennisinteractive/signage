@@ -81,7 +81,7 @@ class DemoEventDispatchForm extends FormBase {
     $payload->setValue('key_2', $form_state->getValue('key_2'));
     $payload->setValue('value_2', $form_state->getValue('value_2'));
 
-    $event = new InputEvent('Demo', 'demo.input');
+    $event = new InputEvent('demo.input');
     $event->setPayload($payload);
     $dispatcher->dispatch(InputEvent::NAME, $event);
   }

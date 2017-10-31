@@ -5,33 +5,18 @@ namespace Drupal\signage\Event;
 interface InputEventInterface {
 
   /**
-   * The module/input that created the event.
-   * eg; Jenkins, GitHub etc
-   *
-   * @return string
-   */
-  public function getSourceName();
-
-  /**
-   * @param $name
-   *
-   * @return self
-   */
-  public function setSourceName($name);
-
-  /**
    * The source event name.
-   * eg; site-deployment-successful
+   * eg; jenkins.deployment.successful
    * @return string
    */
-  public function getSourceEventName();
+  public function getSource();
 
   /**
    * @param $name
    *
    * @return self
    */
-  public function setSourceEventName($name);
+  public function setSource($name);
 
   /**
    *
