@@ -61,20 +61,21 @@ class InputEventSubscriber implements EventSubscriberInterface {
     // Action content for event source. eg; jenkins.deploy.success
     $actions = $actionService->getActionsForSource($event->getSource());
     foreach ($actions as $action) {
-      $channel_name = $channelService->getChannelNameForActionId($action->getId());
+      $channel_names = $channelService->getChannelNamesForActionId($action->getId());
 
-      // eg; UrlEvent
-      $event_name = $action->getOutputEventName();
-
-      $oe = new $event_name();
-      $oe->setChannelName($channel_name);
       $p = new Payload();
       foreach ($action->fields() as $k => $v) {
         $p->setValue($k, $v);
       }
       $oe->setPayload($p);
 
-      $dispatcher->dispatch($oe->getName(), $oe);
+      // eg; UrlEvent
+      $event_name = $action->getOutputEventName();
+      $oe = new $event_name();
+      foreach ($channel_names as $channel_name) {
+        $oe->setChannelName($channel_name);
+        $dispatcher->dispatch($oe->getName(), $oe);
+      }
 
     }
   }
