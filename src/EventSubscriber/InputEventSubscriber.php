@@ -23,12 +23,12 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @param InputEvent $event
    */
   public function handleInput(InputEvent $event) {
-    $vals = $event->getPayload()->getValues();
 
     // Handle the demo form.
     $dispatcher = \Drupal::service('event_dispatcher');
     if ($event->getSource() == 'demo.input') {
       // Build the url from the key value pairs.
+      $vals = $event->getPayload()->getValues();
       $url = $vals['url'] . '?'
         . $vals['key_1'] . '=' . $vals['value_1'] . '&'
         . $vals['key_2'] . '=' . $vals['value_2']
@@ -38,5 +38,36 @@ class InputEventSubscriber implements EventSubscriberInterface {
     }
 
   }
+
+  /*
+   * Something like this to handle the processing of input events
+   * with actions and channels.
+  public function handleInputEvent(InputEvent $event) {
+
+    $channelService = \Drupal::service('signage.channel');
+    $actionService = \Drupal::service('signage.action');
+    $dispatcher = \Drupal::service('event_dispatcher');
+
+    // Action content for event source. eg; jenkins.deploy.success
+    $actions = $actionService->getActionsForSource($event->getSource());
+    foreach ($actions as $action) {
+      $channel_name = $channelService->getChannelNameForActionId($action->getId());
+
+      // eg; UrlEvent
+      $event_name = $action->getOutputEventName();
+
+      $oe = new $event_name();
+      $oe->setChannelName($channel_name);
+      $p = new Payload();
+      foreach ($action->fields() as $k => $v) {
+        $p->setValue($k, $v);
+      }
+      $oe->setPayload($p);
+
+      $dispatcher->dispatch($oe->getName(), $oe);
+
+    }
+  }
+  */
 
 }
