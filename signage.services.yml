@@ -3,3 +3,7 @@ services:
     class: Drupal\signage\EventSubscriber\InputEventSubScriber
     tags:
       - { name: 'event_subscriber' }
+  signage.message_event_subscriber:
+      class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
+      tags:
+        - { name: 'event_subscriber' }
