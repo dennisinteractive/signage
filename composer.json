@@ -2,6 +2,19 @@
   "name": "dennisdigital/signage",
   "description": "Dennis Digital Signage",
   "type": "drupal-module",
-  "license": "GPL-2.0+"
+  "license": "GPL-2.0+",
 
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    {"type": "composer", "url": "https://repo.packagist.com/dennisdigital/"},
+    {"packagist.org": false}
+  ],
+
+  "require": {
+    "drupal/webhooks": "^1.0@alpha",
+    "drupal/core": "~8.3.0"
+  }
 }
