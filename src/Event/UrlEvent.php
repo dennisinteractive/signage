@@ -1,27 +1,20 @@
 <?php
 namespace Drupal\signage\Event;
 
-use Symfony\Component\EventDispatcher\Event;
 
-class UrlEvent extends Event {
+class UrlEvent extends OutputEventAbstract implements OutputEventInterface {
 
-  const URL = 'signage.url';
+  const NAME = 'signage.url';
 
-  protected $url;
-
-  public function __construct($url = '') {
-    $this->setUrl($url);
+  public function __construct(EventPayload $payload) {
+    $this->setPayload($payload);
   }
 
   /**
-   * The url the client should visit.
-   * @param $url string
-   * @return self
+   * @inheritDoc
    */
-  public function setUrl($url) {
-    $this->url = $url;
-
-    return $this;
+  static public function name() {
+    return self::NAME;
   }
 
   /**
@@ -29,7 +22,8 @@ class UrlEvent extends Event {
    * @return string
    */
   public function getUrl() {
-    return $this->url;
+    $vals = $this->getPayload()->getValues();
+    return reset($vals);
   }
 
 }

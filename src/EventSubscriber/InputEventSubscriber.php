@@ -2,6 +2,7 @@
 
 namespace Drupal\signage\EventSubscriber;
 
+use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\MessageEvent;
 use Drupal\signage\Event\UrlEvent;
@@ -33,8 +34,11 @@ class InputEventSubscriber implements EventSubscriberInterface {
         . $vals['key_1'] . '=' . $vals['value_1'] . '&'
         . $vals['key_2'] . '=' . $vals['value_2']
       ;
-      $url_event = new UrlEvent($url);
-      $dispatcher->dispatch(UrlEvent::URL, $url_event);
+
+      $url_payload = new EventPayload();
+      $url_payload->setValue('url', $url);
+      $url_event = new UrlEvent($url_payload);
+      $dispatcher->dispatch(UrlEvent::NAME, $url_event);
     }
 
   }

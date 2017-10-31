@@ -15,8 +15,8 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
    */
   public static function getSubscribedEvents() {
     $events[InputEvent::NAME][] = ['handleInput', 9];
-    $events[UrlEvent::URL][] = ['handleUrl', 10];
-    $events[MessageEvent::MESSAGE][] = ['handleMessage', 11];
+    $events[UrlEvent::NAME][] = ['handleUrl', 10];
+    $events[MessageEvent::NAME][] = ['handleMessage', 11];
     return $events;
   }
 

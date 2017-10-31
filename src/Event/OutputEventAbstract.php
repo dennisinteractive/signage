@@ -3,20 +3,18 @@ namespace Drupal\signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class InputEvent extends Event implements InputEventInterface {
+abstract class OutputEventAbstract extends Event implements OutputEventInterface {
 
-  const NAME = 'signage.input';
+  protected $channel;
 
   protected $payload;
 
-  protected $source;
 
-  public function __construct($source) {
-    $this->setSource($source);
-  }
-
-  public function setSource($name) {
-    $this->source = $name;
+  /**
+   * @inheritDoc
+   */
+  public function setChannelName($name) {
+    $this->channel = $name;
 
     return $this;
   }
@@ -24,8 +22,8 @@ class InputEvent extends Event implements InputEventInterface {
   /**
    * @inheritDoc
    */
-  public function getSource() {
-    return $this->source;
+  public function getChannelName() {
+    return $this->channel;
   }
 
   /**

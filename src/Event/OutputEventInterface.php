@@ -5,17 +5,10 @@ namespace Drupal\signage\Event;
 interface OutputEventInterface {
 
   /**
-   * The name to use when dispatching the event
+   * The name to use when dispatching the event.
+   * eg; signage.url
    */
-  public function getName();
-
-  /**
-   * The name to use when dispatching the event
-   * @param string $name
-   *
-   * @return self
-   */
-  public function setName($name);
+  static public function name();
 
   /**
    * The channel that the event will be sent to.

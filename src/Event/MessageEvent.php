@@ -3,35 +3,25 @@ namespace Drupal\signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class MessageEvent extends Event {
+class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
 
-  const MESSAGE = 'signage.message';
-
-  protected $message;
-
-  protected $source;
-
-  public function __construct($message = '') {
-    $this->setMessage($message);
-  }
+  const NAME = 'signage.message';
 
   /**
-   * The message the client should show.
-   * @param $message string
-   * @return self
+   * @inheritDoc
    */
-  public function setMessage($message) {
-    $this->message = $message;
-
-    return $this;
+  static public function name() {
+    return self::NAME;
   }
 
   /**
    * The message.
    * @return string
+   * @todo Message class as a message is more than just a string.
    */
   public function getMessage() {
-    return $this->message;
+    $vals = $this->getPayload()->getValues();
+    return reset($vals);
   }
 
 }
