@@ -19,6 +19,12 @@ class EventPayload {
     return $this;
   }
 
+  public function setValues($array) {
+    $this->payload = $array;
+
+    return $this;
+  }
+
   /**
    * @return mixed
    */

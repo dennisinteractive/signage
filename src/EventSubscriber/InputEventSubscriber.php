@@ -4,8 +4,6 @@ namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
-use Drupal\signage\Event\MessageEvent;
-use Drupal\signage\Event\UrlEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -41,8 +39,10 @@ class InputEventSubscriber implements EventSubscriberInterface {
 
 
       $url_payload = new EventPayload();
-      $url_payload->setValue('url', $url);
-      $url_event = new $output_event($channel, $url_payload);
+      $url_payload->setValues($event->getPayload()->getValues());
+      $url_event = new $output_event();
+      $url_event->setChannelName($channel);
+      $url_event->setPayload($url_payload);
       $dispatcher->dispatch($output_event::name(), $url_event);
     }
 

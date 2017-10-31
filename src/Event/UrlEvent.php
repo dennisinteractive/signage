@@ -6,11 +6,6 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface {
 
   const NAME = 'signage.url';
 
-  public function __construct($channel, EventPayload $payload) {
-    $this->setChannelName($channel);
-    $this->setPayload($payload);
-  }
-
   /**
    * @inheritDoc
    */
