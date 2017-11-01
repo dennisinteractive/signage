@@ -31,13 +31,27 @@ class Action implements ActionInterface {
   /**
    * @inheritDoc
    */
+  public function getOutputEvent() {
+    $p = $this->getOutputPayload();
+    // Build the new output event eg; UrlEvent
+    $event_type = $this->getOutputEventType();
+    //$eventService = \Drupal::service('signage.event.<url>.service');
+    $oe = new $event_type();
+    $oe->setPayload($p);
+
+    return $oe;
+  }
+
+  /**
+   * The output event class.
+   */
   public function getOutputEventType() {
     // TODO: Implement getOutputEventType() method.
     return 'Drupal\signage\Event\UrlEvent';
   }
 
   /**
-   * @inheritDoc
+   * Prepare the output payload.
    */
   public function getOutputPayload() {
     // TODO: Implement getOutputPayload() method.
@@ -52,5 +66,7 @@ class Action implements ActionInterface {
 
     return $p;
   }
+
+
 
 }

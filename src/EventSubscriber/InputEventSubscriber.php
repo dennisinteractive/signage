@@ -53,30 +53,21 @@ class InputEventSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Subscriber callback for the input event.
+   * Send the input event to actions that want it, then dispatch their responses.
    * @param InputEvent $event
    */
   public function handleInput(InputEvent $event) {
     // Action content for event source. eg; jenkins.deploy.success
     $actions = $this->actionService->getActionsForInputEvent($event);
     foreach ($actions as $action) {
-      $p = $action->getOutputPayload();
-
-      // Build the new output event eg; UrlEvent
-      $event_type = $action->getOutputEventType();
-      //$eventService = \Drupal::service('signage.event.<url>.service');
-      $oe = new $event_type();
-      $oe->setPayload($p);
-
+      $oe = $action->getOutputEvent();
       // Send the event to all the relevant channels.
       $channel_names = $this->channelService->getChannelNamesForActionId($action->getId());
       foreach ($channel_names as $channel_name) {
         $oe->setChannelName($channel_name);
         $this->dispatcher->dispatch($oe::name(), $oe);
       }
-
     }
-
   }
 
 }

@@ -11,13 +11,7 @@ interface ActionInterface {
   public function getId();
 
   /**
-   * The event type to be dispatched
-   * @return string
+   * @return \Drupal\signage\Event\OutputEventInterface
    */
-  public function getOutputEventType();
-
-  /**
-   * @return \Drupal\signage\Event\EventPayload
-   */
-  public function getOutputPayload();
+  public function getOutputEvent();
 }
