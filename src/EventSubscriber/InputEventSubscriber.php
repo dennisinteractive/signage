@@ -2,7 +2,7 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-use Drupal\signage\Event\EventPayload;
+
 use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Service\ActionServiceInterface;
 use Drupal\signage\Service\ChannelServiceInterface;
@@ -48,7 +48,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @inheritDoc
    */
   public static function getSubscribedEvents() {
-    $events[InputEvent::NAME][] = ['handleInput', 1];
+    $events[InputEvent::NAME][] = ['handleInputEvent', 1];
     return $events;
   }
 
@@ -56,7 +56,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * Send the input event to actions that want it, then dispatch their responses.
    * @param InputEvent $event
    */
-  public function handleInput(InputEvent $event) {
+  public function handleInputEvent(InputEvent $event) {
     // Action content for event source. eg; jenkins.deploy.success
     $actions = $this->actionService->getActionsForInputEvent($event);
     foreach ($actions as $action) {
