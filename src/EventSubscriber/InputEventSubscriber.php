@@ -60,12 +60,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
     // Action content for event source. eg; jenkins.deploy.success
     $actions = $this->actionService->getActionsForInputEvent($event);
     foreach ($actions as $action) {
-
-      // Build the payload for the output event.
-      $p = new EventPayload();
-      foreach ($action->getValues() as $k => $v) {
-        $p->setValue($k, $v);
-      }
+      $p = $action->getOutputPayload();
 
       // Build the new output event eg; UrlEvent
       $event_type = $action->getOutputEventType();

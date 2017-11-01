@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\signage\Action;
 
+use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
 
 class Action implements ActionInterface {
@@ -38,14 +39,18 @@ class Action implements ActionInterface {
   /**
    * @inheritDoc
    */
-  public function getValues() {
-    // TODO: Implement getFields() method.
+  public function getOutputPayload() {
+    // TODO: Implement getOutputPayload() method.
+    // Build the payload for the output event.
+    $p = new EventPayload();
     $vals = $this->inputEvent->getPayload()->getValues();
     $url = $vals['url'] . '?'
       . $vals['key_1'] . '=' . $vals['value_1'] . '&'
       . $vals['key_2'] . '=' . $vals['value_2']
     ;
-    return ['url' => $url];
+    $p->setValue('url', $url);
+
+    return $p;
   }
 
 }

@@ -17,8 +17,7 @@ interface ActionInterface {
   public function getOutputEventType();
 
   /**
-   * The values, with their key, of the action content.
-   * @return array of key value pairs
+   * @return \Drupal\signage\Event\EventPayload
    */
-  public function getValues();
+  public function getOutputPayload();
 }
