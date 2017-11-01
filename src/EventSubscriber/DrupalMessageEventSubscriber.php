@@ -49,11 +49,15 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
    * @param MessageEvent $event
    */
   public function handleMessage(MessageEvent $event) {
+    $m = $event->getMessage();
     drupal_set_message(
       sprintf(
-        'MessageEvent for channel: %s with url: %s ',
+        'MessageEvent for channel: %s with title: %s & message: %s, of type: %s for %s seconds',
         $event->getChannelName(),
-        $event->getMessage()
+        $m->getTitle(),
+        $m->getBody(),
+        $m->getNotificationType(),
+        $m->getTimeout()
       )
     );
   }

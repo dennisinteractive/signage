@@ -16,12 +16,17 @@ class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
 
   /**
    * The message.
-   * @return string
-   * @todo Message class as a message is more than just a string.
+   * @return \Drupal\signage\Event\Message
    */
   public function getMessage() {
     $vals = $this->getPayload()->getValues();
-    return reset($vals);
+    $m = new Message();
+    $m->setTitle($vals['title'])
+      ->setBody($vals['body'])
+      ->setNotificationType($vals['notification_type'])
+      ->setTimeout($vals['time_out'])
+    ;
+    return $m;
   }
 
 }

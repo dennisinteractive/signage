@@ -1,8 +1,15 @@
-signage.demo_event_dispatcher_form:
-  path: 'signage-demo-event-dispatch-form'
+signage.demo_url_input_event_form:
+  path: 'signage/demo/input/url'
   defaults:
-    _form: '\Drupal\signage\Form\DemoEventDispatchForm'
-    _title: 'Event Dispatcher Form'
+    _form: '\Drupal\signage\Form\DemoUrlInputEventForm'
+    _title: 'Demo Url Input Event Form'
   requirements:
     _permission: 'access administration pages'
 
+signage.demo_message_input_event:
+  path: 'signage/demo/input/message'
+  defaults:
+    _form: '\Drupal\signage\Form\DemoMessageInputEventForm'
+    _title: 'Demo Message Input Event Form'
+  requirements:
+    _permission: 'access administration pages'

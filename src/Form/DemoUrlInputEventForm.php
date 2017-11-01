@@ -7,21 +7,20 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\EventPayload;
-use Drupal\signage\Event\UrlEvent;
-use Drupal\signage\Event\MessageEvent;
+
 
 /**
- * Class DemoEventDispatchForm.
+ * Class DemoUrlInputEventForm.
  *
  * @package Drupal\signage\Form
  */
-class DemoEventDispatchForm extends FormBase {
+class DemoUrlInputEventForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'demo_event_dispatch_form';
+    return 'demo_url_input_event';
   }
 
   /**
@@ -81,7 +80,7 @@ class DemoEventDispatchForm extends FormBase {
     $payload->setValue('key_2', $form_state->getValue('key_2'));
     $payload->setValue('value_2', $form_state->getValue('value_2'));
 
-    $event = new InputEvent('demo.input');
+    $event = new InputEvent('demo.input.url');
     $event->setPayload($payload);
     $dispatcher->dispatch(InputEvent::NAME, $event);
   }
