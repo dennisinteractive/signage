@@ -4,10 +4,26 @@ namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Service\ActionServiceInterface;
+use Drupal\signage\Service\ChannelServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
 class InputEventSubscriber implements EventSubscriberInterface {
+
+  protected $actionService;
+  protected $channelService;
+
+  /**
+   * InputEventSubscriber constructor.
+   *
+   * @param \Drupal\signage\Service\ActionServiceInterface $action_service
+   * @param \Drupal\signage\Service\ChannelServiceInterface $channel_service
+   */
+  public function __construct(ActionServiceInterface $action_service, ChannelServiceInterface $channel_service) {
+    $this->actionService = $action_service;
+    $this->channelService = $channel_service;
+  }
 
   /**
    * @inheritDoc
@@ -23,8 +39,15 @@ class InputEventSubscriber implements EventSubscriberInterface {
    */
   public function handleInput(InputEvent $event) {
 
-    // Handle the demo form.
+    // TMP to show dependency injection works.
+    $this->channelService->getChannelNamesForActionId(1);
+    $this->actionService->getActionsForSource('foo');
+
+    //$eventService = \Drupal::service('signage.event.<url>.service');
+
     $dispatcher = \Drupal::service('event_dispatcher');
+
+    // Handle the demo form.
     if ($event->getSource() == 'demo.input') {
       // Build the url from the key value pairs.
       $vals = $event->getPayload()->getValues();
@@ -64,14 +87,14 @@ class InputEventSubscriber implements EventSubscriberInterface {
       $channel_names = $channelService->getChannelNamesForActionId($action->getId());
 
       $p = new Payload();
-      foreach ($action->fields() as $k => $v) {
+      foreach ($action->getFields() as $k => $v) {
         $p->setValue($k, $v);
       }
       $oe->setPayload($p);
 
       // eg; UrlEvent
-      $event_name = $action->getOutputEventName();
-      $oe = new $event_name();
+      $event_type = $action->getOutputEventType();
+      $oe = new $event_type();
       foreach ($channel_names as $channel_name) {
         $oe->setChannelName($channel_name);
         $dispatcher->dispatch($oe->getName(), $oe);
