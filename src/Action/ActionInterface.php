@@ -17,8 +17,8 @@ interface ActionInterface {
   public function getOutputEventType();
 
   /**
-   * The field names with their values of the action content.
+   * The values, with their key, of the action content.
    * @return array of key value pairs
    */
-  public function getFields();
+  public function getValues();
 }

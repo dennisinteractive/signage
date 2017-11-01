@@ -1,7 +1,23 @@
 <?php
 namespace Drupal\signage\Action;
 
+use Drupal\signage\Event\InputEvent;
+
 class Action implements ActionInterface {
+
+  /**
+   * @var \Drupal\signage\Event\InputEvent
+   */
+  protected $inputEvent;
+
+  /**
+   * Action constructor.
+   *
+   * @param \Drupal\signage\Event\InputEvent $event
+   */
+  public function __construct(InputEvent $event) {
+    $this->inputEvent = $event;
+  }
 
   /**
    * @inheritDoc
@@ -22,9 +38,14 @@ class Action implements ActionInterface {
   /**
    * @inheritDoc
    */
-  public function getFields() {
+  public function getValues() {
     // TODO: Implement getFields() method.
-    return ['url'];
+    $vals = $this->inputEvent->getPayload()->getValues();
+    $url = $vals['url'] . '?'
+      . $vals['key_1'] . '=' . $vals['value_1'] . '&'
+      . $vals['key_2'] . '=' . $vals['value_2']
+    ;
+    return ['url' => $url];
   }
 
 }

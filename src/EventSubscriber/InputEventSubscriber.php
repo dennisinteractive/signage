@@ -58,16 +58,13 @@ class InputEventSubscriber implements EventSubscriberInterface {
    */
   public function handleInput(InputEvent $event) {
     // Action content for event source. eg; jenkins.deploy.success
-    $actions = $this->actionService->getActionsForSource($event->getSource());
+    $actions = $this->actionService->getActionsForInputEvent($event);
     foreach ($actions as $action) {
-      $channel_names = $this->channelService->getChannelNamesForActionId($action->getId());
 
-      $vals = $event->getPayload()->getValues();
+      // Build the payload for the output event.
       $p = new EventPayload();
-      foreach ($action->getFields() as $k) {
-        if (isset($vals[$k])) {
-          $p->setValue($k, $vals[$k]);
-        }
+      foreach ($action->getValues() as $k => $v) {
+        $p->setValue($k, $v);
       }
 
       // Build the new output event eg; UrlEvent
@@ -76,37 +73,14 @@ class InputEventSubscriber implements EventSubscriberInterface {
       $oe = new $event_type();
       $oe->setPayload($p);
 
-      // Send the event to all the relevant chnnels.
+      // Send the event to all the relevant channels.
+      $channel_names = $this->channelService->getChannelNamesForActionId($action->getId());
       foreach ($channel_names as $channel_name) {
         $oe->setChannelName($channel_name);
         $this->dispatcher->dispatch($oe::name(), $oe);
       }
 
     }
-
-
-//    // Handle the demo form.
-//    if ($event->getSource() == 'demo.input') {
-//      // Build the url from the key value pairs.
-//      $vals = $event->getPayload()->getValues();
-//      $url = $vals['url'] . '?'
-//        . $vals['key_1'] . '=' . $vals['value_1'] . '&'
-//        . $vals['key_2'] . '=' . $vals['value_2']
-//      ;
-//
-//      // @todo work out which event & which channel to use from the Actions content...
-//      $output_event = 'Drupal\signage\Event\UrlEvent';
-//      $channel = 'Floor4';
-//      $values = ['url' => $url];
-//
-//
-//      $url_payload = new EventPayload();
-//      $url_payload->setValues($values);
-//      $url_event = new $output_event();
-//      $url_event->setChannelName($channel);
-//      $url_event->setPayload($url_payload);
-//      $dispatcher->dispatch($output_event::name(), $url_event);
-//    }
 
   }
 
