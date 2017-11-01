@@ -64,7 +64,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
 
       $vals = $event->getPayload()->getValues();
       $p = new EventPayload();
-      foreach ($action->getFields() as $k => $v) {
+      foreach ($action->getFields() as $k) {
         if (isset($vals[$k])) {
           $p->setValue($k, $vals[$k]);
         }

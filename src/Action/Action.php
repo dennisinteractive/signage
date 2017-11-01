@@ -24,7 +24,7 @@ class Action implements ActionInterface {
    */
   public function getFields() {
     // TODO: Implement getFields() method.
-    return ['url' => NULL];
+    return ['url'];
   }
 
 }
