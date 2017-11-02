@@ -12,20 +12,20 @@ class Action implements ActionInterface {
   protected $inputEvent;
 
   /**
-   * Action constructor.
-   *
-   * @param \Drupal\signage\Event\InputEvent $event
-   */
-  public function __construct(InputEvent $event) {
-    $this->inputEvent = $event;
-  }
-
-  /**
    * @inheritDoc
    */
   public function getId() {
     // TODO: Implement getId() method.
     return 1;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setInputEvent(InputEvent $event) {
+    $this->inputEvent = $event;
+
+    return $this;
   }
 
   /**
@@ -79,7 +79,5 @@ class Action implements ActionInterface {
 
     return $p;
   }
-
-
 
 }

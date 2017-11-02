@@ -9,7 +9,7 @@ class ChannelService implements ChannelServiceInterface {
   public function getChannelNamesForActionId($id) {
     // TODO: Implement getChannelNamesForActionId() method.
     //drupal_set_message(__FUNCTION__);
-    return ['Floor4', 'ChannelFoo'];
+    return ['Floor4', 'devicexxx'];
   }
 
 

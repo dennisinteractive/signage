@@ -50,7 +50,7 @@ class DemoMessageInputEventForm extends FormBase {
     $form['time_out'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('time_out'),
-      '#description' => $this->t('Seconds to show the message'),
+      '#description' => $this->t('Milliseconds to show the message'),
       '#size' => 32,
     );
 

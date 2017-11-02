@@ -1,13 +1,20 @@
 services:
   signage.action:
+    class: Drupal\signage\Action\Action
+
+  signage.action.service:
     class: Drupal\signage\Service\ActionService
-  signage.channel:
+    arguments: ['@signage.action']
+
+  signage.channel.service:
       class: Drupal\signage\Service\ChannelService
+
   signage.input_event_subscriber:
     class: Drupal\signage\EventSubscriber\InputEventSubScriber
-    arguments: ['@event_dispatcher', '@signage.action', '@signage.channel']
+    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
     tags:
       - { name: 'event_subscriber' }
+
   signage.message_event_subscriber:
       class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
       tags:
