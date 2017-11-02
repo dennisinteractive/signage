@@ -3,6 +3,7 @@
 namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\UrlEvent;
+use Drupal\signage\Event\UrlEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -18,9 +19,9 @@ class UrlEventSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * @param \Drupal\signage\Event\UrlEvent $event
+   * @param \Drupal\signage\Event\UrlEventInterface $event
    */
-  public function handleUrlEvent(UrlEvent $event) {
+  public function handleUrlEvent(UrlEventInterface $event) {
     // Update the current state.
     drupal_set_message(
       "UrlState: " . json_encode($event)

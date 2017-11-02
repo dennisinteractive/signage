@@ -2,9 +2,7 @@
 namespace Drupal\signage\Event;
 
 
-class UrlEvent extends OutputEventAbstract implements OutputEventInterface {
-
-  const NAME = 'signage.url';
+class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlEventInterface {
 
   /**
    * @inheritDoc
@@ -14,8 +12,7 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface {
   }
 
   /**
-   * The url.
-   * @return string
+   * @inheritDoc
    */
   public function getUrl() {
     $vals = $this->getPayload()->getValues();

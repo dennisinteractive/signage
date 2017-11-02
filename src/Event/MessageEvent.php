@@ -3,9 +3,7 @@ namespace Drupal\signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
-class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
-
-  const NAME = 'signage.message';
+class MessageEvent extends OutputEventAbstract implements OutputEventInterface, MessageEventInterface {
 
   /**
    * @var \Drupal\signage\Event\MessageInterface

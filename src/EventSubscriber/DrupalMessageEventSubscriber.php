@@ -2,10 +2,10 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-use Drupal\signage\Event\InputEvent;
+
 use Drupal\signage\Event\InputEventInterface;
-use Drupal\signage\Event\MessageEvent;
-use Drupal\signage\Event\UrlEvent;
+use Drupal\signage\Event\MessageEventInterface;
+use Drupal\signage\Event\UrlEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
@@ -33,9 +33,9 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
 
   /**
    * Callback for the url event.
-   * @param UrlEvent $event
+   * @param UrlEventInterface $event
    */
-  public function handleUrl(UrlEvent $event) {
+  public function handleUrl(UrlEventInterface $event) {
     drupal_set_message(
       sprintf(
         'UrlEvent for channel: %s with url: %s ',
@@ -47,9 +47,9 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
 
   /**s
    * Callback for the message event.
-   * @param MessageEvent $event
+   * @param MessageEventInterface $event
    */
-  public function handleMessage(MessageEvent $event) {
+  public function handleMessage(MessageEventInterface $event) {
     $m = $event->getMessage();
     drupal_set_message(
       sprintf(
