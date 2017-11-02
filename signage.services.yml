@@ -25,8 +25,13 @@ services:
     tags:
       - { name: 'event_subscriber' }
 
-  signage.event.output.subscriber:
+  signage.event.subscriber.debug:
     class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+
+  signage.event.subscriber.urlevent:
+    class: Drupal\signage\EventSubscriber\UrlEventSubscriber
     tags:
       - { name: 'event_subscriber' }
 
