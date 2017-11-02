@@ -2,16 +2,15 @@
 namespace Drupal\signage\Event;
 
 
-class EventPayload {
-
-  protected $payload;
-
+class EventPayload implements EventPayloadInterface {
 
   /**
-   * @param $key
-   * @param $value
-   *
-   * @return $this
+   * @var array
+   */
+  protected $payload;
+
+  /**
+   * @inheritDoc
    */
   public function setValue($key, $value) {
     $this->payload[$key] = $value;
@@ -19,6 +18,9 @@ class EventPayload {
     return $this;
   }
 
+  /**
+   * @inheritDoc
+   */
   public function setValues($array) {
     $this->payload = $array;
 
@@ -26,7 +28,7 @@ class EventPayload {
   }
 
   /**
-   * @return mixed
+   * @inheritDoc
    */
   public function getValues() {
     return $this->payload;
