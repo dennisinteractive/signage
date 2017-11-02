@@ -8,16 +8,16 @@ class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
   const NAME = 'signage.message';
 
   /**
-   * @var \Drupal\signage\Event\Message
+   * @var \Drupal\signage\Event\MessageInterface
    */
   protected $message;
 
   /**
    * MessageEvent constructor.
    *
-   * @param \Drupal\signage\Event\Message $message
+   * @param \Drupal\signage\Event\MessageInterface $message
    */
-  public function __construct(Message $message) {
+  public function __construct(MessageInterface $message) {
     $this->message = $message;
   }
 
