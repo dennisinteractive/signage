@@ -1,6 +1,23 @@
 services:
+  signage.output_event.url:
+    class: Drupal\signage\Event\UrlEvent
+
+  signage.output_event.message:
+      class: Drupal\signage\Event\MessageEvent
+
+  signage.output_event_factory:
+    class: Drupal\signage\Event\OutputEventFactory
+    calls:
+      - method: addEvent
+        arguments:
+          - '@signage.output_event.url'
+      - method: addEvent
+        arguments:
+          - '@signage.output_event.message'
+
   signage.action:
     class: Drupal\signage\Action\Action
+    arguments: ['@signage.output_event_factory']
 
   signage.action.service:
     class: Drupal\signage\Service\ActionService

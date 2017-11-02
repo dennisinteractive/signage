@@ -3,6 +3,7 @@ namespace Drupal\signage\Action;
 
 use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Event\OutputEventFactoryInterface;
 
 class Action implements ActionInterface {
 
@@ -10,6 +11,12 @@ class Action implements ActionInterface {
    * @var \Drupal\signage\Event\InputEvent
    */
   protected $inputEvent;
+
+  protected $outputEventFactory;
+
+  public function __construct(OutputEventFactoryInterface $output_event_factory) {
+    $this->outputEventFactory = $output_event_factory;
+  }
 
   /**
    * @inheritDoc
@@ -35,8 +42,7 @@ class Action implements ActionInterface {
     $p = $this->getOutputPayload();
     // Build the new output event eg; UrlEvent
     $event_type = $this->getOutputEventType();
-    //$eventService = \Drupal::service('signage.event.<url>.service');
-    $oe = new $event_type();
+    $oe = $this->outputEventFactory->getEvent($event_type);
     $oe->setPayload($p);
 
     return $oe;
@@ -50,10 +56,12 @@ class Action implements ActionInterface {
 
     // Temp code...
     if ($this->inputEvent->getSource() == 'demo.input.url') {
-      return 'Drupal\signage\Event\UrlEvent';
+      return 'signage.url';
+      //return 'Drupal\signage\Event\UrlEvent';
     }
     else if($this->inputEvent->getSource() == 'demo.input.message') {
-      return 'Drupal\signage\Event\MessageEvent';
+      return 'signage.message';
+      //return 'Drupal\signage\Event\MessageEvent';
     }
   }
 
