@@ -48,7 +48,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
    * @inheritDoc
    */
   public static function getSubscribedEvents() {
-    $events[InputEvent::NAME][] = ['handleInputEvent', 1];
+    $events['signage.input'][] = ['handleInputEvent', 1];
     return $events;
   }
 

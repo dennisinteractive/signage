@@ -30,7 +30,7 @@ class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
 
   /**
    * The message.
-   * @return \Drupal\signage\Event\Message
+   * @return \Drupal\signage\Event\MessageInterface
    */
   public function getMessage() {
     $vals = $this->getPayload()->getValues();

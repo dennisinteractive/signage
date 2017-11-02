@@ -3,6 +3,7 @@
 namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Event\InputEventInterface;
 use Drupal\signage\Event\MessageEvent;
 use Drupal\signage\Event\UrlEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -14,17 +15,17 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
    * @inheritDoc
    */
   public static function getSubscribedEvents() {
-    $events[InputEvent::NAME][] = ['handleInput', 9];
-    $events[UrlEvent::NAME][] = ['handleUrl', 10];
-    $events[MessageEvent::NAME][] = ['handleMessage', 11];
+    $events['signage.input'][] = ['handleInput', 9];
+    $events['signage.url'][] = ['handleUrl', 10];
+    $events['signage.message'][] = ['handleMessage', 11];
     return $events;
   }
 
   /**
    * Callback for the input event.
-   * @param InputEvent $event
+   * @param InputEventInterface $event
    */
-  public function handleInput(InputEvent $event) {
+  public function handleInput(InputEventInterface $event) {
     drupal_set_message(
       "Input event: " . json_encode($event->getPayload()->getValues())
     );
