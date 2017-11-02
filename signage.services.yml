@@ -1,4 +1,7 @@
 services:
+  signage.event.payload:
+    class: Drupal\signage\Event\EventPayload
+
   signage.output_event.url:
     class: Drupal\signage\Event\UrlEvent
 
@@ -17,7 +20,7 @@ services:
 
   signage.action:
     class: Drupal\signage\Action\Action
-    arguments: ['@signage.output_event_factory']
+    arguments: ['@signage.output_event_factory', '@signage.event.payload']
 
   signage.action.service:
     class: Drupal\signage\Service\ActionService

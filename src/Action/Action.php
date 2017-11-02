@@ -12,10 +12,19 @@ class Action implements ActionInterface {
    */
   protected $inputEvent;
 
+  /**
+   * @var \Drupal\signage\Event\OutputEventFactoryInterface
+   */
   protected $outputEventFactory;
 
-  public function __construct(OutputEventFactoryInterface $output_event_factory) {
-    $this->outputEventFactory = $output_event_factory;
+  /**
+   * @var \Drupal\signage\Event\EventPayload
+   */
+  protected $payload;
+
+  public function __construct(OutputEventFactoryInterface $factory, EventPayload $payload) {
+    $this->outputEventFactory = $factory;
+    $this->payload = $payload;
   }
 
   /**
@@ -70,8 +79,8 @@ class Action implements ActionInterface {
    */
   public function getOutputPayload() {
     // TODO: Implement getOutputPayload() method.
-    // Build the payload for the output event.
-    $p = new EventPayload();
+    // Populate the payload for the output event.
+
     $vals = $this->inputEvent->getPayload()->getValues();
 
     // Temp code...
@@ -79,13 +88,13 @@ class Action implements ActionInterface {
       $url = $vals['url'] . '?'
         . $vals['key_1'] . '=' . $vals['value_1'] . '&'
         . $vals['key_2'] . '=' . $vals['value_2'];
-      $p->setValue('url', $url);
+      $this->payload->setValue('url', $url);
     }
     else if($this->inputEvent->getSource() == 'demo.input.message') {
-      $p->setValues($vals);
+      $this->payload->setValues($vals);
     }
 
-    return $p;
+    return $this->payload;
   }
 
 }
