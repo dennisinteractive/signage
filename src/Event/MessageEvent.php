@@ -8,6 +8,20 @@ class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
   const NAME = 'signage.message';
 
   /**
+   * @var \Drupal\signage\Event\Message
+   */
+  protected $message;
+
+  /**
+   * MessageEvent constructor.
+   *
+   * @param \Drupal\signage\Event\Message $message
+   */
+  public function __construct(Message $message) {
+    $this->message = $message;
+  }
+
+  /**
    * @inheritDoc
    */
   static public function name() {
@@ -20,13 +34,12 @@ class MessageEvent extends OutputEventAbstract implements OutputEventInterface {
    */
   public function getMessage() {
     $vals = $this->getPayload()->getValues();
-    $m = new Message();
-    $m->setTitle($vals['title'])
+    $this->message->setTitle($vals['title'])
       ->setBody($vals['body'])
       ->setNotificationType($vals['notification_type'])
       ->setTimeout($vals['time_out'])
     ;
-    return $m;
+    return $this->message;
   }
 
 }

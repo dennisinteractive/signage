@@ -6,7 +6,8 @@ services:
     class: Drupal\signage\Event\UrlEvent
 
   signage.event.output.message:
-      class: Drupal\signage\Event\MessageEvent
+    class: Drupal\signage\Event\MessageEvent
+    arguments: ['@signage.message']
 
   signage.event.output.factory:
     class: Drupal\signage\Event\OutputEventFactory
@@ -25,9 +26,12 @@ services:
       - { name: 'event_subscriber' }
 
   signage.event.output.subscriber:
-      class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
-      tags:
-        - { name: 'event_subscriber' }
+    class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+
+  signage.message:
+    class: Drupal\signage\Event\Message
 
   signage.action:
     class: Drupal\signage\Action\Action
