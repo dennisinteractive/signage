@@ -2,25 +2,36 @@ services:
   signage.event.payload:
     class: Drupal\signage\Event\EventPayload
 
-  signage.output_event.url:
+  signage.event.output.url:
     class: Drupal\signage\Event\UrlEvent
 
-  signage.output_event.message:
+  signage.event.output.message:
       class: Drupal\signage\Event\MessageEvent
 
-  signage.output_event_factory:
+  signage.event.output.factory:
     class: Drupal\signage\Event\OutputEventFactory
     calls:
       - method: addEvent
         arguments:
-          - '@signage.output_event.url'
+          - '@signage.event.output.url'
       - method: addEvent
         arguments:
-          - '@signage.output_event.message'
+          - '@signage.event.output.message'
+
+  signage.event.input.subscriber:
+    class: Drupal\signage\EventSubscriber\InputEventSubScriber
+    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
+    tags:
+      - { name: 'event_subscriber' }
+
+  signage.event.output.subscriber:
+      class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
+      tags:
+        - { name: 'event_subscriber' }
 
   signage.action:
     class: Drupal\signage\Action\Action
-    arguments: ['@signage.output_event_factory', '@signage.event.payload']
+    arguments: ['@signage.event.output.factory', '@signage.event.payload']
 
   signage.action.service:
     class: Drupal\signage\Service\ActionService
@@ -28,14 +39,3 @@ services:
 
   signage.channel.service:
       class: Drupal\signage\Service\ChannelService
-
-  signage.input_event_subscriber:
-    class: Drupal\signage\EventSubscriber\InputEventSubScriber
-    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
-    tags:
-      - { name: 'event_subscriber' }
-
-  signage.message_event_subscriber:
-      class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
-      tags:
-        - { name: 'event_subscriber' }
