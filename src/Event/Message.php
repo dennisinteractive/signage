@@ -60,7 +60,7 @@ class Message implements MessageInterface {
    * @inheritDoc
    */
   public function setTimeout($int) {
-    $this->timeout = $int;
+    $this->timeout = (int) $int;
 
     return $this;
   }

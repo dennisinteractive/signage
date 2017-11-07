@@ -7,7 +7,7 @@ class EventPayload implements EventPayloadInterface {
   /**
    * @var array
    */
-  protected $payload;
+  protected $payload = [];
 
   /**
    * @inheritDoc

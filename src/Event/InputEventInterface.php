@@ -25,9 +25,9 @@ interface InputEventInterface {
   public function getPayload();
 
   /**
-   * @param \Drupal\signage\Event\EventPayload $payload
+   * @param \Drupal\signage\Event\EventPayloadInterface $payload
    *
    * @return self
    */
-  public function setPayload(EventPayload $payload);
+  public function setPayload(EventPayloadInterface $payload);
 }

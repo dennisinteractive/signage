@@ -7,14 +7,28 @@ class InputEvent extends Event implements InputEventInterface {
 
   const NAME = 'signage.input';
 
+  /**
+   * @var EventPayload
+   */
   protected $payload;
 
+  /**
+   * @var string
+   */
   protected $source;
 
+  /**
+   * InputEvent constructor.
+   *
+   * @param $source
+   */
   public function __construct($source) {
     $this->setSource($source);
   }
 
+  /**
+   * @inheritDoc
+   */
   public function setSource($name) {
     $this->source = $name;
 
@@ -38,7 +52,7 @@ class InputEvent extends Event implements InputEventInterface {
   /**
    * @inheritDoc
    */
-  public function setPayload(EventPayload $payload) {
+  public function setPayload(EventPayloadInterface $payload) {
     $this->payload = $payload;
 
     return $this;

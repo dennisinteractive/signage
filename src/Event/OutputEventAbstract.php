@@ -36,7 +36,7 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
   /**
    * @inheritDoc
    */
-  public function setPayload(EventPayload $payload) {
+  public function setPayload(EventPayloadInterface $payload) {
     $this->payload = $payload;
 
     return $this;
