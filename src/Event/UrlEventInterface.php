@@ -2,7 +2,7 @@
 namespace Drupal\signage\Event;
 
 
-interface UrlEventInterface  {
+interface UrlEventInterface extends OutputEventInterface {
 
   const NAME = 'signage.url';
 
