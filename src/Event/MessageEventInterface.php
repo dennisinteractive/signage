@@ -3,7 +3,7 @@ namespace Drupal\signage\Event;
 
 
 
-interface MessageEventInterface {
+interface MessageEventInterface extends OutputEventInterface {
 
   const NAME = 'signage.message';
 
