@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function signage_install() {
+  // Create the event terms.
+  $term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'output_events',
+    'name' => 'url',
+  ]);
+  $term->save();
+
+  $term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'output_events',
+    'name' => 'message',
+  ]);
+  $term->save();
+
+  $term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'input_events',
+    'name' => 'jenkins.site.deploy.success',
+  ]);
+  $term->save();
+
+  $term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'input_events',
+    'name' => 'jenkins.site.deploy.fail',
+  ]);
+  $term->save();
+}
