@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_output_event_content
+    - taxonomy.vocabulary.output_events
+id: taxonomy_term.output_events.field_output_event_content
+field_name: field_output_event_content
+entity_type: taxonomy_term
+bundle: output_events
+label: 'Output event content'
+description: "The content the output event needs, such as <em>url</em> or <em>message</em>.  \r\nThis field supports tokens."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -4,16 +4,18 @@
  * Implements hook_install().
  */
 function signage_install() {
-  // Create the event terms.
+  // Create some example event terms.
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'output_events',
-    'name' => 'url',
+    'name' => 'Debug url deploy success',
+    'field_output_event_content' => ['http://digitalsignage.vm8.didev.co.uk/pages/debug/url?site=[site]'],
   ]);
   $term->save();
 
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'output_events',
-    'name' => 'message',
+    'name' => 'Debug message deploy fail',
+    'field_output_event_content' => ['Deployment for [site] failed :('],
   ]);
   $term->save();
 

@@ -6,6 +6,8 @@ dependencies:
     - node.type.device
   module:
     - path
+_core:
+  default_config_hash: PE2oyBSYM3zMc135753UWcHW82ujwR4rx86-hRUf3Is
 id: node.device.default
 targetEntityType: node
 bundle: device

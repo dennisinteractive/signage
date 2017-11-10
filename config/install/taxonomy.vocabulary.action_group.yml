@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: O9xzlz5D5niUvg6tAT5e9cMxOyMEmHh6tNJGGx6_MbU
+  default_config_hash: yPXcyv5wN6qNcnA_kThR22jAwJ8RfGpGyAK6_Zzo4nA
 name: 'Action Group'
 vid: action_group
 description: ''

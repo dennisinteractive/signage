@@ -9,6 +9,8 @@ dependencies:
     - node.type.channel
   module:
     - path
+_core:
+  default_config_hash: Bxx9Ax6nAt8q8m-Mxl1E3iGNx7-BMZBjtdsDkjjAZXQ
 id: node.channel.default
 targetEntityType: node
 bundle: channel

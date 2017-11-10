@@ -6,7 +6,7 @@ dependencies:
     - node.type.action
     - taxonomy.vocabulary.action_group
 _core:
-  default_config_hash: mUNpEE5oT0LyK-6FMayvDw5JirAolGqpcYaBMlXzEDc
+  default_config_hash: 6Ywd5HHabVQJuE11L_GN_S5sPJ-VNQ7UI5OkNxRG9XI
 id: node.action.field_action_group
 field_name: field_action_group
 entity_type: node

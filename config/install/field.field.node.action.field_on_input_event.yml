@@ -6,7 +6,7 @@ dependencies:
     - node.type.action
     - taxonomy.vocabulary.input_events
 _core:
-  default_config_hash: K_EYBEIdLhRG2rIed4Jea8lqh4dYyKf8lquQOzILfkQ
+  default_config_hash: 0EQfDkmyE_FrzpoBvUaHyy7om0-3dyytbzbZNrPy3ew
 id: node.action.field_on_input_event
 field_name: field_on_input_event
 entity_type: node

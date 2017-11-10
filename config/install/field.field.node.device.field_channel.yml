@@ -6,7 +6,7 @@ dependencies:
     - node.type.channel
     - node.type.device
 _core:
-  default_config_hash: 4Dk4erz6mxTrMlZx048zgDi8yp3AWQhXn7irtW4Q-yI
+  default_config_hash: omRntlEJYQYaS1LTx-Bpj7rhexlLH7DdThD9-5ugZFk
 id: node.device.field_channel
 field_name: field_channel
 entity_type: node

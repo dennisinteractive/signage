@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: fozpKzg6zn4aM6b2prLai93Nc8Ox040S1HtA3g116io
+  default_config_hash: X9RbUywGPJFOr1PBaZlJ9SboPV6B8Lp7oLU48eeQlXc
 name: Channel
 type: channel
 description: 'Channels “broadcast” events which are configured as “Actions”.'

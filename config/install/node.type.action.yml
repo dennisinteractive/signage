@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: hbV5BzVtf4t9fvi0JLtG15xKBHSVwZD9esRD_8C2Kfs
+  default_config_hash: BDNunCqoFMrU6gNEnm7XHy5HK7i2JtrmQKN_huGXG2E
 name: Action
 type: action
 description: 'Configures what output event should be dispatched as a result of an input event.'

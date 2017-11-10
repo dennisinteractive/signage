@@ -6,7 +6,7 @@ dependencies:
     - node.type.action
     - node.type.channel
 _core:
-  default_config_hash: ps6vIgLuTdiU5ploAyL1XLhjql40E4JR4jokCMFw65U
+  default_config_hash: 3Xt4CKylD74TUIBbwbcjUKpr44f1f-r1bRMjy8ABpKs
 id: node.channel.field_current_actions
 field_name: field_current_actions
 entity_type: node

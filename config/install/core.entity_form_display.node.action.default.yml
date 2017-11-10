@@ -11,6 +11,8 @@ dependencies:
     - node.type.action
   module:
     - path
+_core:
+  default_config_hash: p2Hzl6BA3ci_6-P4KCN98ZECPzLY7vz2XV4zEGq61eA
 id: node.action.default
 targetEntityType: node
 bundle: action
@@ -23,10 +25,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_action_group:
-    type: options_select
+    type: entity_reference_autocomplete_tags
     weight: 1
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_do_output_event:
     type: options_select

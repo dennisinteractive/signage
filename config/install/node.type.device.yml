@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: VddPbdm_CDQcbMTGVgJ1-V9T99E8LRvyjjNdL3bKxbc
+  default_config_hash: o44rMeYzlS10awiuz6noXPsWwTGSepEmplH0IdPwGXo
 name: Device
 type: device
 description: 'A device subscribes to a channel showing / handling the output event.'
