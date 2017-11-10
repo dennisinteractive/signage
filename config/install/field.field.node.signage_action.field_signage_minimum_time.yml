@@ -11,7 +11,7 @@ field_name: field_signage_minimum_time
 entity_type: node
 bundle: signage_action
 label: 'Minimum Time'
-description: ''
+description: 'Minimum number of minutes the action should be active for.'
 required: false
 translatable: false
 default_value: {  }
