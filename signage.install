@@ -6,33 +6,33 @@
 function signage_install() {
   // Create some example event terms.
   $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'output_events',
+    'vid' => 'signage_output_events',
     'name' => 'Debug url deploy success',
     'field_output_event_content' => ['http://digitalsignage.vm8.didev.co.uk/pages/debug/url?site=[site]'],
   ]);
   $term->save();
 
   $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'output_events',
+    'vid' => 'signage_output_events',
     'name' => 'Debug message deploy fail',
     'field_output_event_content' => ['Deployment for [site] failed :('],
   ]);
   $term->save();
 
   $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'input_events',
+    'vid' => 'signage_input_events',
     'name' => 'demo.input.url',
   ]);
   $term->save();
 
   $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'input_events',
+    'vid' => 'signage_input_events',
     'name' => 'jenkins.site.deploy.success',
   ]);
   $term->save();
 
   $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'input_events',
+    'vid' => 'signage_input_events',
     'name' => 'jenkins.site.deploy.fail',
   ]);
   $term->save();
