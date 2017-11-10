@@ -21,6 +21,12 @@ function signage_install() {
 
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'input_events',
+    'name' => 'demo.input.url',
+  ]);
+  $term->save();
+
+  $term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'input_events',
     'name' => 'jenkins.site.deploy.success',
   ]);
   $term->save();
