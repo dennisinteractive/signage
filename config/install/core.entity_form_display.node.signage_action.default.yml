@@ -11,7 +11,6 @@ dependencies:
     - node.type.signage_action
 _core:
   default_config_hash: aua2l5TV30f0mThTXdJtaUjUcXG8xXpuTA2KKX1szqg
-id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action
 mode: default
@@ -23,7 +22,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_signage_action_group:
-    weight: 1
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -32,33 +31,33 @@ content:
     type: entity_reference_autocomplete_tags
     region: content
   field_signage_do_output_event:
-    weight: 3
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_signage_maximum_time:
-    weight: 5
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_signage_minimum_time:
     weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
+  field_signage_minimum_time:
+    weight: 3
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_signage_on_input_event:
-    weight: 2
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_signage_priority:
-    weight: 6
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
