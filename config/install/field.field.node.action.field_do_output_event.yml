@@ -6,7 +6,7 @@ dependencies:
     - node.type.action
     - taxonomy.vocabulary.output_events
 _core:
-  default_config_hash: Q9UHCQAUZWwYBvoCK4u5sTISMb3_q3pOXi6cWkcj8jI
+  default_config_hash: 2Rg2SahP5CKktA1un11w-9ZfYCy9F59RTR9TbdfhDYY
 id: node.action.field_do_output_event
 field_name: field_do_output_event
 entity_type: node

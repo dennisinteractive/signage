@@ -6,7 +6,7 @@ dependencies:
     - node.type.action
     - taxonomy.vocabulary.action_group
 _core:
-  default_config_hash: 6Ywd5HHabVQJuE11L_GN_S5sPJ-VNQ7UI5OkNxRG9XI
+  default_config_hash: SZqVnqOGJ4Tl1uabYr19KSYXEtF9IvR8vvoUgin_vc8
 id: node.action.field_action_group
 field_name: field_action_group
 entity_type: node
@@ -24,6 +24,6 @@ settings:
       action_group: action_group
     sort:
       field: _none
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference

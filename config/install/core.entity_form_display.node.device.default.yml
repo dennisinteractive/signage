@@ -7,7 +7,7 @@ dependencies:
   module:
     - path
 _core:
-  default_config_hash: PE2oyBSYM3zMc135753UWcHW82ujwR4rx86-hRUf3Is
+  default_config_hash: XVKnm9vI2ND9e3gPS85AVHlhC2zIfHQiVIDGtPvDp-U
 id: node.device.default
 targetEntityType: node
 bundle: device

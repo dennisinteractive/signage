@@ -5,7 +5,7 @@ dependencies:
     - node
     - taxonomy
 _core:
-  default_config_hash: aIRYLdfaM01o4Kx4lBx4FQ-QOPafu2We5zxeX2shzTI
+  default_config_hash: '-twCnert2n_HQwOPZhDppYjY13_UbqJ80el-p-GNWzA'
 id: node.field_action_groups
 field_name: field_action_groups
 entity_type: node

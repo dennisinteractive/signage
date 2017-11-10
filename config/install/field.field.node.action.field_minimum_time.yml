@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_minimum_time
     - node.type.action
 _core:
-  default_config_hash: VcwM_--bnd_NmCdzZFk6uLt1N1wPsYrxDBfjIRU99rQ
+  default_config_hash: sXqXNimK1GMPtn1kUKIYsIwl5MMCqBi3VXbY4z4waAo
 id: node.action.field_minimum_time
 field_name: field_minimum_time
 entity_type: node

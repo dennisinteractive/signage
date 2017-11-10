@@ -3,6 +3,8 @@ status: true
 dependencies:
   module:
     - taxonomy
+_core:
+  default_config_hash: Q-ZufDyBHK9kvAXasWDcY1NSsmmnqUDVg8oRqixqIlA
 id: taxonomy_term.field_output_event_content
 field_name: field_output_event_content
 entity_type: taxonomy_term
@@ -16,4 +18,3 @@ translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
-

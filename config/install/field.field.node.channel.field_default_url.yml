@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_default_url
     - node.type.channel
 _core:
-  default_config_hash: mC8ATtkK70ljREtnd6BT8ze99HHVCES9AcGmi-5GQ3o
+  default_config_hash: G5L_UhvYZQRqAjsSJJrcycTFzPInP2wPBLS4QBWdhpM
 id: node.channel.field_default_url
 field_name: field_default_url
 entity_type: node

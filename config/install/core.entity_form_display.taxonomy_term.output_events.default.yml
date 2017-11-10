@@ -4,6 +4,8 @@ dependencies:
   config:
     - field.field.taxonomy_term.output_events.field_output_event_content
     - taxonomy.vocabulary.output_events
+_core:
+  default_config_hash: NY0nYX5pXg6AgvAr7p2bRoZaSRPmpXh_Syx9CWzpSHM
 id: taxonomy_term.output_events.default
 targetEntityType: taxonomy_term
 bundle: output_events
@@ -28,5 +30,3 @@ content:
 hidden:
   description: true
   path: true
-
-

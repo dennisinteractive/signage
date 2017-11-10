@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_priority
     - node.type.action
 _core:
-  default_config_hash: RJiGvA6wDZr29nt8DzafWDWtKDXK_JqYmWDtIVw8rN4
+  default_config_hash: vDKO3dgcUJa3fx6TFE_7X8x2yuaszU9X7N5ghSR2EtU
 id: node.action.field_priority
 field_name: field_priority
 entity_type: node

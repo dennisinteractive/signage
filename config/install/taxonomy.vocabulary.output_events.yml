@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: '-FqNM2y7T5J5qPe7mMCwNiQgDmGicajdBMUQdRrgYiM'
+  default_config_hash: z1fQS4BfDurEkPflVb-U1j3Bc43G6Mk7RLfVdD80niI
 name: 'Output Events'
 vid: output_events
 description: ''

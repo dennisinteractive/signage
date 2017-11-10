@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: WvslkVgVZNagpxz6B9G3bojEJBnk9w1P8-afpfXrXaw
+  default_config_hash: 4RCY00mYEDa6ZQFfdqG1liBkNircJ2lHITxRbGHQkZs
 id: node.field_maximum_time
 field_name: field_maximum_time
 entity_type: node

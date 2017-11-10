@@ -9,10 +9,8 @@ dependencies:
     - field.field.node.action.field_on_input_event
     - field.field.node.action.field_priority
     - node.type.action
-  module:
-    - path
 _core:
-  default_config_hash: p2Hzl6BA3ci_6-P4KCN98ZECPzLY7vz2XV4zEGq61eA
+  default_config_hash: 9tZjzYQtE3iwfIR6uo1RcoCDxpfJYRVPA354sItWlEw
 id: node.action.default
 targetEntityType: node
 bundle: action
@@ -26,7 +24,7 @@ content:
     third_party_settings: {  }
   field_action_group:
     type: entity_reference_autocomplete_tags
-    weight: 1
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -35,40 +33,34 @@ content:
     third_party_settings: {  }
   field_do_output_event:
     type: options_select
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_maximum_time:
     type: datetime_timestamp
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_minimum_time:
     type: datetime_timestamp
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_on_input_event:
     type: options_select
-    weight: 2
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
   field_priority:
     type: number
-    weight: 4
+    weight: 3
     region: content
     settings:
       placeholder: ''
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 9
-    region: content
-    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -88,5 +80,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  path: true
   promote: true
   sticky: true
