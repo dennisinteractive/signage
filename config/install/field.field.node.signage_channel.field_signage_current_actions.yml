@@ -1,0 +1,29 @@
+uuid: e17cc353-8f49-460a-ada8-170a5c384f30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signage_current_actions
+    - node.type.signage_action
+    - node.type.signage_channel
+id: node.signage_channel.field_signage_current_actions
+field_name: field_signage_current_actions
+entity_type: node
+bundle: signage_channel
+label: 'Signage Current Actions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      signage_action: signage_action
+    sort:
+      field: field_signage_priority
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

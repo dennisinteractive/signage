@@ -1,0 +1,18 @@
+uuid: d8f87523-ff1e-4e03-b909-019f6e89bd30
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.signage_action
+id: node.signage_action.title
+field_name: title
+entity_type: node
+bundle: signage_action
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

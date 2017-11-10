@@ -1,0 +1,19 @@
+uuid: e8bd50aa-c285-48d7-8046-2826697f96b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_signage_actions
+field_name: field_signage_actions
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

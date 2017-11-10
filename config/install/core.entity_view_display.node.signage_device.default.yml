@@ -1,0 +1,26 @@
+uuid: 55c7d6c4-7b31-4ec1-8125-19859872dcd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.signage_device.field_signage_channel
+    - node.type.signage_device
+  module:
+    - user
+id: node.signage_device.default
+targetEntityType: node
+bundle: signage_device
+mode: default
+content:
+  field_signage_channel:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

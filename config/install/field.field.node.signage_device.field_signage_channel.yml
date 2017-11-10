@@ -1,0 +1,28 @@
+uuid: 254edca4-47e0-4714-958b-034fca9ccec9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signage_channel
+    - node.type.signage_channel
+    - node.type.signage_device
+id: node.signage_device.field_signage_channel
+field_name: field_signage_channel
+entity_type: node
+bundle: signage_device
+label: 'Signage Channel'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      signage_channel: signage_channel
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 3b3a30a8-cc72-4496-b814-3e305e8910b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.signage_device
+  module:
+    - user
+id: node.signage_device.teaser
+targetEntityType: node
+bundle: signage_device
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden: {  }

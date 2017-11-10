@@ -1,0 +1,28 @@
+uuid: 2f8c4ab7-a99c-432e-af66-3af53dac7bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signage_do_output_event
+    - node.type.signage_action
+    - taxonomy.vocabulary.signage_output_events
+id: node.signage_action.field_signage_do_output_event
+field_name: field_signage_do_output_event
+entity_type: node
+bundle: signage_action
+label: 'Signage Do Output Event'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      signage_output_events: signage_output_events
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

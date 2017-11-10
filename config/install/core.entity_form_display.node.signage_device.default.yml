@@ -1,0 +1,52 @@
+uuid: c755b5ba-87e1-4393-8437-3bc9c2d75217
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.signage_device.field_signage_channel
+    - node.type.signage_device
+  module:
+    - path
+id: node.signage_device.default
+targetEntityType: node
+bundle: signage_device
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_signage_channel:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  path:
+    type: path
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  promote: true
+  sticky: true

@@ -1,0 +1,20 @@
+uuid: 777eb6cb-d46c-44c8-9c63-9c43b5f00bcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_signage_on_input_event
+field_name: field_signage_on_input_event
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

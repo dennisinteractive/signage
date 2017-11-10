@@ -1,0 +1,20 @@
+uuid: 6f7494a9-8c7c-447d-af28-c7f257b7a85f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_signage_maximum_time
+field_name: field_signage_maximum_time
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

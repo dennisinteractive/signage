@@ -1,0 +1,28 @@
+uuid: 2b28cce2-0c63-46d3-863c-2afbef96ba96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signage_on_input_event
+    - node.type.signage_action
+    - taxonomy.vocabulary.signage_input_events
+id: node.signage_action.field_signage_on_input_event
+field_name: field_signage_on_input_event
+entity_type: node
+bundle: signage_action
+label: 'Signage On Input Event'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      signage_input_events: signage_input_events
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

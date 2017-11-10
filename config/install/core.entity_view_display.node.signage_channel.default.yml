@@ -1,0 +1,53 @@
+uuid: f474c0c1-a34f-4e3f-b723-b1e01c0d6111
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.signage_channel.field_signage_action_groups
+    - field.field.node.signage_channel.field_signage_actions
+    - field.field.node.signage_channel.field_signage_current_actions
+    - field.field.node.signage_channel.field_signage_default_url
+    - node.type.signage_channel
+  module:
+    - user
+id: node.signage_channel.default
+targetEntityType: node
+bundle: signage_channel
+mode: default
+content:
+  field_signage_action_groups:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_signage_actions:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_signage_current_actions:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_signage_default_url:
+    weight: 105
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

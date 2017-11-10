@@ -1,0 +1,18 @@
+uuid: e1912fea-838d-4541-b3fd-dbf2efcfb5d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Signage Action'
+type: signage_action
+description: 'Configures what output event should be dispatched as a result of an input event.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

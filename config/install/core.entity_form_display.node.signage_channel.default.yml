@@ -1,0 +1,77 @@
+uuid: 1825720d-4d49-4ef2-99fa-e7b1bbb4cf25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.signage_channel.field_signage_action_groups
+    - field.field.node.signage_channel.field_signage_actions
+    - field.field.node.signage_channel.field_signage_current_actions
+    - field.field.node.signage_channel.field_signage_default_url
+    - node.type.signage_channel
+id: node.signage_channel.default
+targetEntityType: node
+bundle: signage_channel
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_signage_action_groups:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_signage_actions:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_signage_current_actions:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_signage_default_url:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  sticky: true

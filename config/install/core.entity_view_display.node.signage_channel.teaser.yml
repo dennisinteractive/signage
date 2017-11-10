@@ -1,0 +1,20 @@
+uuid: 913e9df3-5545-42dd-ba5b-6c726d069208
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.signage_channel.field_signage_action_groups
+    - node.type.signage_channel
+  module:
+    - user
+id: node.signage_channel.teaser
+targetEntityType: node
+bundle: signage_channel
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_signage_action_groups: true

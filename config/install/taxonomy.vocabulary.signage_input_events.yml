@@ -1,0 +1,9 @@
+uuid: ca250c4a-79de-4937-8a5e-683ddcbb66b5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Signage Input Events'
+vid: signage_input_events
+description: 'Events to react to in actions'
+hierarchy: 0
+weight: 0

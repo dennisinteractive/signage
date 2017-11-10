@@ -1,0 +1,86 @@
+uuid: ebb9804a-d38d-4e24-8365-271156a923f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.signage_action.field_signage_action_group
+    - field.field.node.signage_action.field_signage_do_output_event
+    - field.field.node.signage_action.field_signage_maximum_time
+    - field.field.node.signage_action.field_signage_minimum_time
+    - field.field.node.signage_action.field_signage_on_input_event
+    - field.field.node.signage_action.field_signage_priority
+    - node.type.signage_action
+id: node.signage_action.default
+targetEntityType: node
+bundle: signage_action
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_signage_action_group:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_signage_do_output_event:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_signage_maximum_time:
+    weight: 5
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_signage_minimum_time:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_signage_on_input_event:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_signage_priority:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  sticky: true
