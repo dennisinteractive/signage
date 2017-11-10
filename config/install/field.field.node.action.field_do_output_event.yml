@@ -1,0 +1,27 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_do_output_event
+    - node.type.action
+    - taxonomy.vocabulary.output_events
+id: node.action.field_do_output_event
+field_name: field_do_output_event
+entity_type: node
+bundle: action
+label: 'Do output event'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      output_events: output_events
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

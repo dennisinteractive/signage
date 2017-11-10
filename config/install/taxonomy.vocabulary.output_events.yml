@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Output Events'
+vid: output_events
+description: ''
+hierarchy: 0
+weight: 0

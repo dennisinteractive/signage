@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Input Events'
+vid: input_events
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_minimum_time
+    - node.type.action
+id: node.action.field_minimum_time
+field_name: field_minimum_time
+entity_type: node
+bundle: action
+label: 'Minimum time'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1510249825
+default_value_callback: ''
+settings: {  }
+field_type: timestamp
