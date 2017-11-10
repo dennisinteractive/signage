@@ -1,9 +1,10 @@
-uuid: 696d5507-424f-4ce1-a2f4-7b10102f5728
 langcode: en
 status: true
 dependencies:
   config:
     - node.type.signage_device
+_core:
+  default_config_hash: Kt8ZdCxP4ZNesS5olmjTvf1zfBwko0JZ42E4Y4uGEsQ
 id: node.signage_device.title
 field_name: title
 entity_type: node

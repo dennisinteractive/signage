@@ -1,12 +1,14 @@
-uuid: 3b3a30a8-cc72-4496-b814-3e305e8910b5
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.signage_device.field_signage_channel
     - node.type.signage_device
   module:
     - user
+_core:
+  default_config_hash: LCkp7LyElSRNP-iP02jUTXyeDlRz7oN_7bEVJA5rVQs
 id: node.signage_device.teaser
 targetEntityType: node
 bundle: signage_device
@@ -15,4 +17,5 @@ content:
   links:
     weight: 100
     region: content
-hidden: {  }
+hidden:
+  field_signage_channel: true

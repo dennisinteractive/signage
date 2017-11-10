@@ -1,4 +1,3 @@
-uuid: 1825720d-4d49-4ef2-99fa-e7b1bbb4cf25
 langcode: en
 status: true
 dependencies:
@@ -8,6 +7,8 @@ dependencies:
     - field.field.node.signage_channel.field_signage_current_actions
     - field.field.node.signage_channel.field_signage_default_url
     - node.type.signage_channel
+_core:
+  default_config_hash: CgLp6GWwvV6AcFMhhRYr8HMmTyPwPIyKT7yGVYBUUdE
 id: node.signage_channel.default
 targetEntityType: node
 bundle: signage_channel

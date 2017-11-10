@@ -1,15 +1,16 @@
-uuid: d0badc06-703e-4a4c-bf9b-e612265eb52d
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_signage_maximum_time
     - node.type.signage_action
+_core:
+  default_config_hash: wbtsscaph6BEmzNOk3Q1Orb5jtRgx-X6TYU5KyWnGug
 id: node.signage_action.field_signage_maximum_time
 field_name: field_signage_maximum_time
 entity_type: node
 bundle: signage_action
-label: 'Signage Maximum Time'
+label: 'Maximum Time'
 description: 'Maximum number of minutes the action can be active for.'
 required: false
 translatable: false

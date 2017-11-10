@@ -1,9 +1,10 @@
-uuid: 6f7494a9-8c7c-447d-af28-c7f257b7a85f
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: MMDKoZ8-i_ZVohu1_EVWZTbvAnpLaVpT5yC-XZRSkCs
 id: node.field_signage_maximum_time
 field_name: field_signage_maximum_time
 entity_type: node

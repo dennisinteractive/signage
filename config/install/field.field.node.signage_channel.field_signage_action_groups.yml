@@ -1,4 +1,3 @@
-uuid: 43f32b46-ee40-471a-9412-1ba7b2f973b0
 langcode: en
 status: true
 dependencies:
@@ -6,11 +5,13 @@ dependencies:
     - field.storage.node.field_signage_action_groups
     - node.type.signage_channel
     - taxonomy.vocabulary.signage_action_group
+_core:
+  default_config_hash: 55Ab7vp8WgBtXJJo4d4lccfr3gpP6zay4RUFClNyHlM
 id: node.signage_channel.field_signage_action_groups
 field_name: field_signage_action_groups
 entity_type: node
 bundle: signage_channel
-label: 'Signage Action Groups'
+label: 'Action Groups'
 description: ''
 required: false
 translatable: false

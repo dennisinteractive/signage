@@ -1,10 +1,11 @@
-uuid: 2eb01fb2-a27e-4fef-8573-c464977fd319
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: 2wwQOLtmNckWi6Nw4w6Cj572ZK9y92NKt3j4CSymAps
 id: node.field_signage_do_output_event
 field_name: field_signage_do_output_event
 entity_type: node

@@ -1,4 +1,3 @@
-uuid: ebb9804a-d38d-4e24-8365-271156a923f2
 langcode: en
 status: true
 dependencies:
@@ -10,6 +9,8 @@ dependencies:
     - field.field.node.signage_action.field_signage_on_input_event
     - field.field.node.signage_action.field_signage_priority
     - node.type.signage_action
+_core:
+  default_config_hash: aua2l5TV30f0mThTXdJtaUjUcXG8xXpuTA2KKX1szqg
 id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action

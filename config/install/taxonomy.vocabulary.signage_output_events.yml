@@ -1,7 +1,8 @@
-uuid: a90fec16-547b-4eb2-8e83-efd8f0b450a3
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: JPyEtGqb-WBI257ikVjgLlg8C-L18TA1KEyCPMyVx00
 name: 'Signage Output Events'
 vid: signage_output_events
 description: 'Events to dispatch in actions'

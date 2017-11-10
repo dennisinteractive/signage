@@ -1,9 +1,10 @@
-uuid: 666637d8-2b6c-4fce-a403-1b1d09d848cf
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: wG9kAouQXVpGR6YS5BY4UZVbJ4hzjpSTQ7_aUP61sW0
 id: node.field_signage_minimum_time
 field_name: field_signage_minimum_time
 entity_type: node

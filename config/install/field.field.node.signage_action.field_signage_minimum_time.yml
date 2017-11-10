@@ -1,15 +1,16 @@
-uuid: 274171cf-671e-4a26-95a0-3637e6d3a796
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_signage_minimum_time
     - node.type.signage_action
+_core:
+  default_config_hash: h9ikmojrauhHtJ8YOSxLKhQinI_MGt2PdqENckhs4-A
 id: node.signage_action.field_signage_minimum_time
 field_name: field_signage_minimum_time
 entity_type: node
 bundle: signage_action
-label: 'Signage Minimum Time'
+label: 'Minimum Time'
 description: ''
 required: false
 translatable: false

@@ -1,9 +1,10 @@
-uuid: a766a62d-a472-4029-b158-9605d5de45d7
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: dai8irFoH_SWUB6Mlab1Ju4qoUERlvHiYBI4ALFxdnE
 id: node.field_signage_default_url
 field_name: field_signage_default_url
 entity_type: node

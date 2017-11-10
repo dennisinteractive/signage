@@ -1,4 +1,3 @@
-uuid: 2f8c4ab7-a99c-432e-af66-3af53dac7bcf
 langcode: en
 status: true
 dependencies:
@@ -6,11 +5,13 @@ dependencies:
     - field.storage.node.field_signage_do_output_event
     - node.type.signage_action
     - taxonomy.vocabulary.signage_output_events
+_core:
+  default_config_hash: sOpmLO5NYt1L5PvMQ10wwyJfBnj4Olq9Qgx7_zC3KYM
 id: node.signage_action.field_signage_do_output_event
 field_name: field_signage_do_output_event
 entity_type: node
 bundle: signage_action
-label: 'Signage Do Output Event'
+label: 'Do Output Event'
 description: ''
 required: true
 translatable: false

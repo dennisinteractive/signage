@@ -1,4 +1,3 @@
-uuid: 254edca4-47e0-4714-958b-034fca9ccec9
 langcode: en
 status: true
 dependencies:
@@ -6,11 +5,13 @@ dependencies:
     - field.storage.node.field_signage_channel
     - node.type.signage_channel
     - node.type.signage_device
+_core:
+  default_config_hash: 87TMvKYPyCIZUdw5uXRRZ0u9dt4jvqgZe0clkdgs-Vs
 id: node.signage_device.field_signage_channel
 field_name: field_signage_channel
 entity_type: node
 bundle: signage_device
-label: 'Signage Channel'
+label: Channel
 description: ''
 required: false
 translatable: false

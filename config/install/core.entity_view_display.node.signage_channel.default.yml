@@ -1,4 +1,3 @@
-uuid: f474c0c1-a34f-4e3f-b723-b1e01c0d6111
 langcode: en
 status: true
 dependencies:
@@ -10,6 +9,8 @@ dependencies:
     - node.type.signage_channel
   module:
     - user
+_core:
+  default_config_hash: L_Pp-beaSfDHtGrH24dbI1B_dQxIhtaeoswLuhat3ro
 id: node.signage_channel.default
 targetEntityType: node
 bundle: signage_channel

@@ -1,4 +1,3 @@
-uuid: 65a2b6cf-dda3-4914-861f-ef2251005564
 langcode: en
 status: true
 dependencies:
@@ -9,6 +8,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: CUgyEgTAM5-uTC5sD38JWx-CgvQBCT1l92FZRFOyIz4
 name: 'Signage Channel'
 type: signage_channel
 description: 'Channels “broadcast” events which are configured as “Actions”.'

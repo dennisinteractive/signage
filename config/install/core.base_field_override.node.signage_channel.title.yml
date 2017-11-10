@@ -1,9 +1,10 @@
-uuid: 6c676df0-07c7-42d2-8902-9f16108fb7a4
 langcode: en
 status: true
 dependencies:
   config:
     - node.type.signage_channel
+_core:
+  default_config_hash: rkOT524pOF8cOwLtENALpq5Ob_WotLEUXi5K59F8TP8
 id: node.signage_channel.title
 field_name: title
 entity_type: node

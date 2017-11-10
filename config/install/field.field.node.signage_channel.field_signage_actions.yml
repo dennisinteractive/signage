@@ -1,4 +1,3 @@
-uuid: ad3c6f0f-d7dc-49b8-9291-a9b99c82a9e7
 langcode: en
 status: true
 dependencies:
@@ -6,11 +5,13 @@ dependencies:
     - field.storage.node.field_signage_actions
     - node.type.signage_action
     - node.type.signage_channel
+_core:
+  default_config_hash: 44vbsr8Y0vN2vockJkh_aHWBpni9dh-XXYkPBvavrxw
 id: node.signage_channel.field_signage_actions
 field_name: field_signage_actions
 entity_type: node
 bundle: signage_channel
-label: 'Signage Actions'
+label: Actions
 description: ''
 required: true
 translatable: false

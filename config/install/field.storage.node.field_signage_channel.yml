@@ -1,9 +1,10 @@
-uuid: b4b87bd9-f85e-4947-8822-a642c04d54fc
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: tgyFB9cWbo0M4_x41KEla8JNJCElrR0bgst_-Y9WTwI
 id: node.field_signage_channel
 field_name: field_signage_channel
 entity_type: node

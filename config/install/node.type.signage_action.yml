@@ -1,4 +1,3 @@
-uuid: e1912fea-838d-4541-b3fd-dbf2efcfb5d6
 langcode: en
 status: true
 dependencies:
@@ -9,6 +8,8 @@ third_party_settings:
     available_menus:
       - main
     parent: 'main:'
+_core:
+  default_config_hash: duaGTeqkLJMeIvePmI65AXxXCYrpsyrdPP_4CLjZlZ0
 name: 'Signage Action'
 type: signage_action
 description: 'Configures what output event should be dispatched as a result of an input event.'

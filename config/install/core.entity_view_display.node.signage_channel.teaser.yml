@@ -1,13 +1,17 @@
-uuid: 913e9df3-5545-42dd-ba5b-6c726d069208
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.signage_channel.field_signage_action_groups
+    - field.field.node.signage_channel.field_signage_actions
+    - field.field.node.signage_channel.field_signage_current_actions
+    - field.field.node.signage_channel.field_signage_default_url
     - node.type.signage_channel
   module:
     - user
+_core:
+  default_config_hash: 4ESGFOZBmjTv1XsAfhI32bJjJ18mLfFStxpUdXx7r-4
 id: node.signage_channel.teaser
 targetEntityType: node
 bundle: signage_channel
@@ -18,3 +22,6 @@ content:
     region: content
 hidden:
   field_signage_action_groups: true
+  field_signage_actions: true
+  field_signage_current_actions: true
+  field_signage_default_url: true

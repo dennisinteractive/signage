@@ -1,4 +1,3 @@
-uuid: 2b28cce2-0c63-46d3-863c-2afbef96ba96
 langcode: en
 status: true
 dependencies:
@@ -6,11 +5,13 @@ dependencies:
     - field.storage.node.field_signage_on_input_event
     - node.type.signage_action
     - taxonomy.vocabulary.signage_input_events
+_core:
+  default_config_hash: m7cnFb8Jhu34VjkwnMW4GNOYWESuFtYYIDy7VF-giL4
 id: node.signage_action.field_signage_on_input_event
 field_name: field_signage_on_input_event
 entity_type: node
 bundle: signage_action
-label: 'Signage On Input Event'
+label: 'On Input Event'
 description: ''
 required: true
 translatable: false

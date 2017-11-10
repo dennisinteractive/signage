@@ -1,7 +1,8 @@
-uuid: 10fe969b-8c05-4dda-a19e-19357caed90b
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: xSetsev1AmXc4UdZpH-i3fh0dnSObHblvJAm7lQ1Mvk
 name: 'Signage Action Group'
 vid: signage_action_group
 description: 'A collection of Action content'

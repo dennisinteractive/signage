@@ -1,9 +1,10 @@
-uuid: 51c21e27-29ae-436f-8c36-bf10092ed744
 langcode: en
 status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: f0EvE0Bqlac7ytSgaRea_lrKOnt2H2_TxURoXgFucSI
 id: node.field_signage_priority
 field_name: field_signage_priority
 entity_type: node

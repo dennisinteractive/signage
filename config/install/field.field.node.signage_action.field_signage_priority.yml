@@ -1,15 +1,16 @@
-uuid: 18e4a01d-8e57-4913-bf36-8e30fdb2ec5d
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_signage_priority
     - node.type.signage_action
+_core:
+  default_config_hash: qigyInMsINl2Bht_nKggIt069faOvBXqidlkz4vYXQk
 id: node.signage_action.field_signage_priority
 field_name: field_signage_priority
 entity_type: node
 bundle: signage_action
-label: 'Signage Priority'
+label: Priority
 description: ''
 required: false
 translatable: false

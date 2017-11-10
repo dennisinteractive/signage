@@ -1,4 +1,3 @@
-uuid: 55c7d6c4-7b31-4ec1-8125-19859872dcd5
 langcode: en
 status: true
 dependencies:
@@ -7,6 +6,8 @@ dependencies:
     - node.type.signage_device
   module:
     - user
+_core:
+  default_config_hash: KyAM72kyXOsgYJttuLSpCYIV1ni6vmssRdX6kSkFQ9Y
 id: node.signage_device.default
 targetEntityType: node
 bundle: signage_device

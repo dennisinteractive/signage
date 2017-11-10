@@ -1,15 +1,16 @@
-uuid: 35c29b1d-b346-40e8-832a-4f342de840ce
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_signage_default_url
     - node.type.signage_channel
+_core:
+  default_config_hash: sWx28Nvk3HzB94eC9DGRgD801A2-6zaTqo6hckvR_gI
 id: node.signage_channel.field_signage_default_url
 field_name: field_signage_default_url
 entity_type: node
 bundle: signage_channel
-label: 'Signage Default Url'
+label: 'Default Url'
 description: ''
 required: false
 translatable: false

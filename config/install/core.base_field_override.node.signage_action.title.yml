@@ -1,9 +1,10 @@
-uuid: d8f87523-ff1e-4e03-b909-019f6e89bd30
 langcode: en
 status: true
 dependencies:
   config:
     - node.type.signage_action
+_core:
+  default_config_hash: iJHlLuFSdjsDfYqIWVTj3o-dp8GXzVu76H0mamRGWIg
 id: node.signage_action.title
 field_name: title
 entity_type: node

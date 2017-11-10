@@ -1,9 +1,10 @@
-uuid: f33f88be-e462-48fe-ab30-b964fe42b882
 langcode: en
 status: true
 dependencies:
   config:
     - node.type.signage_channel
+_core:
+  default_config_hash: yqmSTJ_hnjnoR7cgJZmANpa9TD9eZdCUUq5Fx6jR1mA
 id: node.signage_channel.promote
 field_name: promote
 entity_type: node

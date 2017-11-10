@@ -1,10 +1,11 @@
-uuid: 55ec567f-fff2-46a7-b7ce-824698cb0b8d
 langcode: en
 status: true
 dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: TZyaO8bYqP3pUMd1G9Efm4Q6kNXMcTUTJ9QOEWlnX38
 id: node.field_signage_action_groups
 field_name: field_signage_action_groups
 entity_type: node
