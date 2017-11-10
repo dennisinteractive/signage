@@ -5,7 +5,7 @@ dependencies:
     - field.field.taxonomy_term.output_events.field_output_event_content
     - taxonomy.vocabulary.output_events
 _core:
-  default_config_hash: NY0nYX5pXg6AgvAr7p2bRoZaSRPmpXh_Syx9CWzpSHM
+  default_config_hash: K9yJtUTBv8UG89IYEjzgmH2SAhZw-mBwYXjhi8Owp_I
 id: taxonomy_term.output_events.default
 targetEntityType: taxonomy_term
 bundle: output_events

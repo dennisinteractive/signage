@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.action.field_priority
     - node.type.action
 _core:
-  default_config_hash: 9tZjzYQtE3iwfIR6uo1RcoCDxpfJYRVPA354sItWlEw
+  default_config_hash: m5fovzNw3hl07NAVpH6jKuBnOpdlU8PssLJh7SfplHo
 id: node.action.default
 targetEntityType: node
 bundle: action
@@ -38,17 +38,19 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_maximum_time:
-    type: datetime_timestamp
     weight: 5
-    region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
+    type: number
+    region: content
   field_minimum_time:
-    type: datetime_timestamp
     weight: 4
-    region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
+    type: number
+    region: content
   field_on_input_event:
     type: options_select
     weight: 1

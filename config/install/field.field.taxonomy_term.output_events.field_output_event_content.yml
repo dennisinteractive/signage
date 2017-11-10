@@ -5,7 +5,7 @@ dependencies:
     - field.storage.taxonomy_term.field_output_event_content
     - taxonomy.vocabulary.output_events
 _core:
-  default_config_hash: mjub7ni6Du6PqgsY8kji6XPWzn9FmPepwi3MMKBYYkw
+  default_config_hash: 7uHozgSpeKjZ0vsMxr1a82hO3baW2sh6zHXuJ870u3g
 id: taxonomy_term.output_events.field_output_event_content
 field_name: field_output_event_content
 entity_type: taxonomy_term

@@ -5,6 +5,8 @@ dependencies:
     - taxonomy.vocabulary.input_events
   module:
     - text
+_core:
+  default_config_hash: Pnnb95fv7QlhDGY7o8aumJ_SkV2JtKzW_AfFs4s1vNM
 id: taxonomy_term.input_events.default
 targetEntityType: taxonomy_term
 bundle: input_events
@@ -28,4 +30,3 @@ content:
     third_party_settings: {  }
 hidden:
   path: true
-

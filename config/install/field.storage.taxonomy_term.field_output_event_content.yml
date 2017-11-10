@@ -4,7 +4,7 @@ dependencies:
   module:
     - taxonomy
 _core:
-  default_config_hash: Q-ZufDyBHK9kvAXasWDcY1NSsmmnqUDVg8oRqixqIlA
+  default_config_hash: 3zlOP_Z6kHNBGaphOIGA8-x2AqegHFn98DMxeZqLTHA
 id: taxonomy_term.field_output_event_content
 field_name: field_output_event_content
 entity_type: taxonomy_term
