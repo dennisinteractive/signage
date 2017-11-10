@@ -3,6 +3,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: ZbR0CbijSEymLZt6eYxOjCc1Xd_83TIwfw0Wkez3_K4
 id: node.field_maximum_time
 field_name: field_maximum_time
 entity_type: node

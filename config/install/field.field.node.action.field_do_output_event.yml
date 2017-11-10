@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_do_output_event
     - node.type.action
     - taxonomy.vocabulary.output_events
+_core:
+  default_config_hash: XZPWTzy8xOSpKzJQJCsq-K-YuVQXlOvy5ncUvgFMfZA
 id: node.action.field_do_output_event
 field_name: field_do_output_event
 entity_type: node

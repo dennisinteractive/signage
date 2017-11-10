@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_current_actions
     - node.type.action
     - node.type.channel
+_core:
+  default_config_hash: ps6vIgLuTdiU5ploAyL1XLhjql40E4JR4jokCMFw65U
 id: node.channel.field_current_actions
 field_name: field_current_actions
 entity_type: node

@@ -4,6 +4,8 @@ dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: 7WYjbViXMZ8UuUSk48ZuxiV4n6SLOg1oWUelruqiUeY
 id: node.field_on_input_event
 field_name: field_on_input_event
 entity_type: node

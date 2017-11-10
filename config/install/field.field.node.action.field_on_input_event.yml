@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_on_input_event
     - node.type.action
     - taxonomy.vocabulary.input_events
+_core:
+  default_config_hash: K_EYBEIdLhRG2rIed4Jea8lqh4dYyKf8lquQOzILfkQ
 id: node.action.field_on_input_event
 field_name: field_on_input_event
 entity_type: node

@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: 5OUa84U8N7VWsmKKyIQCUk8Uv8BFUbET6cmCy1xLMYY
 name: 'Input Events'
 vid: input_events
 description: ''

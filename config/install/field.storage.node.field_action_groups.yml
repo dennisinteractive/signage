@@ -4,6 +4,8 @@ dependencies:
   module:
     - node
     - taxonomy
+_core:
+  default_config_hash: vH0MnIA9uHrxmRz_arUIlWYNOV-h_nYJCJKdbK6Yeko
 id: node.field_action_groups
 field_name: field_action_groups
 entity_type: node

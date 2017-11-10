@@ -5,6 +5,8 @@ dependencies:
     - field.storage.node.field_action_groups
     - node.type.channel
     - taxonomy.vocabulary.action_group
+_core:
+  default_config_hash: swAe422jMIcBd2JsfWc56epTiYOQq7R7kiXh_XKYCTE
 id: node.channel.field_action_groups
 field_name: field_action_groups
 entity_type: node

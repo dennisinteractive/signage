@@ -3,6 +3,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: HAnuMLJa34p5aa-C9w5wjT7MAo4QPK8o1bmZe_K4LuE
 id: node.field_channel
 field_name: field_channel
 entity_type: node

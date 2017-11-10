@@ -3,6 +3,8 @@ status: true
 dependencies:
   module:
     - node
+_core:
+  default_config_hash: U8zDMMDgjYqtxI-qBwhVV6rPEMQ49eHiSlxmzvM5yUQ
 id: node.field_current_actions
 field_name: field_current_actions
 entity_type: node

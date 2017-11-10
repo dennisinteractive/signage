@@ -1,6 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: rS1FrLMapx3LRUDQmz7nBoS1UkDuvH7RXoYeuL9a1b0
 name: 'Output Events'
 vid: output_events
 description: ''
