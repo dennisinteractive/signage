@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: qcGZ8c9UeN-B_7LAkUUUGKnnI8qKL7KcAWGzYDr8mHY
+  default_config_hash: w1V1L9e2MeDP0pstWFMZ_IXzvEpgcVaLc84uv9EqpiI
 name: 'Signage Device'
 type: signage_device
 description: 'A device subscribes to a channel showing / handling the output event.'

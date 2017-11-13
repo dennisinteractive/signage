@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: XpUjeHLqA7jSOd7XUg8Z3iUhU1kDemmjNrgAlg30rbs
+  default_config_hash: bMyvLMneX6N_0TtL2U8eXYElfimijpNC_7PpATzym20
 name: 'Signage Input Events'
 vid: signage_input_events
 description: 'Events to react to in actions'

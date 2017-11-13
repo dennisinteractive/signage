@@ -10,7 +10,8 @@ dependencies:
     - field.field.node.signage_action.field_signage_priority
     - node.type.signage_action
 _core:
-  default_config_hash: aua2l5TV30f0mThTXdJtaUjUcXG8xXpuTA2KKX1szqg
+  default_config_hash: 5fK68XbAvOhwz9eBwYla_mADsDdjeU-s0PWilBqeGRE
+id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action
 mode: default

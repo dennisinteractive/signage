@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_signage_default_url
     - node.type.signage_channel
 _core:
-  default_config_hash: sWx28Nvk3HzB94eC9DGRgD801A2-6zaTqo6hckvR_gI
+  default_config_hash: ZD425DU5MoM1yyGmfh1a6O6KU7n0RYmi7c2KM5s49vY
 id: node.signage_channel.field_signage_default_url
 field_name: field_signage_default_url
 entity_type: node

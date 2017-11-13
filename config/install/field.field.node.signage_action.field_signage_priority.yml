@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_signage_priority
     - node.type.signage_action
 _core:
-  default_config_hash: qigyInMsINl2Bht_nKggIt069faOvBXqidlkz4vYXQk
+  default_config_hash: qBR098VwsEBFtONCh4gyXhbIvxlvcUMyAJRs8qQcGKQ
 id: node.signage_action.field_signage_priority
 field_name: field_signage_priority
 entity_type: node

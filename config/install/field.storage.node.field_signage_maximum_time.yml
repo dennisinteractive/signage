@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: MMDKoZ8-i_ZVohu1_EVWZTbvAnpLaVpT5yC-XZRSkCs
+  default_config_hash: bO_O8kYH1iEfkRi6l638pLMdPJMj_j-arC10YsdVVEM
 id: node.field_signage_maximum_time
 field_name: field_signage_maximum_time
 entity_type: node

@@ -6,7 +6,7 @@ dependencies:
     - node.type.signage_action
     - taxonomy.vocabulary.signage_output_events
 _core:
-  default_config_hash: sOpmLO5NYt1L5PvMQ10wwyJfBnj4Olq9Qgx7_zC3KYM
+  default_config_hash: yG2c0caQ8DwuWiiaz-wEk8PZ_uIA9LvxS1xQfYs6v2I
 id: node.signage_action.field_signage_do_output_event
 field_name: field_signage_do_output_event
 entity_type: node

@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: xSetsev1AmXc4UdZpH-i3fh0dnSObHblvJAm7lQ1Mvk
+  default_config_hash: MwJR6-90oSjuthcE7FJyyI73fIgY0h-Dq9tjXMUL-ic
 name: 'Signage Action Group'
 vid: signage_action_group
 description: 'A collection of Action content'

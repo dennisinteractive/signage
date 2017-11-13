@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: tgyFB9cWbo0M4_x41KEla8JNJCElrR0bgst_-Y9WTwI
+  default_config_hash: yrMJnAAVvZz0GiRPynKfcw6vYX8ekxidKh22V9wtJ0k
 id: node.field_signage_channel
 field_name: field_signage_channel
 entity_type: node

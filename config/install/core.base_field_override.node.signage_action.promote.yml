@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_action
 _core:
-  default_config_hash: 3WfnwkzD2cCHlLR--3qj7Orj-U_uMBw5nl-OSZmMRl4
+  default_config_hash: c7e6dR7Wv6CbALgeyqRgC3HUB0I3ZZWfTC7kDpwVlP8
 id: node.signage_action.promote
 field_name: promote
 entity_type: node

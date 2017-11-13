@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: CUgyEgTAM5-uTC5sD38JWx-CgvQBCT1l92FZRFOyIz4
+  default_config_hash: K0W_QoQGI5XOChh6zea5WJc-xFTZYGuP1ygmLe315Gc
 name: 'Signage Channel'
 type: signage_channel
 description: 'Channels “broadcast” events which are configured as “Actions”.'

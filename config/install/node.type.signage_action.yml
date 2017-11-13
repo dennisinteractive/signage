@@ -9,7 +9,7 @@ third_party_settings:
       - main
     parent: 'main:'
 _core:
-  default_config_hash: duaGTeqkLJMeIvePmI65AXxXCYrpsyrdPP_4CLjZlZ0
+  default_config_hash: LAO954QKA8EXN5e-UNheiJjKPHae6eoU9V7izY8aWSQ
 name: 'Signage Action'
 type: signage_action
 description: 'Configures what output event should be dispatched as a result of an input event.'

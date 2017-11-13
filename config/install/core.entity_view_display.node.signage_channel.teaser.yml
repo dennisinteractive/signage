@@ -5,13 +5,12 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.signage_channel.field_signage_action_groups
     - field.field.node.signage_channel.field_signage_actions
-    - field.field.node.signage_channel.field_signage_current_actions
     - field.field.node.signage_channel.field_signage_default_url
     - node.type.signage_channel
   module:
     - user
 _core:
-  default_config_hash: 4ESGFOZBmjTv1XsAfhI32bJjJ18mLfFStxpUdXx7r-4
+  default_config_hash: 7LleRDFPTbkixAKxvHPLdXQ9VQVP9coOPNM7J_YJm5g
 id: node.signage_channel.teaser
 targetEntityType: node
 bundle: signage_channel
@@ -23,5 +22,4 @@ content:
 hidden:
   field_signage_action_groups: true
   field_signage_actions: true
-  field_signage_current_actions: true
   field_signage_default_url: true

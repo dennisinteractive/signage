@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: dai8irFoH_SWUB6Mlab1Ju4qoUERlvHiYBI4ALFxdnE
+  default_config_hash: kSC1CR1qxg092_hrIlbPLhazpO-4aIpEcMVK70b8Yd0
 id: node.field_signage_default_url
 field_name: field_signage_default_url
 entity_type: node

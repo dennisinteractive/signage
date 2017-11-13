@@ -4,13 +4,12 @@ dependencies:
   config:
     - field.field.node.signage_channel.field_signage_action_groups
     - field.field.node.signage_channel.field_signage_actions
-    - field.field.node.signage_channel.field_signage_current_actions
     - field.field.node.signage_channel.field_signage_default_url
     - node.type.signage_channel
   module:
     - user
 _core:
-  default_config_hash: L_Pp-beaSfDHtGrH24dbI1B_dQxIhtaeoswLuhat3ro
+  default_config_hash: yt3CeOnqH3Cdak19W6BqzsYhKENj2Wlk6ib41LUdhFQ
 id: node.signage_channel.default
 targetEntityType: node
 bundle: signage_channel
@@ -26,14 +25,6 @@ content:
     region: content
   field_signage_actions:
     weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_signage_current_actions:
-    weight: 104
     label: above
     settings:
       link: true

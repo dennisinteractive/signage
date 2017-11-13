@@ -6,7 +6,7 @@ dependencies:
     - node.type.signage_channel
     - taxonomy.vocabulary.signage_action_group
 _core:
-  default_config_hash: 55Ab7vp8WgBtXJJo4d4lccfr3gpP6zay4RUFClNyHlM
+  default_config_hash: 4wbZGKy6U8jWGoprocsZuHW8UWI6VtHZ5Co1E2VJsZc
 id: node.signage_channel.field_signage_action_groups
 field_name: field_signage_action_groups
 entity_type: node
