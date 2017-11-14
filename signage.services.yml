@@ -46,5 +46,10 @@ services:
     class: Drupal\signage\Service\ActionService
     arguments: ['@signage.action']
 
+  signage.channel:
+    class: Drupal\signage\Channel\Channel
+    arguments: ['@state']
+
   signage.channel.service:
-      class: Drupal\signage\Service\ChannelService
+    class: Drupal\signage\Service\ChannelService
+    arguments: ['@signage.channel']

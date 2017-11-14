@@ -2,9 +2,7 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-
-
-use Drupal\signage\Action\ActionInterface;
+use Drupal\signage\Event\OutputEventInterface;
 use Drupal\signage\Service\ChannelServiceInterface;
 
 interface OutputEventSubscriberInterface  {
@@ -18,10 +16,11 @@ interface OutputEventSubscriberInterface  {
   public function setChannelService(ChannelServiceInterface $channelService);
 
   /**
-   * Inform the channel about the current action.
-   * @param \Drupal\signage\Action\ActionInterface $action
+   * Inform the channel about the output event.
+   *
+   * @param \Drupal\signage\Event\OutputEventInterface $event
    *
    * @return self
    */
-  public function updateChannels(ActionInterface $action);
+  public function updateChannels(OutputEventInterface $event);
 }
