@@ -63,9 +63,10 @@ class InputEventSubscriber implements EventSubscriberInterface {
     foreach ($actions as $action) {
       $oe = $action->getOutputEvent();
       // Send the event to all the relevant channels.
-      $channel_names = $this->channelService->getChannelNamesForActionId($action->getId());
-      foreach ($channel_names as $channel_name) {
-        $oe->setChannelName($channel_name);
+      $channels = $this->channelService->getChannelsForActionId($action->getId());
+      foreach ($channels as $channel) {
+        $oe->setAction($action);
+        $oe->setChannel($channel);
         $this->dispatcher->dispatch($oe::name(), $oe);
       }
     }

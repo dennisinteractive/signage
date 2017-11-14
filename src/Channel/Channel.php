@@ -62,8 +62,13 @@ class Channel implements ChannelInterface {
     // Only one of each time of output event can be active at a time.
     // Merge with existing events.
     $data = $this->getOutputEvents();
-    $data[$event::name()] = $event;
-    $this->state->set($this->getStateKey(), serialize($data));
+
+    $state = [
+      'payload' => $event->getPayload(),
+      'timestamp' => time(),
+    ];
+    $data[$event::name()] = $state;
+    $this->state->set($this->getStateKey(), $data);
   }
 
   /**
@@ -76,7 +81,7 @@ class Channel implements ChannelInterface {
       return [];
     }
 
-    return unserialize($data);
+    return $data;
   }
 
   /**

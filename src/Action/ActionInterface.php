@@ -23,4 +23,5 @@ interface ActionInterface {
    * @return \Drupal\signage\Event\OutputEventInterface
    */
   public function getOutputEvent();
+
 }

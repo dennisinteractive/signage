@@ -18,15 +18,6 @@ class ChannelService implements ChannelServiceInterface {
   /**
    * @inheritDoc
    */
-  public function getChannelNamesForActionId($id) {
-    // TODO: Implement getChannelNamesForActionId() method.
-
-    return ['Floor4', 'devicexxx'];
-  }
-
-  /**
-   * @inheritDoc
-   */
   public function getChannelsForActionId($id) {
     // Find channel content with the action entity id
     // in field_signage_actions

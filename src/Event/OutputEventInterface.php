@@ -2,6 +2,9 @@
 
 namespace Drupal\signage\Event;
 
+use Drupal\signage\Action\ActionInterface;
+use Drupal\signage\Channel\ChannelInterface;
+
 interface OutputEventInterface {
 
   /**
@@ -12,17 +15,29 @@ interface OutputEventInterface {
 
   /**
    * The channel that the event will be sent to.
-   * @param string $name
+   * @param ChannelInterface $channel
    *
    * @return self
    */
-  public function setChannelName($name);
+  public function setChannel(ChannelInterface $channel);
 
   /**
    * The channel that the event will be sent to.
-   * @return string
+   * @return ChannelInterface
    */
-  public function getChannelName();
+  public function getChannel();
+
+  /**
+   * @param \Drupal\signage\Action\ActionInterface $action
+   *
+   * @return mixed
+   */
+  public function setAction(ActionInterface $action);
+
+  /**
+   * @return \Drupal\signage\Action\ActionInterface
+   */
+  public function getAction();
 
   /**
    *

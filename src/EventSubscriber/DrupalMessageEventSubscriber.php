@@ -39,7 +39,7 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
     drupal_set_message(
       sprintf(
         'UrlEvent for channel: %s with url: %s ',
-        $event->getChannelName(),
+        $event->getChannel()->getName(),
         $event->getUrl()
       )
     );
@@ -54,7 +54,7 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
     drupal_set_message(
       sprintf(
         'MessageEvent for channel: %s with title: %s & message: %s, of type: %s for %s seconds',
-        $event->getChannelName(),
+        $event->getChannel()->getName(),
         $m->getTitle(),
         $m->getBody(),
         $m->getNotificationType(),
