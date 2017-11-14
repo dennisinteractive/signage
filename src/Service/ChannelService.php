@@ -20,9 +20,29 @@ class ChannelService implements ChannelServiceInterface {
    */
   public function getChannelNamesForActionId($id) {
     // TODO: Implement getChannelNamesForActionId() method.
-    //drupal_set_message(__FUNCTION__);
+
     return ['Floor4', 'devicexxx'];
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function getChannelsForActionId($id) {
+    // Find channel content with the action entity id
+    // in field_signage_actions
+    $query = \Drupal::entityQuery('node')
+      ->condition('field_signage_actions', $id)
+    ;
+    $rows = $query->execute();
+    $channels = [];
+    foreach ($rows as $row) {
+      $channel = clone $this->channel;
+      $node =  \Drupal\node\Entity\Node::load($row);
+      $channel->setNode($node);
+      $channels[] = $channel;
+    }
+
+    return $channels;
+  }
 
 }

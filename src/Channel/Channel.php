@@ -1,7 +1,9 @@
 <?php
 namespace Drupal\signage\Channel;
 
+
 use Drupal\Core\State\StateInterface;
+use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
 
 class Channel implements ChannelInterface {
@@ -10,6 +12,11 @@ class Channel implements ChannelInterface {
    * @var \Drupal\Core\State\StateInterface
    */
   protected $state;
+
+  /**
+   * @var NodeInterface
+   */
+  protected $entity;
 
   /**
    * Channel constructor.
@@ -24,8 +31,28 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function getId() {
-    // TODO: Implement getId() method.
-    return 1;
+    return (int) $this->entity->id();
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getName() {
+    return $this->entity->getTitle();
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setNode(NodeInterface $entity) {
+    $this->entity = $entity;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getNode() {
+    return $this->entity;
   }
 
   /**
