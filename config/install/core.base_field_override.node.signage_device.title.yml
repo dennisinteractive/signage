@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_device
 _core:
-  default_config_hash: CeBtlZP2j3Qvh9ZhFUtWcXIcs3VYmPHFUkJPsiC5Lko
+  default_config_hash: 6G-6eZstmNLe60v1mHxPoTAVEyFEcNHAePZaOA7M9Yw
 id: node.signage_device.title
 field_name: title
 entity_type: node

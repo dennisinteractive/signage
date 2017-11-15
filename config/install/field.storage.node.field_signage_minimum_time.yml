@@ -4,7 +4,7 @@ dependencies:
   module:
     - node
 _core:
-  default_config_hash: lKKWrKHwyhSsGoORTlllc9HD9642pmXhYbiauE8-_0w
+  default_config_hash: VQG-dzl_KMx8dO1CJ5WMRfXQCk_jsnEaDtgjqK1VvRc
 id: node.field_signage_minimum_time
 field_name: field_signage_minimum_time
 entity_type: node

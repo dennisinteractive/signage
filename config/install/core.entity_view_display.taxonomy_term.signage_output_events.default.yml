@@ -6,37 +6,24 @@ dependencies:
     - taxonomy.vocabulary.signage_output_events
   module:
     - text
-_core:
-  default_config_hash: M5Wkqnw6U6Tl8L_Kx4tTRODu2ODoG44XgnyfJa7gxFA
 id: taxonomy_term.signage_output_events.default
 targetEntityType: taxonomy_term
 bundle: signage_output_events
 mode: default
 content:
   description:
-    type: text_textarea
-    weight: 1
-    region: content
-    settings:
-      placeholder: ''
-      rows: 5
-    third_party_settings: {  }
-  field_signage_output_event_type:
-    weight: 3
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  name:
-    type: string_textfield
+    label: hidden
+    type: text_default
     weight: 0
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-hidden:
-  path: true
+  field_signage_output_event_type:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_channel
 _core:
-  default_config_hash: cwbvD4LetuuxfLyPjN4QgJotYXfCXLCeP8wlx7JyaJY
+  default_config_hash: nMXt48Jn9yr8lUvP8kcj9cmE6cH_-xEQcZstqcfg99M
 id: node.signage_channel.title
 field_name: title
 entity_type: node

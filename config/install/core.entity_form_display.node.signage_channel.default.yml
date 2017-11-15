@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.signage_channel.field_signage_default_url
     - node.type.signage_channel
 _core:
-  default_config_hash: FCRkmzCZZPokj2jwyUANijRwo4JG-KQalWdfPTKUZwA
+  default_config_hash: IoplRBykfyiKzUvM-bseZyC_f9SWEpL_H1_jDcszJSI
 id: node.signage_channel.default
 targetEntityType: node
 bundle: signage_channel

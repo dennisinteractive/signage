@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Signage Output Event Types'
+vid: signage_output_event_types
+description: 'The types of output events that can be used. Eg; UrlEvent, MessageEvent etc'
+hierarchy: 0
+weight: 0

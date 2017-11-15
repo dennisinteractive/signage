@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_signage_minimum_time
     - node.type.signage_action
 _core:
-  default_config_hash: V7Tmvvarm9CHuirYVbz3Xbe1ii0TtyXlsBhHubkYeg4
+  default_config_hash: d1XtBbjO82HRSCoay0yDn01V6_XF0Rqp0eoabQnv30k
 id: node.signage_action.field_signage_minimum_time
 field_name: field_signage_minimum_time
 entity_type: node
