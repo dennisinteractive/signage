@@ -70,6 +70,10 @@ class Action implements ActionInterface {
   public function getOutputEventType() {
     // TODO: Implement getOutputEventType() method.
 
+    $output_tid = $this->getNode()->get('field_signage_do_output_event')->getValue();
+
+    // get value of field_signage_output_event_type
+
     // Temp code...
     if ($this->inputEvent->getSource() == 'demo.input.url') {
       return 'signage.url';
