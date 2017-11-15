@@ -53,6 +53,7 @@ class Action implements ActionInterface {
     $event_type = $this->getOutputEventType();
     $oe = $this->outputEventFactory->getEvent($event_type);
     $oe->setPayload($p);
+    $oe->setAction($this);
 
     return $oe;
   }

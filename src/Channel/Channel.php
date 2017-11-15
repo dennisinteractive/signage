@@ -58,10 +58,10 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
-  public function addOutputEvent(OutputEventInterface $event) {
+  public function dispached(OutputEventInterface $event) {
     // Only one of each time of output event can be active at a time.
-    // Merge with existing events.
-    $data = $this->getOutputEvents();
+    // Merge with existing states.
+    $data = $this->getDispatched();
 
     $state = [
       'payload' => $event->getPayload(),
@@ -74,7 +74,7 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
-  public function getOutputEvents() {
+  public function getDispatched() {
     $data = $this->state->get($this->getStateKey());
     if (!$data) {
       // Nothing stored for this channel.

@@ -55,7 +55,7 @@ class InputEventSubscriber implements EventSubscriberInterface {
 
   /**
    * Send the input event to actions that want it, then dispatch their responses.
-   * @param InputEvent $event
+   * @param InputEventInterface $event
    */
   public function handleInputEvent(InputEventInterface $event) {
     // Action content for event source. eg; jenkins.deploy.success
@@ -65,7 +65,6 @@ class InputEventSubscriber implements EventSubscriberInterface {
       // Send the event to all the relevant channels.
       $channels = $this->channelService->getChannelsForActionId($action->getId());
       foreach ($channels as $channel) {
-        $oe->setAction($action);
         $oe->setChannel($channel);
         $this->dispatcher->dispatch($oe::name(), $oe);
       }

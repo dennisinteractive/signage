@@ -32,18 +32,18 @@ interface ChannelInterface {
   public function getNode();
 
   /**
-   * Stores the output event, so the channel knows its current state.
+   * Stores the dispatched output event, so the channel knows its current state.
    *
    * @param \Drupal\signage\Event\OutputEventInterface $event
    *
    * @return mixed
    */
-  public function addOutputEvent(OutputEventInterface $event);
+  public function dispached(OutputEventInterface $event);
 
   /**
    * @return array
    */
-  public function getOutputEvents();
+  public function getDispatched();
 
   /**
    * Removes the channel from the system.

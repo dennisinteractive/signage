@@ -2,26 +2,26 @@
 
 namespace Drupal\signage\EventSubscriber;
 
+use Drupal\signage\Event\MessageEventInterface;
 use Drupal\signage\Event\OutputEventInterface;
-use Drupal\signage\Event\UrlEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 
-class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
+class MessageEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
 
   /**
    * @inheritDoc
    */
   public static function getSubscribedEvents() {
-    $events['signage.url'][] = ['handleOutputEvent', 0];
+    $events['signage.message'][] = ['handleOutputEvent', 0];
 
     return $events;
   }
 
   /**
-   * @param \Drupal\signage\Event\UrlEventInterface $event
+   * @param \Drupal\signage\Event\MessageEventInterface $event
    */
-  public function handleOutputEvent(UrlEventInterface $event) {
+  public function handleOutputEvent(MessageEventInterface $event) {
     $event->getChannel()->dispached($event);
 
     // Update the current state.

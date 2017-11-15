@@ -30,8 +30,13 @@ services:
     tags:
       - { name: 'event_subscriber' }
 
-  signage.event.subscriber.urlevent:
+  signage.event.subscriber.url:
     class: Drupal\signage\EventSubscriber\UrlEventSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+
+  signage.event.subscriber.message:
+    class: Drupal\signage\EventSubscriber\MessageEventSubscriber
     tags:
       - { name: 'event_subscriber' }
 
