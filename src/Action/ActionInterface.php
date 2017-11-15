@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\signage\Action;
 
+use Drupal\node\NodeInterface;
 use Drupal\signage\Event\InputEvent;
 
 interface ActionInterface {
@@ -24,4 +25,17 @@ interface ActionInterface {
    */
   public function getOutputEvent();
 
+  /**
+   * The drupal entity, as returned by node_load().
+   *
+   * @param $entity
+   *
+   * @return self
+   */
+  public function setNode(NodeInterface $entity);
+
+  /**
+   * @return NodeInterface
+   */
+  public function getNode();
 }

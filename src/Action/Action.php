@@ -1,6 +1,7 @@
 <?php
 namespace Drupal\signage\Action;
 
+use Drupal\node\NodeInterface;
 use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\OutputEventFactoryInterface;
@@ -22,6 +23,12 @@ class Action implements ActionInterface {
    */
   protected $payload;
 
+  /**
+   * @var NodeInterface
+   */
+  protected $entity;
+
+
   public function __construct(OutputEventFactoryInterface $factory, EventPayload $payload) {
     $this->outputEventFactory = $factory;
     $this->payload = $payload;
@@ -31,8 +38,7 @@ class Action implements ActionInterface {
    * @inheritDoc
    */
   public function getId() {
-    // TODO: Implement getId() method.
-    return 1;
+    return (int) $this->entity->id();
   }
 
   /**
@@ -96,6 +102,20 @@ class Action implements ActionInterface {
     }
 
     return $this->payload;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setNode(NodeInterface $entity) {
+    $this->entity = $entity;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getNode() {
+    return $this->entity;
   }
 
 }
