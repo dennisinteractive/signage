@@ -68,11 +68,14 @@ class Action implements ActionInterface {
    * The output event class.
    */
   public function getOutputEventType() {
-    // TODO: Implement getOutputEventType() method.
-
+    // Get the referenced output event of the Action.
     $output_tid = $this->getNode()->get('field_signage_do_output_event')->getValue();
+    $output_term = \Drupal\taxonomy\Entity\Term::load($output_tid[0]['target_id']);
 
-    // get value of field_signage_output_event_type
+    // Get the referenced output event type.
+    $type_tid = $output_term->get('field_signage_output_event_type')->getValue();
+    $type_term = \Drupal\taxonomy\Entity\Term::load($type_tid[0]['target_id']);
+    return $type_term->getName();
 
     // Temp code...
     if ($this->inputEvent->getSource() == 'demo.input.url') {
