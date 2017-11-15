@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: mGRHkFw76o4xy9Al4_eGRIYj26WG-jlYKJp1uHOtIEg
+  default_config_hash: GktHITT6Yv38iadfxTKFbIWrFJcd2U-PNtdTWK8OChU
 name: 'Signage Output Events'
 vid: signage_output_events
 description: 'Events to dispatch in actions'

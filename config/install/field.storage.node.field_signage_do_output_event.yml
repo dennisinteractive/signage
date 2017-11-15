@@ -5,7 +5,7 @@ dependencies:
     - node
     - taxonomy
 _core:
-  default_config_hash: 8PfQRN2cFDlEjBkFWcZWd-JGJOVp_FjpktWSwp2VbZY
+  default_config_hash: pDf8WLQq-Oo5Y4fOfnKWLioNQ_Q-BkD0yo82QUlwldE
 id: node.field_signage_do_output_event
 field_name: field_signage_do_output_event
 entity_type: node

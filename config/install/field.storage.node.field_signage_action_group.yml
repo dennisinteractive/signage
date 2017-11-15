@@ -5,7 +5,7 @@ dependencies:
     - node
     - taxonomy
 _core:
-  default_config_hash: 2-hvRDuUgJL1IefI4t2-rAVQPPoXcT0Evv6NSWiOlNA
+  default_config_hash: AkQYfxitRk2zg88pfNCpF9IGbIbAALC25N4EFe7amEw
 id: node.field_signage_action_group
 field_name: field_signage_action_group
 entity_type: node

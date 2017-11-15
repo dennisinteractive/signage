@@ -9,7 +9,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: yt3CeOnqH3Cdak19W6BqzsYhKENj2Wlk6ib41LUdhFQ
+  default_config_hash: K_q0gVyIMISbU5J482YtRTJxxwT4e4LVKu5L4gHQ-uw
 id: node.signage_channel.default
 targetEntityType: node
 bundle: signage_channel

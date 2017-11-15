@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_device
 _core:
-  default_config_hash: A2OljHK8sKTSZ7NmC7z3SBF00683xOoBGktR5lFFwBY
+  default_config_hash: gB21c39jcKLtCkfaLTsYNIeOLam146Y_a4xf-AkoIA8
 id: node.signage_device.promote
 field_name: promote
 entity_type: node

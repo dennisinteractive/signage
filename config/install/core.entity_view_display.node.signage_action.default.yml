@@ -12,7 +12,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: vO20IRbzAxehUUia_ZEC-GFo1Crq89q6GgRD2CVYZVc
+  default_config_hash: 0U32q4vpFjhFY438xtAZujq13LspMJTfri5CwStvRgo
 id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action

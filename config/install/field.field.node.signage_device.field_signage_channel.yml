@@ -6,7 +6,7 @@ dependencies:
     - node.type.signage_channel
     - node.type.signage_device
 _core:
-  default_config_hash: e751SWdc0CpQrVJn_F1tZxXZIjKDjoGSJQlkyV6qCOk
+  default_config_hash: 5aplS8qybaD_gv_IVJOnhJiA8Zcw8fHzu5ZsCO0H6Cs
 id: node.signage_device.field_signage_channel
 field_name: field_signage_channel
 entity_type: node

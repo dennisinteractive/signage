@@ -5,7 +5,7 @@ dependencies:
     - field.storage.node.field_signage_maximum_time
     - node.type.signage_action
 _core:
-  default_config_hash: QJr_BzopKBnA5rOi2VvUeGtHqddvOIqhj6I4rnqZDU4
+  default_config_hash: HwbYbuUvAMPk_-PxH7vzzJWgQvoNE1O3wEGMFRlsWo4
 id: node.signage_action.field_signage_maximum_time
 field_name: field_signage_maximum_time
 entity_type: node

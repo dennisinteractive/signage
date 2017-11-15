@@ -5,6 +5,8 @@ dependencies:
     - taxonomy.vocabulary.signage_input_events
   module:
     - text
+_core:
+  default_config_hash: PcuIjQ2p34JlxIxk0eAF_C72r9N6fc6I2WFtFs3M6vc
 id: taxonomy_term.signage_input_events.default
 targetEntityType: taxonomy_term
 bundle: signage_input_events

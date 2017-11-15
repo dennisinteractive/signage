@@ -2,16 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_signage_do_output_event
-    - node.type.signage_action
+    - field.storage.taxonomy_term.field_signage_output_event_type
+    - taxonomy.vocabulary.signage_output_event_types
     - taxonomy.vocabulary.signage_output_events
-_core:
-  default_config_hash: iXmruuCX_-YP8LqZNrxZbAz6DQPxqxLU9cEiR4PWEG8
-id: node.signage_action.field_signage_do_output_event
-field_name: field_signage_do_output_event
-entity_type: node
-bundle: signage_action
-label: 'Do Output Event'
+id: taxonomy_term.signage_output_events.field_signage_output_event_type
+field_name: field_signage_output_event_type
+entity_type: taxonomy_term
+bundle: signage_output_events
+label: Type
 description: ''
 required: true
 translatable: false
@@ -21,7 +19,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      signage_output_events: signage_output_events
+      signage_output_event_types: signage_output_event_types
     sort:
       field: _none
     auto_create: false

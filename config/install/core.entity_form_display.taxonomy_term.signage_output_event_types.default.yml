@@ -2,14 +2,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - taxonomy.vocabulary.signage_action_group
+    - taxonomy.vocabulary.signage_output_event_types
   module:
     - text
-_core:
-  default_config_hash: JpdaV1lwSYJ7htJtlAPyLNaIFLBzRl0ODnxItYU1xaM
-id: taxonomy_term.signage_action_group.default
+id: taxonomy_term.signage_output_event_types.default
 targetEntityType: taxonomy_term
-bundle: signage_action_group
+bundle: signage_output_event_types
 mode: default
 content:
   description:

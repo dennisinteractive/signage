@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_channel
 _core:
-  default_config_hash: DsYBTyzW8BuuMLh7B8RQDsC0dhaX059-N8-i1AJ0YYY
+  default_config_hash: ITHa_2pBFPCzRyySbP9qIr2bNAJB4nlVbV7BLmIt8WA
 id: node.signage_channel.promote
 field_name: promote
 entity_type: node

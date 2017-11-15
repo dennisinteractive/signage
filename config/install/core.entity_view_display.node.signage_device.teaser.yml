@@ -8,7 +8,7 @@ dependencies:
   module:
     - user
 _core:
-  default_config_hash: x39khwTmYwL8DK2QZtBREdKP-vZDI9iQebutM_wsh9A
+  default_config_hash: 6FcARMc9VGBotsd23K9fSkxVotL8j1tRKk_XvK6RRlQ
 id: node.signage_device.teaser
 targetEntityType: node
 bundle: signage_device

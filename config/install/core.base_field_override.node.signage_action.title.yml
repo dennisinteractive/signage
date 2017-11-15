@@ -4,7 +4,7 @@ dependencies:
   config:
     - node.type.signage_action
 _core:
-  default_config_hash: AJMdoYFuamvCiU3-tlVmDa21FfhQxQc5Vp1X9rNVPjk
+  default_config_hash: orTOlo6HjXPYQQiczxOxcjS1BbygLGIqQdqhae3_qwE
 id: node.signage_action.title
 field_name: title
 entity_type: node

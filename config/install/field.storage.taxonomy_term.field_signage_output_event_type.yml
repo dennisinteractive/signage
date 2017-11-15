@@ -2,19 +2,16 @@ langcode: en
 status: true
 dependencies:
   module:
-    - node
     - taxonomy
-_core:
-  default_config_hash: wRvPaOJ4uAOjiSd0h3RokO9OYTqAzas7U5tpvup8eII
-id: node.field_signage_action_groups
-field_name: field_signage_action_groups
-entity_type: node
+id: taxonomy_term.field_signage_output_event_type
+field_name: field_signage_output_event_type
+entity_type: taxonomy_term
 type: entity_reference
 settings:
   target_type: taxonomy_term
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
