@@ -21,6 +21,11 @@ interface ActionInterface {
   public function setInputEvent(InputEvent $event);
 
   /**
+   * @return \Drupal\signage\Event\InputEvent
+   */
+  public function getInputEvent();
+
+  /**
    * @return \Drupal\signage\Event\OutputEventInterface
    */
   public function getOutputEvent();

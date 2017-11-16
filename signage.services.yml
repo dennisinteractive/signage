@@ -4,10 +4,11 @@ services:
 
   signage.event.output.url:
     class: Drupal\signage\Event\UrlEvent
+    arguments: ['@signage.event.payload']
 
   signage.event.output.message:
     class: Drupal\signage\Event\MessageEvent
-    arguments: ['@signage.message']
+    arguments: ['@signage.event.payload', '@signage.message']
 
   signage.event.output.factory:
     class: Drupal\signage\Event\OutputEventFactory
@@ -45,7 +46,7 @@ services:
 
   signage.action:
     class: Drupal\signage\Action\Action
-    arguments: ['@signage.event.output.factory', '@signage.event.payload']
+    arguments: ['@signage.event.output.factory']
 
   signage.action.service:
     class: Drupal\signage\Service\ActionService

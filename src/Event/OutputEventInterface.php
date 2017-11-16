@@ -51,4 +51,10 @@ interface OutputEventInterface {
    * @return self
    */
   public function setPayload(EventPayloadInterface $payload);
+
+  /**
+   * Populates the payload with data from the incoming event.
+   * @return self
+   */
+  public function populatePayload();
 }

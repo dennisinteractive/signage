@@ -11,8 +11,15 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
 
   protected $action;
 
+  /**
+   * @var \Drupal\signage\Event\EventPayload
+   */
   protected $payload;
 
+
+  public function __construct(EventPayloadInterface $payload) {
+    $this->setPayload($payload);
+  }
 
   /**
    * @inheritDoc

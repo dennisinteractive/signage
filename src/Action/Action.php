@@ -29,9 +29,8 @@ class Action implements ActionInterface {
   protected $entity;
 
 
-  public function __construct(OutputEventFactoryInterface $factory, EventPayload $payload) {
+  public function __construct(OutputEventFactoryInterface $factory) {
     $this->outputEventFactory = $factory;
-    $this->payload = $payload;
   }
 
   /**
@@ -53,12 +52,19 @@ class Action implements ActionInterface {
   /**
    * @inheritDoc
    */
+  public function getInputEvent() {
+    return $this->inputEvent;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function getOutputEvent() {
-    $p = $this->getOutputPayload();
+    //$p = $this->getOutputPayload();
     // Build the new output event eg; UrlEvent
     $event_type = $this->getOutputEventType();
     $oe = $this->outputEventFactory->getEvent($event_type);
-    $oe->setPayload($p);
+    //$oe->setPayload($p);
     $oe->setAction($this);
 
     return $oe;
@@ -76,39 +82,6 @@ class Action implements ActionInterface {
     $type_tid = $output_term->get('field_signage_output_event_type')->getValue();
     $type_term = \Drupal\taxonomy\Entity\Term::load($type_tid[0]['target_id']);
     return $type_term->getName();
-
-    // Temp code...
-    if ($this->inputEvent->getSource() == 'demo.input.url') {
-      return 'signage.url';
-      //return 'Drupal\signage\Event\UrlEvent';
-    }
-    else if($this->inputEvent->getSource() == 'demo.input.message') {
-      return 'signage.message';
-      //return 'Drupal\signage\Event\MessageEvent';
-    }
-  }
-
-  /**
-   * Prepare the output payload.
-   */
-  public function getOutputPayload() {
-    // TODO: Implement getOutputPayload() method.
-    // Populate the payload for the output event.
-
-    $vals = $this->inputEvent->getPayload()->getValues();
-
-    // Temp code...
-    if ($this->inputEvent->getSource() == 'demo.input.url') {
-      $url = $vals['url'] . '?'
-        . $vals['key_1'] . '=' . $vals['value_1'] . '&'
-        . $vals['key_2'] . '=' . $vals['value_2'];
-      $this->payload->setValue('url', $url);
-    }
-    else if($this->inputEvent->getSource() == 'demo.input.message') {
-      $this->payload->setValues($vals);
-    }
-
-    return $this->payload;
   }
 
   /**

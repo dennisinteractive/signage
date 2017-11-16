@@ -24,7 +24,7 @@ function signage_install() {
     'vid' => 'signage_output_events',
     'name' => 'Debug url deploy success',
     'field_signage_output_event_type' => [1], // signage.url HACK!
-    'description' => 'http://digitalsignage.vm8.didev.co.uk/pages/debug/url?site=[site]',
+    'description' => '[url]?[key_1]=[value_1]',
   ]);
   $term->save();
 
