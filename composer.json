@@ -14,7 +14,10 @@
   ],
 
   "require": {
-    "drupal/webhooks": "^1.0@alpha",
     "drupal/core": "~8.3.0"
+  },
+  
+  "require-dev": {
+     "phpdocumentor/phpdocumentor": "2.*"
   }
 }
