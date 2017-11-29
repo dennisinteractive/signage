@@ -59,3 +59,7 @@ services:
   signage.channel.service:
     class: Drupal\signage\Service\ChannelService
     arguments: ['@signage.channel']
+
+  signage.device:
+    class: Drupal\signage\Device\Device
+    arguments: ['@signage.channel']

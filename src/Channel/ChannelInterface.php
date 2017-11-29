@@ -21,6 +21,13 @@ interface ChannelInterface {
   public function getName();
 
   /**
+   * The default url.
+   *
+   * @return string
+   */
+  public function getDefaultUrl();
+
+  /**
    * The drupal entity, as returned by node_load().
    *
    * @param $entity

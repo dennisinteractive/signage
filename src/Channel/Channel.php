@@ -44,6 +44,13 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function getDefaultUrl() {
+    return $this->entity->get('field_signage_default_url')->getValue()[0]['value'];
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
   }
