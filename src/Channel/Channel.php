@@ -1,4 +1,8 @@
 <?php
+/**
+ * Wrapper for the Drupal channel content type.
+ */
+
 namespace Drupal\signage\Channel;
 
 
@@ -6,6 +10,11 @@ use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
 
+/**
+ * Class Channel.
+ *
+ * @package Drupal\signage\Channel
+ */
 class Channel implements ChannelInterface {
 
   /**

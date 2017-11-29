@@ -1,11 +1,19 @@
 <?php
+/**
+ * Wrapper for the Drupal action content type.
+ */
+
 namespace Drupal\signage\Action;
 
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\EventPayload;
 use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\OutputEventFactoryInterface;
 
+/**
+ * Class Action.
+ *
+ * @package Drupal\signage\Action
+ */
 class Action implements ActionInterface {
 
   /**
@@ -28,7 +36,11 @@ class Action implements ActionInterface {
    */
   protected $entity;
 
-
+  /**
+   * Action constructor.
+   *
+   * @param \Drupal\signage\Event\OutputEventFactoryInterface $factory
+   */
   public function __construct(OutputEventFactoryInterface $factory) {
     $this->outputEventFactory = $factory;
   }

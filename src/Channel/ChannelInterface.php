@@ -1,9 +1,18 @@
 <?php
+/**
+ * Interface for the Drupal content type wrapper.
+ */
+
 namespace Drupal\signage\Channel;
 
 use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
 
+/**
+ * Interface ChannelInterface.
+ *
+ * @package Drupal\signage\Channel
+ */
 interface ChannelInterface {
 
   /**
@@ -36,6 +45,11 @@ interface ChannelInterface {
    */
   public function setNode(NodeInterface $entity);
 
+  /**
+   * The Drupal node.
+   *
+   * @return NodeInterface
+   */
   public function getNode();
 
   /**
@@ -48,6 +62,8 @@ interface ChannelInterface {
   public function dispached(OutputEventInterface $event);
 
   /**
+   * The dispatched data.
+   *
    * @return array
    */
   public function getDispatched();
