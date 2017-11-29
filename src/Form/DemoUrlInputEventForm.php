@@ -50,13 +50,13 @@ class DemoUrlInputEventForm extends FormBase {
     $form['key_2'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Key 2'),
-      '#description' => $this->t('The key for value Value 2'),
+      '#description' => $this->t('The key for value Key 2'),
       '#size' => 32,
     );
     $form['value_2'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Value 1'),
-      '#description' => $this->t('The value of Key 2'),
+      '#title' => $this->t('Value 2'),
+      '#description' => $this->t('The value of Value 2'),
       '#size' => 32,
     );
 
