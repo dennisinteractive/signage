@@ -1,8 +1,17 @@
 <?php
+/**
+ * The url input event.
+ */
+
 namespace Drupal\signage\Event;
 
 use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Class InputEvent.
+ *
+ * @package Drupal\signage\Event
+ */
 class InputEvent extends Event implements InputEventInterface {
 
   const NAME = 'signage.input';

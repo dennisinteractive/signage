@@ -1,20 +1,28 @@
 <?php
+/**
+ * The output event interface.
+ */
 
 namespace Drupal\signage\Event;
 
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Channel\ChannelInterface;
 
+/**
+ * Interface OutputEventInterface.
+ *
+ * @package Drupal\signage\Event
+ */
 interface OutputEventInterface {
 
   /**
-   * The name to use when dispatching the event.
-   * eg; signage.url
+   * The name to use when dispatching the event, eg; signage.url.
    */
   static public function name();
 
   /**
    * The channel that the event will be sent to.
+   *
    * @param ChannelInterface $channel
    *
    * @return self
@@ -23,11 +31,14 @@ interface OutputEventInterface {
 
   /**
    * The channel that the event will be sent to.
+   *
    * @return ChannelInterface
    */
   public function getChannel();
 
   /**
+   * Sets the Action that called the event.
+   *
    * @param \Drupal\signage\Action\ActionInterface $action
    *
    * @return mixed
@@ -35,17 +46,22 @@ interface OutputEventInterface {
   public function setAction(ActionInterface $action);
 
   /**
+   * Gets the Action that called the event.
+   *
    * @return \Drupal\signage\Action\ActionInterface
    */
   public function getAction();
 
   /**
+   * Gets the event payload.
    *
    * @return EventPayload
    */
   public function getPayload();
 
   /**
+   * Sets the event payload.
+   *
    * @param \Drupal\signage\Event\EventPayloadInterface $payload
    *
    * @return self
@@ -54,6 +70,7 @@ interface OutputEventInterface {
 
   /**
    * Populates the payload with data from the incoming event.
+   *
    * @return self
    */
   public function populatePayload();

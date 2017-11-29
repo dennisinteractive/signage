@@ -1,7 +1,15 @@
 <?php
+/**
+ * The Url output event.
+ */
+
 namespace Drupal\signage\Event;
 
-
+/**
+ * Class UrlEvent.
+ *
+ * @package Drupal\signage\Event
+ */
 class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlEventInterface {
 
   /**

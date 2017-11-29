@@ -1,7 +1,15 @@
 <?php
+/**
+ * The event payload.
+ */
+
 namespace Drupal\signage\Event;
 
-
+/**
+ * Class EventPayload.
+ *
+ * @package Drupal\signage\Event
+ */
 class EventPayload implements EventPayloadInterface {
 
   /**

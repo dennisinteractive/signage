@@ -1,13 +1,22 @@
 <?php
+/**
+ * The event payload interface.
+ */
+
 namespace Drupal\signage\Event;
 
-
+/**
+ * Interface EventPayloadInterface.
+ *
+ * @package Drupal\signage\Event
+ */
 interface EventPayloadInterface {
 
   /**
    * Set a data value.
-   * @param $key
-   * @param $value
+   *
+   * @param string $key
+   * @param string $value
    *
    * @return self
    */
@@ -15,7 +24,8 @@ interface EventPayloadInterface {
 
   /**
    * Set all the values at once.
-   * @param $array
+   *
+   * @param array $array
    *
    * @return self
    */
@@ -23,6 +33,7 @@ interface EventPayloadInterface {
 
   /**
    * Key value pairs.
+   *
    * @return array
    */
   public function getValues();

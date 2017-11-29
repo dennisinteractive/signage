@@ -1,8 +1,16 @@
 <?php
+/**
+ * Message output event.
+ */
+
 namespace Drupal\signage\Event;
 
-use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Class MessageEvent.
+ *
+ * @package Drupal\signage\Event
+ */
 class MessageEvent extends OutputEventAbstract implements MessageEventInterface {
 
   /**
@@ -13,6 +21,7 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
   /**
    * MessageEvent constructor.
    *
+   * @param \Drupal\signage\Event\EventPayloadInterface $payload
    * @param \Drupal\signage\Event\MessageInterface $message
    */
   public function __construct(EventPayloadInterface $payload, MessageInterface $message) {

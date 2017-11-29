@@ -1,11 +1,19 @@
 <?php
-
+/**
+ * Interface for the output event factory.
+ */
 namespace Drupal\signage\Event;
 
+/**
+ * Interface OutputEventFactoryInterface.
+ *
+ * @package Drupal\signage\Event
+ */
 interface OutputEventFactoryInterface {
 
   /**
    * Registers available output events.
+   *
    * @param \Drupal\signage\Event\OutputEventInterface $event
    *
    * @return mixed
@@ -14,6 +22,7 @@ interface OutputEventFactoryInterface {
 
   /**
    * Gets the requested output event object.
+   *
    * @param $name
    *
    * @return \Drupal\signage\Event\OutputEventInterface

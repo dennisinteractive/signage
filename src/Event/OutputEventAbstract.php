@@ -1,10 +1,19 @@
 <?php
+/**
+ * Base class for output events.
+ */
+
 namespace Drupal\signage\Event;
 
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Channel\ChannelInterface;
 use Symfony\Component\EventDispatcher\Event;
 
+/**
+ * Class OutputEventAbstract.
+ *
+ * @package Drupal\signage\Event
+ */
 abstract class OutputEventAbstract extends Event implements OutputEventInterface {
 
   protected $channel;
@@ -17,6 +26,11 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
   protected $payload;
 
 
+  /**
+   * OutputEventAbstract constructor.
+   *
+   * @param \Drupal\signage\Event\EventPayloadInterface $payload
+   */
   public function __construct(EventPayloadInterface $payload) {
     $this->setPayload($payload);
   }

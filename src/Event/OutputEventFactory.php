@@ -1,7 +1,14 @@
 <?php
+/**
+ * Creates output events.
+ */
 namespace Drupal\signage\Event;
 
-
+/**
+ * Class OutputEventFactory.
+ *
+ * @package Drupal\signage\Event
+ */
 class OutputEventFactory implements OutputEventFactoryInterface {
 
   /**

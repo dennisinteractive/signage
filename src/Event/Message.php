@@ -1,6 +1,15 @@
 <?php
+/**
+ * Message for popups.
+ */
+
 namespace Drupal\signage\Event;
 
+/**
+ * Class Message.
+ *
+ * @package Drupal\signage\Event
+ */
 class Message implements MessageInterface {
 
   protected $title;

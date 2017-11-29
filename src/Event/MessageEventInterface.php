@@ -1,6 +1,9 @@
 <?php
-namespace Drupal\signage\Event;
+/**
+ * Message output event interface.
+ */
 
+namespace Drupal\signage\Event;
 
 
 interface MessageEventInterface extends OutputEventInterface {

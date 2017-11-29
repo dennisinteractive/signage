@@ -1,6 +1,15 @@
 <?php
+/**
+ * Message for popups interface.
+ */
+
 namespace Drupal\signage\Event;
 
+/**
+ * Interface MessageInterface.
+ *
+ * @package Drupal\signage\Event
+ */
 interface MessageInterface {
 
   /**
