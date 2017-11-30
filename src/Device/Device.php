@@ -16,15 +16,24 @@ use Drupal\signage\Channel\ChannelInterface;
 class Device implements DeviceInterface {
 
   /**
+   * The drupal node.
+   *
    * @var NodeInterface
    */
   protected $entity;
 
   /**
+   * The channel.
+   *
    * @var \Drupal\signage\Channel\ChannelInterface
    */
   protected $channel;
 
+  /**
+   * Device constructor.
+   *
+   * @param \Drupal\signage\Channel\ChannelInterface $channel
+   */
   public function __construct(ChannelInterface $channel) {
     $this->channel = $channel;
   }
@@ -64,6 +73,11 @@ class Device implements DeviceInterface {
     return $this->getChannel()->getName();
   }
 
+  /**
+   * Gets the current object for the device.
+   *
+   * @return \Drupal\signage\Channel\ChannelInterface
+   */
   protected function getChannel() {
     if (empty($this->channel->getNode())) {
       // Get the drupal channel node.

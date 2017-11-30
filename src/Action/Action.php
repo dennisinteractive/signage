@@ -6,7 +6,7 @@
 namespace Drupal\signage\Action;
 
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Event\InputEventInterface;
 use Drupal\signage\Event\OutputEventFactoryInterface;
 
 /**
@@ -17,21 +17,29 @@ use Drupal\signage\Event\OutputEventFactoryInterface;
 class Action implements ActionInterface {
 
   /**
+   * The input event.
+   *
    * @var \Drupal\signage\Event\InputEvent
    */
   protected $inputEvent;
 
   /**
+   * The output event factory.
+   *
    * @var \Drupal\signage\Event\OutputEventFactoryInterface
    */
   protected $outputEventFactory;
 
   /**
+   * The event payload.
+   *
    * @var \Drupal\signage\Event\EventPayload
    */
   protected $payload;
 
   /**
+   * The action node.
+   *
    * @var NodeInterface
    */
   protected $entity;
@@ -55,7 +63,7 @@ class Action implements ActionInterface {
   /**
    * @inheritDoc
    */
-  public function setInputEvent(InputEvent $event) {
+  public function setInputEvent(InputEventInterface $event) {
     $this->inputEvent = $event;
 
     return $this;

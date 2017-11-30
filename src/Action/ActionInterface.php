@@ -6,7 +6,8 @@
 namespace Drupal\signage\Action;
 
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Event\InputEventInterface;
+use Drupal\signage\Event\OutputEventInterface;
 
 /**
  * Interface ActionInterface.
@@ -25,30 +26,30 @@ interface ActionInterface {
   /**
    * Set the input event.
    *
-   * @param \Drupal\signage\Event\InputEvent $event
+   * @param InputEventInterface $event
    *
    * @return self
    */
-  public function setInputEvent(InputEvent $event);
+  public function setInputEvent(InputEventInterface $event);
 
   /**
    * The input event.
    *
-   * @return \Drupal\signage\Event\InputEvent
+   * @return InputEventInterface
    */
   public function getInputEvent();
 
   /**
    * The output event.
    *
-   * @return \Drupal\signage\Event\OutputEventInterface
+   * @return OutputEventInterface
    */
   public function getOutputEvent();
 
   /**
    * The drupal entity, as returned by node_load().
    *
-   * @param $entity
+   * @param NodeInterface $entity
    *
    * @return self
    */
