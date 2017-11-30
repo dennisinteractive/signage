@@ -1,8 +1,17 @@
 <?php
+/**
+ * Device interface.
+ */
+
 namespace Drupal\signage\Device;
 
 use Drupal\node\NodeInterface;
 
+/**
+ * Interface DeviceInterface.
+ *
+ * @package Drupal\signage\Device
+ */
 interface DeviceInterface {
 
   /**
@@ -22,7 +31,7 @@ interface DeviceInterface {
   /**
    * The drupal entity, as returned by node_load().
    *
-   * @param $entity
+   * @param NodeInterface $entity
    *
    * @return self
    */

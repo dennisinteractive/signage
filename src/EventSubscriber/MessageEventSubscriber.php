@@ -1,12 +1,18 @@
 <?php
+/**
+ * Subscribe to message output events.
+ */
 
 namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\MessageEventInterface;
-use Drupal\signage\Event\OutputEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-
+/**
+ * Class MessageEventSubscriber.
+ *
+ * @package Drupal\signage\EventSubscriber
+ */
 class MessageEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
 
   /**

@@ -1,12 +1,23 @@
 <?php
+/**
+ * Service for Actions.
+ */
+
 namespace Drupal\signage\Service;
 
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Event\InputEvent;
 
+/**
+ * Class ActionService.
+ *
+ * @package Drupal\signage\Service
+ */
 class ActionService implements ActionServiceInterface {
 
   /**
+   * An empty cloneable action.
+   *
    * @var \Drupal\signage\Action\ActionInterface
    */
   protected $action;

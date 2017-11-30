@@ -1,29 +1,40 @@
 <?php
+/**
+ * Perform the actions for input events.
+ */
 
 namespace Drupal\signage\EventSubscriber;
 
-
-use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\InputEventInterface;
 use Drupal\signage\Service\ActionServiceInterface;
 use Drupal\signage\Service\ChannelServiceInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-
+/**
+ * Class InputEventSubscriber.
+ *
+ * @package Drupal\signage\EventSubscriber
+ */
 class InputEventSubscriber implements EventSubscriberInterface {
 
   /**
+   * The event dispatcher.
+   *
    * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
    */
   protected $dispatcher;
 
   /**
+   * The action service.
+   *
    * @var \Drupal\signage\Service\ActionServiceInterface
    */
   protected $actionService;
 
   /**
+   * The channel service.
+   *
    * @var \Drupal\signage\Service\ChannelServiceInterface
    */
   protected $channelService;

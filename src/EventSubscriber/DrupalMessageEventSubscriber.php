@@ -1,14 +1,20 @@
 <?php
+/**
+ * Drupal messages for subscribed events, for debugging.
+ */
 
 namespace Drupal\signage\EventSubscriber;
-
 
 use Drupal\signage\Event\InputEventInterface;
 use Drupal\signage\Event\MessageEventInterface;
 use Drupal\signage\Event\UrlEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-
+/**
+ * Class DrupalMessageEventSubscriber.
+ *
+ * @package Drupal\signage\EventSubscriber
+ */
 class DrupalMessageEventSubscriber implements EventSubscriberInterface {
 
   /**
@@ -45,7 +51,7 @@ class DrupalMessageEventSubscriber implements EventSubscriberInterface {
     );
   }
 
-  /**s
+  /**
    * Callback for the message event.
    * @param MessageEventInterface $event
    */

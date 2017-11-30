@@ -1,13 +1,21 @@
 <?php
+/**
+ * Channel service interface.
+ */
+
 namespace Drupal\signage\Service;
 
-
+/**
+ * Interface ChannelServiceInterface.
+ *
+ * @package Drupal\signage\Service
+ */
 interface ChannelServiceInterface {
 
   /**
    * A list of channels that show the action.
    *
-   * @param $id
+   * @param int $id
    *
    * @return array
    */

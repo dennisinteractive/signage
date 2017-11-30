@@ -1,8 +1,17 @@
 <?php
+/**
+ * Service for Channels.
+ */
+
 namespace Drupal\signage\Service;
 
 use Drupal\signage\Channel\ChannelInterface;
 
+/**
+ * Class ChannelService.
+ *
+ * @package Drupal\signage\Service
+ */
 class ChannelService implements ChannelServiceInterface {
 
   /**

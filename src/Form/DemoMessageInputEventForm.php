@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Demo form for sending a message event.
+ */
 
 namespace Drupal\signage\Form;
 

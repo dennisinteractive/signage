@@ -1,4 +1,7 @@
 <?php
+/**
+ * Subscribe to url output events.
+ */
 
 namespace Drupal\signage\EventSubscriber;
 
@@ -6,7 +9,11 @@ use Drupal\signage\Event\OutputEventInterface;
 use Drupal\signage\Event\UrlEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-
+/**
+ * Class UrlEventSubscriber.
+ *
+ * @package Drupal\signage\EventSubscriber
+ */
 class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
 
   /**

@@ -1,9 +1,18 @@
 <?php
+/**
+ * Wrapper for the Drupal device content type.
+ */
+
 namespace Drupal\signage\Device;
 
 use Drupal\node\NodeInterface;
 use Drupal\signage\Channel\ChannelInterface;
 
+/**
+ * Class Device.
+ *
+ * @package Drupal\signage\Device
+ */
 class Device implements DeviceInterface {
 
   /**
