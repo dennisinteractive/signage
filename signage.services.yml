@@ -26,6 +26,12 @@ services:
     tags:
       - { name: 'event_subscriber' }
 
+  signage.entity.update.subscriber:
+    class: Drupal\signage\EventSubscriber\EntityUpdateEventSubscriber
+    arguments: ['@event_dispatcher', '@signage.device']
+    tags:
+      - { name: 'event_subscriber' }
+
   signage.event.subscriber.debug:
     class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
     tags:

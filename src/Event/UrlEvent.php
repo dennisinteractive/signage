@@ -15,13 +15,6 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
   /**
    * @inheritDoc
    */
-  static public function name() {
-    return self::NAME;
-  }
-
-  /**
-   * @inheritDoc
-   */
   public function getUrl() {
     $vals = $this->populatePayload()->getPayload()->getValues();
     return reset($vals);
