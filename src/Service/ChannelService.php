@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Service;
 
+use Drupal\node\Entity\Node;
 use Drupal\signage\Channel\ChannelInterface;
 
 /**
@@ -34,10 +35,11 @@ class ChannelService implements ChannelServiceInterface {
       ->condition('field_signage_actions', $id)
     ;
     $rows = $query->execute();
+
     $channels = [];
     foreach ($rows as $row) {
       $channel = clone $this->channel;
-      $node =  \Drupal\node\Entity\Node::load($row);
+      $node =  Node::load($row);
       $channel->setNode($node);
       $channels[] = $channel;
     }

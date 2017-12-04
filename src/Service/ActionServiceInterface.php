@@ -18,8 +18,6 @@ interface ActionServiceInterface {
    * The Actions that are fired due to the input event.
    *
    * @param InputEvent $event
-   *
-   * @return array of Action
    */
   public function getActionsForInputEvent(InputEvent $event);
 }
