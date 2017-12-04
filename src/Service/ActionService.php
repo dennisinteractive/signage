@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Service;
 
+use Drupal\node\Entity\Node;
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Event\InputEvent;
 
@@ -35,6 +36,8 @@ class ActionService implements ActionServiceInterface {
    * @inheritDoc
    */
   public function getActionsForInputEvent(InputEvent $event) {
+    $actions = [];
+
     //@todo Names must be unique for input event terms.
 
     // Get the tid for the incoming event.
@@ -42,6 +45,10 @@ class ActionService implements ActionServiceInterface {
       ->condition('name', $event->getSource())
       ->execute()
     ;
+    if (empty($event_tids)) {
+      return $actions;
+    }
+
     $event_tid = reset($event_tids);
 
     // Get the action content that have the input event tid as a reference.
@@ -49,13 +56,14 @@ class ActionService implements ActionServiceInterface {
       ->condition('field_signage_on_input_event', $event_tid)
     ;
     $rows = $query->execute();
-    $actions = [];
+
     foreach ($rows as $row) {
       $action = clone $this->action;
-      $node =  \Drupal\node\Entity\Node::load($row);
-      $action->setNode($node);
-      $action->setInputEvent($event);
-      $actions[] = $action;
+      if ($node = Node::load($row)) {
+        $action->setNode($node);
+        $action->setInputEvent($event);
+        $actions[] = $action;
+      }
     }
 
     return $actions;
