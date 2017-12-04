@@ -1,0 +1,8 @@
+<?php
+
+function signage_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  $dispatcher = Drupal::getContainer()->get('event_dispatcher');
+
+  $event = new \Drupal\signage\Event\EntityEvent($entity);
+  $dispatcher->dispatch(\Drupal\signage\Event\EntityEvent::UPDATE, $event);
+}
