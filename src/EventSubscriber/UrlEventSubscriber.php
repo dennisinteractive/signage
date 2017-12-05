@@ -5,8 +5,9 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\InputEvent;
 use Drupal\signage\Event\UrlEventInterface;
+use Drupal\signage\Service\PendingInputEventInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -15,6 +16,20 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @package Drupal\signage\EventSubscriber
  */
 class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
+
+  /**
+   * @var \Drupal\signage\Service\PendingInputEventInterface
+   */
+  protected $pendingInputEvent;
+
+  /**
+   * UrlEventSubscriber constructor.
+   *
+   * @param \Drupal\signage\Service\PendingInputEventInterface $pendingInputEvent
+   */
+  public function __construct(PendingInputEventInterface $pendingInputEvent) {
+    $this->pendingInputEvent = $pendingInputEvent;
+  }
 
   /**
    * @inheritDoc
@@ -37,6 +52,15 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     );
 
     //@todo PendingActionService that cron uses: event | payload | time
+    $cron_event = new InputEvent($event->getPayload());
+    $this->pendingInputEvent->addInputEvent($cron_event,time() + 10);
+
+//    if ($max_time = $event->getAction()->getMaximumTime()) {
+//      $due = time() + $max_time;
+//      // Add a default url event.
+    //  $cron_event = new InputEvent($event->getPayload());
+//      $this->pendingInputEvent->addInputEvent($cron_event, $due);
+//    }
 
   }
 

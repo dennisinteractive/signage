@@ -39,6 +39,7 @@ services:
 
   signage.event.subscriber.url:
     class: Drupal\signage\EventSubscriber\UrlEventSubscriber
+    arguments: ['@signage.pending.input.event.service']
     tags:
       - { name: 'event_subscriber' }
 
@@ -69,3 +70,7 @@ services:
   signage.device:
     class: Drupal\signage\Device\Device
     arguments: ['@signage.channel']
+
+  signage.pending.input.event.service:
+    class: Drupal\signage\Service\PendingInputEvent
+    arguments: ['@database']

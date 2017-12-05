@@ -5,25 +5,54 @@
  */
 function signage_install() {
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
+  $url_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_event_types',
     'name' => 'signage.url',
     'description' => 'Provides an object of \Drupal\signage\Event\UrlEventInterface',
   ]);
-  $term->save();
+  $url_term->save();
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
+  $msg_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_event_types',
     'name' => 'signage.message',
     'description' => 'Provides an object of \Drupal\signage\Event\MessageEventInterface',
   ]);
-  $term->save();
+  $msg_term->save();
+
+  // Cron default url event
+  $cron_default_url_input_term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'signage_input_events',
+    'name' => 'cron.default.url',
+  ]);
+  $cron_default_url_input_term->save();
+
+  // Cron set default url output event
+  $set_default_url_term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'signage_output_events',
+    'name' => 'Set default url',
+    'field_signage_output_event_type' => $url_term->id(),
+    'description' => '[url]',
+  ]);
+  $set_default_url_term->save();
+
+  // Create the cron action.
+  $node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_action',
+    'title'  => 'Cron set default url',
+    'field_signage_on_input_event' => [
+      'target_id' => $cron_default_url_input_term->id(),
+    ],
+    'field_signage_do_output_event' => [
+      'target_id' => $set_default_url_term->id(),
+    ],
+  ]);
+  $node->save();
 
   // Create some example event terms.
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_events',
     'name' => 'Debug url deploy success',
-    'field_signage_output_event_type' => [1], // signage.url HACK!
+    'field_signage_output_event_type' => $url_term->id(),
     'description' => '[url]?[key_1]=[value_1]',
   ]);
   $term->save();
@@ -31,7 +60,7 @@ function signage_install() {
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_events',
     'name' => 'Debug message deploy fail',
-    'field_signage_output_event_type' => [2], // signage.message HACK!
+    'field_signage_output_event_type' => $msg_term->id(),
     'description' => 'Deployment for [site] failed :(',
   ]);
   $term->save();
