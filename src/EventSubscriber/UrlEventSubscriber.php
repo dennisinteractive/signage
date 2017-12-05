@@ -7,6 +7,7 @@ namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\OutputEventInterface;
 use Drupal\signage\Event\UrlEventInterface;
+use Drupal\signage\Service\PendingActionServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -15,6 +16,20 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @package Drupal\signage\EventSubscriber
  */
 class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
+
+  /**
+   * @var \Drupal\signage\Service\PendingActionServiceInterface
+   */
+  protected $pendingActionService;
+
+  /**
+   * UrlEventSubscriber constructor.
+   *
+   * @param \Drupal\signage\Service\PendingActionServiceInterface $pendingActionService
+   */
+  public function __construct(PendingActionServiceInterface $pendingActionService) {
+    $this->pendingActionService = $pendingActionService;
+  }
 
   /**
    * @inheritDoc
@@ -37,7 +52,7 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     );
 
     //@todo PendingActionService that cron uses: event | payload | time
-
+    $this->pendingActionService->addAction($event->getAction());
   }
 
 }
