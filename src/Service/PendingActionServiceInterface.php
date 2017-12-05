@@ -36,9 +36,12 @@ interface PendingActionServiceInterface {
    * Add an action that should be dispatched later.
    *
    * @param \Drupal\signage\Action\ActionInterface $action
+   *  The action that will be dispatched later.
+   * @param integer $due
+   *  The timestamp when the action should be dispatched.
    *
    * @return self
    */
-  public function addAction(ActionInterface $action);
+  public function addAction(ActionInterface $action, $due);
 
 }

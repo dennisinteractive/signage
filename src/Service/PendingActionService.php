@@ -59,11 +59,8 @@ class PendingActionService extends DatabaseQueue implements PendingActionService
   /**
    * @inheritDoc
    */
-  public function addAction(ActionInterface $action) {
-    // TODO: Implement addAction() method.
-
-    $tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
-    $data['due'] = date($tomorrow);
+  public function addAction(ActionInterface $action, $due) {
+    $data['due'] = $due;
     $data['id'] = $action->getId();
     $this->createItem($data);
   }

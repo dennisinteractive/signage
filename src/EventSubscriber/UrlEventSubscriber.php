@@ -51,8 +51,13 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
       "handleOutputEvent: " . json_encode($event)
     );
 
+    // @todo handle action field_signage_minimum_time
+    // no other action should be sent while within the minimum time.
+    // stored in the channel state?
+
     //@todo PendingActionService that cron uses: event | payload | time
-    $this->pendingActionService->addAction($event->getAction());
+    $due  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+    $this->pendingActionService->addAction($event->getAction(), $due);
   }
 
 }

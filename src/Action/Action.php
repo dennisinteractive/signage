@@ -118,4 +118,19 @@ class Action implements ActionInterface {
     return $this->entity;
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function getMinimumTime() {
+    // TODO: Implement getMinimumTime() method.
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getMaximumTime() {
+    // TODO: Implement getMaximumTime() method.
+  }
+
+
 }
