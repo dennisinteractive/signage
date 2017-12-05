@@ -25,7 +25,7 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
    *   The Connection object containing the key-value tables.
    */
   public function __construct(Connection $connection) {
-    parent::__construct('event', $connection);
+    parent::__construct('signage_event', $connection);
   }
 
   /**
@@ -52,15 +52,10 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   /**
    * @inheritDoc
    */
-  public function getNextDue() {
-    // TODO: Implement getDueAction() method.
-  }
-
-  /**
-   * @inheritDoc
-   */
   public function addEvent(OutputEventInterface $event, $due) {
     $data['due'] = $due;
+    $data['payload'] = $event->getPayload();
+    $data['channel_id'] = $event->getChannel()->getId();
     $data['event'] = $event;
     $this->createItem($data);
   }

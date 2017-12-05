@@ -27,13 +27,6 @@ interface PendingEventServiceInterface {
   public function numberDue();
 
   /**
-   * Get the next event that should now be dispatched.
-   *
-   * @return OutputEventInterface
-   */
-  public function getNextDue();
-
-  /**
    * Add an event that should be dispatched later.
    *
    * @param OutputEventInterface $event

@@ -5,7 +5,6 @@
 
 namespace Drupal\signage\Channel;
 
-
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
@@ -27,6 +26,12 @@ class Channel implements ChannelInterface {
    */
   protected $entity;
 
+  protected $id;
+
+  protected $name;
+
+  protected $defaultUrl;
+
   /**
    * Channel constructor.
    *
@@ -40,21 +45,21 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function getId() {
-    return (int) $this->entity->id();
+    return $this->id;
   }
 
   /**
    * @inheritDoc
    */
   public function getName() {
-    return $this->entity->getTitle();
+    return $this->name;
   }
 
   /**
    * @inheritDoc
    */
   public function getDefaultUrl() {
-    return $this->entity->get('field_signage_default_url')->getValue()[0]['value'];
+    return $this->defaultUrl;
   }
 
   /**
@@ -62,6 +67,14 @@ class Channel implements ChannelInterface {
    */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
+    $this->id = (int) $this->entity->id();
+    $this->name = $this->entity->getTitle();
+    if (isset($this->entity->get('field_signage_default_url')->getValue()[0]['value'])) {
+      $this->defaultUrl = $this->entity->get('field_signage_default_url')
+        ->getValue()[0]['value'];
+    }
+
+    return $this;
   }
 
   /**

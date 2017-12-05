@@ -36,6 +36,8 @@ interface OutputEventInterface {
    */
   public function getChannel();
 
+  public function getChannelName();
+
   /**
    * Sets the Action that called the event.
    *

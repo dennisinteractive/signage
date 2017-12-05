@@ -47,7 +47,7 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     $event->getChannel()->dispached($event);
 
     //TMP
-    $this->pendingEventService->addEvent($event, time() + 600);
+    $this->pendingEventService->addEvent($event, time() + 10);
 
     // Update the current state.
     drupal_set_message(
