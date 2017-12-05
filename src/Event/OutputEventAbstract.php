@@ -38,13 +38,6 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
   /**
    * @inheritDoc
    */
-  static public function name() {
-    return self::NAME;
-  }
-
-  /**
-   * @inheritDoc
-   */
   public function setChannel(ChannelInterface $channel) {
     $this->channel = $channel;
 
