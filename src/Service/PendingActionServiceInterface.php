@@ -41,12 +41,4 @@ interface PendingActionServiceInterface {
    */
   public function addAction(ActionInterface $action);
 
-  /**
-   * Remove an action from the pending service.
-   *
-   * @param \Drupal\signage\Action\ActionInterface $action
-   *
-   * @return mixed
-   */
-  public function deleteAction(ActionInterface $action);
 }

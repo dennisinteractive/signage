@@ -61,6 +61,7 @@ services:
 
   signage.pending.action.service:
     class: Drupal\signage\Service\PendingActionService
+    arguments: ['@database']
 
   signage.channel:
     class: Drupal\signage\Channel\Channel
