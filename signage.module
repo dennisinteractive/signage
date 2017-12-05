@@ -17,7 +17,7 @@ function signage_cron() {
 
   if ($item = $pending_service->claimItem()) {
 
-    $event = $item->data['event'];
+    $event = $item->data['event']; //var_dump($event->getPayload, $event->getSource()); exit;
     drupal_set_message(
       sprintf(
         'CRON for source: %s ',

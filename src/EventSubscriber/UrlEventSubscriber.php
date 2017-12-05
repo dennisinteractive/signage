@@ -52,13 +52,15 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     );
 
     //@todo PendingActionService that cron uses: event | payload | time
-    $cron_event = new InputEvent($event->getPayload());
+    $cron_event = new InputEvent('cron.default.url');
+    $cron_event->setPayload($event->getPayload());
     $this->pendingInputEvent->addInputEvent($cron_event,time() + 10);
 
 //    if ($max_time = $event->getAction()->getMaximumTime()) {
 //      $due = time() + $max_time;
 //      // Add a default url event.
-    //  $cron_event = new InputEvent($event->getPayload());
+//    $cron_event = new InputEvent('cron.default.url');
+//    $cron_event->setPayload($event->getPayload());
 //      $this->pendingInputEvent->addInputEvent($cron_event, $due);
 //    }
 
