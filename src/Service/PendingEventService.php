@@ -14,7 +14,7 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   /**
    * The database table name.
    */
-  const TABLE_NAME = 'pending_events';
+  const TABLE_NAME = 'signage_pending';
 
   /**
    * Constructs a \Drupal\Core\Queue\DatabaseQueue object.
