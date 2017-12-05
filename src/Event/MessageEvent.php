@@ -30,6 +30,13 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
   }
 
   /**
+   * @inheritDoc
+   */
+  static public function name() {
+    return self::NAME;
+  }
+
+  /**
    * The message.
    * @return \Drupal\signage\Event\MessageInterface
    */
