@@ -7,7 +7,7 @@ namespace Drupal\signage\EventSubscriber;
 
 use Drupal\signage\Event\OutputEventInterface;
 use Drupal\signage\Event\UrlEventInterface;
-use Drupal\signage\Service\PendingActionServiceInterface;
+use Drupal\signage\Service\PendingEventServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -18,17 +18,17 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
 
   /**
-   * @var \Drupal\signage\Service\PendingActionServiceInterface
+   * @var \Drupal\signage\Service\PendingEventServiceInterface
    */
-  protected $pendingActionService;
+  protected $pendingEventService;
 
   /**
    * UrlEventSubscriber constructor.
    *
-   * @param \Drupal\signage\Service\PendingActionServiceInterface $pendingActionService
+   * @param \Drupal\signage\Service\PendingEventServiceInterface $pendingEventService
    */
-  public function __construct(PendingActionServiceInterface $pendingActionService) {
-    $this->pendingActionService = $pendingActionService;
+  public function __construct(PendingEventServiceInterface $pendingEventService) {
+    $this->pendingEventService = $pendingEventService;
   }
 
   /**
@@ -46,6 +46,9 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
   public function handleOutputEvent(UrlEventInterface $event) {
     $event->getChannel()->dispached($event);
 
+    //TMP
+    $this->pendingEventService->addEvent($event, time() + 600);
+
     // Update the current state.
     drupal_set_message(
       "handleOutputEvent: " . json_encode($event)
@@ -55,9 +58,13 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     // no other action should be sent while within the minimum time.
     // stored in the channel state?
 
-    //@todo PendingActionService that cron uses: event | payload | time
-    $due  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
-    $this->pendingActionService->addAction($event->getAction(), $due);
+    // Add a pending action for when this action times out.
+    if ($max_time = $event->getAction()->getMaximumTime()) {
+      $due = time() + $max_time;
+
+      // Add a default url event.
+      $this->pendingEventService->addEvent($event, $due);
+    }
   }
 
 }

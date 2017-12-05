@@ -63,14 +63,14 @@ interface ActionInterface {
   public function getNode();
 
   /**
-   * Timestamp until which all other actions of the same type must be ignored.
+   * Number of seconds until which all other actions of the same type must be ignored.
    *
    * @return integer
    */
   public function getMinimumTime();
 
   /**
-   * Timestamp after which the action should be cleared.
+   * Number of seconds after which the action should be cleared.
    *
    * @return integer
    */

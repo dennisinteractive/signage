@@ -39,7 +39,7 @@ services:
 
   signage.event.subscriber.url:
     class: Drupal\signage\EventSubscriber\UrlEventSubscriber
-    arguments: ['@signage.pending.action.service']
+    arguments: ['@signage.pending.event.service']
     tags:
       - { name: 'event_subscriber' }
 
@@ -59,8 +59,8 @@ services:
     class: Drupal\signage\Service\ActionService
     arguments: ['@signage.action']
 
-  signage.pending.action.service:
-    class: Drupal\signage\Service\PendingActionService
+  signage.pending.event.service:
+    class: Drupal\signage\Service\PendingEventService
     arguments: ['@database']
 
   signage.channel:

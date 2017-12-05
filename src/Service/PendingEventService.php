@@ -1,20 +1,20 @@
 <?php
 /**
- * Service for Pending actions.
+ * Service for events that are to be dispatched in the future.
  */
 
 namespace Drupal\signage\Service;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Queue\DatabaseQueue;
-use Drupal\signage\Action\ActionInterface;
+use Drupal\signage\Event\OutputEventInterface;
 
-class PendingActionService extends DatabaseQueue implements PendingActionServiceInterface {
+class PendingEventService extends DatabaseQueue implements PendingEventServiceInterface {
 
   /**
    * The database table name.
    */
-  const TABLE_NAME = 'pending_actions';
+  const TABLE_NAME = 'pending_events';
 
   /**
    * Constructs a \Drupal\Core\Queue\DatabaseQueue object.
@@ -25,13 +25,13 @@ class PendingActionService extends DatabaseQueue implements PendingActionService
    *   The Connection object containing the key-value tables.
    */
   public function __construct(Connection $connection) {
-    parent::__construct('pending_actions', $connection);
+    parent::__construct('event', $connection);
   }
 
   /**
    * @inheritDoc
    */
-  public function numberOfDueActions() {
+  public function numberDue() {
     try {
       $now = time();
       return $this->connection->query(
@@ -52,16 +52,16 @@ class PendingActionService extends DatabaseQueue implements PendingActionService
   /**
    * @inheritDoc
    */
-  public function getDueAction() {
+  public function getNextDue() {
     // TODO: Implement getDueAction() method.
   }
 
   /**
    * @inheritDoc
    */
-  public function addAction(ActionInterface $action, $due) {
+  public function addEvent(OutputEventInterface $event, $due) {
     $data['due'] = $due;
-    $data['id'] = $action->getId();
+    $data['event'] = $event;
     $this->createItem($data);
   }
 

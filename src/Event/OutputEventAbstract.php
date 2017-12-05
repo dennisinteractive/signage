@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Event;
 
+use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Channel\ChannelInterface;
 use Symfony\Component\EventDispatcher\Event;
@@ -15,6 +16,10 @@ use Symfony\Component\EventDispatcher\Event;
  * @package Drupal\signage\Event
  */
 abstract class OutputEventAbstract extends Event implements OutputEventInterface {
+  /**
+   * Make the event serializable.
+   */
+  use DependencySerializationTrait;
 
   protected $channel;
 
