@@ -63,11 +63,19 @@ interface ActionInterface {
   public function getNode();
 
   /**
+   * So the channel can be serialized.
+   * @return self
+   */
+  public function unsetNode();
+
+  /**
    * Number of seconds until which all other actions of the same type must be ignored.
    *
    * @return integer
    */
   public function getMinimumTime();
+
+  public function setMinimumTime($int);
 
   /**
    * Number of seconds after which the action should be cleared.
@@ -75,5 +83,7 @@ interface ActionInterface {
    * @return integer
    */
   public function getMaximumTime();
+
+  public function setMaximumTime($int);
 
 }

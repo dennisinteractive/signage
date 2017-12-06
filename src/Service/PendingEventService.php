@@ -54,8 +54,6 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
    */
   public function addEvent(OutputEventInterface $event, $due) {
     $data['due'] = $due;
-    $data['payload'] = $event->getPayload();
-    $data['channel_id'] = $event->getChannel()->getId();
     $data['event'] = $event;
     $this->createItem($data);
   }

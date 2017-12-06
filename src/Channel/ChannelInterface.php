@@ -22,6 +22,8 @@ interface ChannelInterface {
    */
   public function getId();
 
+  public function setId($id);
+
   /**
    * The channel name.
    *
@@ -29,12 +31,16 @@ interface ChannelInterface {
    */
   public function getName();
 
+  public function setName($name);
+
   /**
    * The default url.
    *
    * @return string
    */
   public function getDefaultUrl();
+
+  public function setDefaultUrl($url);
 
   /**
    * The drupal entity, as returned by node_load().
@@ -51,6 +57,12 @@ interface ChannelInterface {
    * @return NodeInterface
    */
   public function getNode();
+
+  /**
+   * So the channel can be serialized.
+   * @return self
+   */
+  public function unsetNode();
 
   /**
    * Stores the dispatched output event, so the channel knows its current state.

@@ -5,7 +5,7 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\UrlEvent;
 use Drupal\signage\Event\UrlEventInterface;
 use Drupal\signage\Service\PendingEventServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -47,23 +47,38 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
     $event->getChannel()->dispached($event);
 
     //TMP
-    $this->pendingEventService->addEvent($event, time() + 10);
+
+    // Remove the nodes so the object can be serialized.
+//    $event->getChannel()->unsetNode();
+//    $event->getChannel()->unsetSate();
+//    $event->getAction()->unsetNode();
+//    // Default url has no max time.
+//    $event->getAction()->setMaximumTime(0);
+//    // Set the dfault url.
+//    $event->setUrl($event->getChannel()->getDefaultUrl());
+
+    // Build a new url output event to set the default url later.
+    $output_factory = \Drupal::getContainer()->get('signage.event.output.factory');
+    $url_event = $output_factory->getEvent($event::name());
+    $url_event->setUrl($event->getChannel()->getDefaultUrl());
+    $event->getChannel()->unsetNode();
+    $event->getChannel()->unsetSate();
+    $url_event->setChannel($event->getChannel());
+
+    $this->pendingEventService->addEvent($url_event, time() + 10);
 
     // Update the current state.
     drupal_set_message(
       "handleOutputEvent: " . json_encode($event)
     );
 
-    // @todo handle action field_signage_minimum_time
-    // no other action should be sent while within the minimum time.
-    // stored in the channel state?
+    // Add a pending event for when this action times out.
+    if ($action = $event->getAction()) {
+      if ($max_time = $action->getMaximumTime()) {
+        $due = time() + $max_time;
 
-    // Add a pending action for when this action times out.
-    if ($max_time = $event->getAction()->getMaximumTime()) {
-      $due = time() + $max_time;
-
-      // Add a default url event.
-      $this->pendingEventService->addEvent($event, $due);
+        // Add a default url event.
+      }
     }
   }
 

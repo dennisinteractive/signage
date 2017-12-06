@@ -41,11 +41,23 @@ class Channel implements ChannelInterface {
     $this->state = $state;
   }
 
+  public function unsetSate() {
+    unset($this->state);
+  }
+
   /**
    * @inheritDoc
    */
   public function getId() {
     return $this->id;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setId($id) {
+    $this->id = $id;
+    return $this;
   }
 
   /**
@@ -58,6 +70,14 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function setName($name) {
+    $this->name = $name;
+    return $this;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function getDefaultUrl() {
     return $this->defaultUrl;
   }
@@ -65,13 +85,22 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function setDefaultUrl($url) {
+    $this->defaultUrl = $url;
+    return $this;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
-    $this->id = (int) $this->entity->id();
-    $this->name = $this->entity->getTitle();
+    $this->setId($this->entity->id());
+    $this->setName($this->entity->getTitle());
     if (isset($this->entity->get('field_signage_default_url')->getValue()[0]['value'])) {
-      $this->defaultUrl = $this->entity->get('field_signage_default_url')
-        ->getValue()[0]['value'];
+      $this->setDefaultUrl(
+        $this->entity->get('field_signage_default_url')->getValue()[0]['value']
+      );
     }
 
     return $this;
@@ -82,6 +111,14 @@ class Channel implements ChannelInterface {
    */
   public function getNode() {
     return $this->entity;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function unsetNode() {
+    unset($this->entity);
+    return $this;
   }
 
   /**

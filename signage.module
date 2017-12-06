@@ -22,22 +22,13 @@ function signage_cron() {
   );
 
   if ($item = $pending_service->claimItem()) {
-    $payload = $item->data['payload'];
-
-
-    drupal_set_message(
-      sprintf(
-        'CRON Event payload: %s ',
-        json_encode($payload)
-      )
-    );
 
     $event = $item->data['event'];
     drupal_set_message(
       sprintf(
         'CRON %s for channel: %s with url: %s ',
         $event::name(),
-        $event->getChannelName(),
+        $event->getChannel()->getName(),
         $event->getUrl()
       )
     );

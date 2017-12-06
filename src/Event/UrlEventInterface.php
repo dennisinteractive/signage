@@ -21,4 +21,6 @@ interface UrlEventInterface extends OutputEventInterface {
    */
   public function getUrl();
 
+  public function setUrl($url);
+
 }

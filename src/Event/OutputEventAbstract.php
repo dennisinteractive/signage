@@ -5,7 +5,6 @@
 
 namespace Drupal\signage\Event;
 
-use Drupal\Core\DependencyInjection\DependencySerializationTrait;
 use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Channel\ChannelInterface;
 use Symfony\Component\EventDispatcher\Event;
@@ -16,10 +15,6 @@ use Symfony\Component\EventDispatcher\Event;
  * @package Drupal\signage\Event
  */
 abstract class OutputEventAbstract extends Event implements OutputEventInterface {
-  /**
-   * Make the event serializable.
-   */
-  use DependencySerializationTrait;
 
   protected $channel;
 
@@ -47,7 +42,7 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
    */
   public function setChannel(ChannelInterface $channel) {
     $this->channel = $channel;
-    $this->channelName = $channel->getName();
+    //$this->channelName = $channel->getName();
 
     return $this;
   }
@@ -59,9 +54,9 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
     return $this->channel;
   }
 
-  public function getChannelName() {
-    return $this->channelName;
-  }
+//  public function getChannelName() {
+//    return $this->channelName;
+//  }
 
   /**
    * @inheritDoc

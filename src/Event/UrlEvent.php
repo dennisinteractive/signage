@@ -31,6 +31,15 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
   /**
    * @inheritDoc
    */
+  public function setUrl($url) {
+    $this->getPayload()->setValue(0, $url);
+    $this->url = $url;
+    return $this;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function populatePayload() {
     // Populate the payload for the output event.
 
@@ -49,12 +58,7 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
     foreach ($vals as $k => $v) {
       $value = str_replace("[$k]", $v, $value);
     }
-
-    $this->getPayload()->setValue(0, $value);
-
-    // Set the url.
-    $vals = $this->getPayload()->getValues();
-    $this->url = reset($vals);
+    $this->setUrl($value);
 
     return $this;
 
