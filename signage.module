@@ -21,7 +21,7 @@ function signage_cron() {
     )
   );
 
-  if ($item = $pending_service->claimItem()) {
+  while ($item = $pending_service->claimItem()) {
 
     $event = $item->data['event'];
     drupal_set_message(
@@ -33,7 +33,7 @@ function signage_cron() {
       )
     );
 
-    $pending_service->releaseItem($item);
+    $pending_service->deleteItem($item);
   }
 
 }

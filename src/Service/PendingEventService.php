@@ -29,6 +29,17 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   }
 
   /**
+   * Set the name of the queue to use.
+   * @param $name
+   *
+   * @return $this
+   */
+  public function setName($name) {
+    $this->name = $name;
+    return $this;
+  }
+
+  /**
    * @inheritDoc
    */
   public function numberDue() {
@@ -37,9 +48,8 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
       return $this->connection->query(
         'SELECT COUNT(item_id) 
         FROM {' . static::TABLE_NAME . '} 
-        WHERE name = :name
-        AND due <= :now',
-        [':name' => $this->name, ':now' => $now])
+        WHERE due <= :now',
+        [':now' => $now])
         ->fetchField();
     }
     catch (\Exception $e) {
@@ -55,6 +65,13 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   public function addEvent(OutputEventInterface $event, $due) {
     $data['due'] = $due;
     $data['event'] = $event;
+
+    // Each channel.event has it's own queue.
+    $this->setName($event->getChannel()->getId() . '.' . $event::name());
+    // Replace existing queue for this channel.event
+    $this->deleteQueue();
+
+    // Create the new queue with it's item.
     $this->createItem($data);
   }
 
@@ -72,13 +89,12 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
         $item = $this->connection->queryRange(
           'SELECT data, created, item_id 
           FROM {' . static::TABLE_NAME . '} q 
-          WHERE expire = 0 
-          AND name = :name 
+          WHERE expire = 0
           AND due <= :now
           ORDER BY created, item_id ASC',
           0,
           1,
-          [':name' => $this->name, ':now' => $now])
+          [':now' => $now])
           ->fetchObject();
       }
       catch (\Exception $e) {
