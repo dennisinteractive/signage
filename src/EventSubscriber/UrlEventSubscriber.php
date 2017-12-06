@@ -44,7 +44,7 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
    * @param \Drupal\signage\Event\UrlEventInterface $event
    */
   public function handleOutputEvent(UrlEventInterface $event) {
-    $event->getChannel()->dispached($event);
+    $event->getChannel()->dispatched($event);
 
     // Update the current state.
     drupal_set_message(
@@ -62,7 +62,7 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
         $url_event->setUrl($event->getChannel()->getDefaultUrl());
         $event->getChannel()->unsetNode();
         $event->getChannel()->unsetSate();
-        $url_event->setChannel($event->getChannel());
+        $url_event->setChannel(clone $event->getChannel());
 
         $this->pendingEventService->addEvent($url_event, $due);
       }

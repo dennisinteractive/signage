@@ -33,22 +33,26 @@ class Channel implements ChannelInterface {
   protected $defaultUrl;
 
   /**
-   * Channel constructor.
-   *
-   * @param \Drupal\Core\State\StateInterface $state
+   * @inheritDoc
    */
-  public function __construct(StateInterface $state) {
-    $this->setState($state);
-  }
-
   public function unsetSate() {
     unset($this->state);
     return $this;
   }
 
+  /**
+   * @inheritDoc
+   */
   public function setState(StateInterface $state) {
     $this->state = $state;
     return $this;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getState() {
+    return $this->state;
   }
 
   /**
@@ -137,24 +141,27 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
-  public function dispached(OutputEventInterface $event) {
+  public function dispatched(OutputEventInterface $event) {
     // Only one of each time of output event can be active at a time.
     // Merge with existing states.
     $data = $this->getDispatched();
 
     $state = [
+      'event_name' => $event::name(),
+      'channel_id' => $event->getChannel()->getId(),
+      'channel_name' => $event->getChannel()->getName(),
       'payload' => $event->getPayload(),
       'timestamp' => time(),
     ];
     $data[$event::name()] = $state;
-    $this->state->set($this->getStateKey(), $data);
+    $this->getState()->set($this->getStateKey(), $data);
   }
 
   /**
    * @inheritDoc
    */
   public function getDispatched() {
-    $data = $this->state->get($this->getStateKey());
+    $data = $this->getState()->get($this->getStateKey());
     if (!$data) {
       // Nothing stored for this channel.
       return [];
@@ -167,7 +174,7 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function delete() {
-    $this->state->delete($this->getStateKey());
+    $this->getState()->delete($this->getStateKey());
   }
 
   protected function getStateKey() {

@@ -65,7 +65,10 @@ services:
 
   signage.channel:
     class: Drupal\signage\Channel\Channel
-    arguments: ['@state']
+    calls:
+      - method: setState
+        arguments:
+          - '@state'
 
   signage.channel.service:
     class: Drupal\signage\Service\ChannelService

@@ -33,6 +33,11 @@ interface ChannelInterface {
   public function setState(StateInterface $state);
 
   /**
+   * @return StateInterface
+   */
+  public function getState();
+
+  /**
    * The id of the channel.
    *
    * @return int
@@ -95,7 +100,7 @@ interface ChannelInterface {
    *
    * @return mixed
    */
-  public function dispached(OutputEventInterface $event);
+  public function dispatched(OutputEventInterface $event);
 
   /**
    * The dispatched data.
