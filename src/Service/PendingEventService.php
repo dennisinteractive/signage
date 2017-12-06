@@ -7,7 +7,9 @@ namespace Drupal\signage\Service;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Queue\DatabaseQueue;
+use Drupal\Core\State\StateInterface;
 use Drupal\signage\Event\OutputEventInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class PendingEventService extends DatabaseQueue implements PendingEventServiceInterface {
 
@@ -17,21 +19,35 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   const TABLE_NAME = 'signage_pending';
 
   /**
+   * The event dispatcher.
+   *
+   * @var \Symfony\Component\EventDispatcher\EventDispatcherInterface
+   */
+  protected $dispatcher;
+
+  /**
+   * @var \Drupal\Core\State\StateInterface
+   */
+  protected $state;
+
+  /**
    * Constructs a \Drupal\Core\Queue\DatabaseQueue object.
    *
-   * @param string $name
-   *   The name of the queue.
    * @param \Drupal\Core\Database\Connection $connection
    *   The Connection object containing the key-value tables.
+   * @param EventDispatcherInterface $dispatcher
+   * @param \Drupal\Core\State\StateInterface $state
    */
-  public function __construct(Connection $connection) {
+  public function __construct(Connection $connection, EventDispatcherInterface $dispatcher, StateInterface $state) {
     parent::__construct('signage_event', $connection);
+    $this->dispatcher = $dispatcher;
+    $this->state = $state;
   }
 
   /**
    * @inheritDoc
    */
-  public function cron() {
+  public function processQueue() {
     while ($item = $this->claimItem()) {
 
       $event = $item->data['event'];
@@ -44,6 +60,11 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
         )
       );
 
+      // Give the channel the state handler, which can't be serialized.
+      $event->getChannel()->setState($this->state);
+      // Dispatch the event.
+      $this->dispatcher->dispatch($event::name(), $event);
+      // Remove it from the queue.
       $this->deleteItem($item);
     }
   }

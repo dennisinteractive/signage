@@ -46,27 +46,6 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
   public function handleOutputEvent(UrlEventInterface $event) {
     $event->getChannel()->dispached($event);
 
-    //TMP
-
-    // Remove the nodes so the object can be serialized.
-//    $event->getChannel()->unsetNode();
-//    $event->getChannel()->unsetSate();
-//    $event->getAction()->unsetNode();
-//    // Default url has no max time.
-//    $event->getAction()->setMaximumTime(0);
-//    // Set the dfault url.
-//    $event->setUrl($event->getChannel()->getDefaultUrl());
-
-    // Build a new url output event to set the default url later.
-    $output_factory = \Drupal::getContainer()->get('signage.event.output.factory');
-    $url_event = $output_factory->getEvent($event::name());
-    $url_event->setUrl($event->getChannel()->getDefaultUrl());
-    $event->getChannel()->unsetNode();
-    $event->getChannel()->unsetSate();
-    $url_event->setChannel($event->getChannel());
-
-    $this->pendingEventService->addEvent($url_event, time() + 10);
-
     // Update the current state.
     drupal_set_message(
       "handleOutputEvent: " . json_encode($event)
@@ -77,7 +56,15 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
       if ($max_time = $action->getMaximumTime()) {
         $due = time() + $max_time;
 
-        // Add a default url event.
+        // Build a new url output event to set the default url later.
+        $output_factory = \Drupal::getContainer()->get('signage.event.output.factory');
+        $url_event = $output_factory->getEvent($event::name());
+        $url_event->setUrl($event->getChannel()->getDefaultUrl());
+        $event->getChannel()->unsetNode();
+        $event->getChannel()->unsetSate();
+        $url_event->setChannel($event->getChannel());
+
+        $this->pendingEventService->addEvent($url_event, $due);
       }
     }
   }

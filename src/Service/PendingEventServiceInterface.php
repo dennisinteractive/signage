@@ -39,8 +39,8 @@ interface PendingEventServiceInterface {
   public function addEvent(OutputEventInterface $event, $due);
 
   /**
-   * Runs cron tasks.
+   * Dispatch items that are due.
    */
-  public function cron();
+  public function processQueue();
 
 }

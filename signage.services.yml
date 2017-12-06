@@ -61,7 +61,7 @@ services:
 
   signage.pending.event.service:
     class: Drupal\signage\Service\PendingEventService
-    arguments: ['@database']
+    arguments: ['@database', '@event_dispatcher', '@state']
 
   signage.channel:
     class: Drupal\signage\Channel\Channel

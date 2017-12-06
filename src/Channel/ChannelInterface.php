@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Channel;
 
+use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
 
@@ -14,6 +15,22 @@ use Drupal\signage\Event\OutputEventInterface;
  * @package Drupal\signage\Channel
  */
 interface ChannelInterface {
+
+  /**
+   * Allow the channel to be serialized but removing the drupal state.
+   *
+   * @return self
+   */
+  public function unsetSate();
+
+  /**
+   * Allows the sytem to keep track of the channel status.
+   *
+   * @param \Drupal\Core\State\StateInterface $state
+   *
+   * @return self
+   */
+  public function setState(StateInterface $state);
 
   /**
    * The id of the channel.

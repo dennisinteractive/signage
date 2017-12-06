@@ -38,11 +38,17 @@ class Channel implements ChannelInterface {
    * @param \Drupal\Core\State\StateInterface $state
    */
   public function __construct(StateInterface $state) {
-    $this->state = $state;
+    $this->setState($state);
   }
 
   public function unsetSate() {
     unset($this->state);
+    return $this;
+  }
+
+  public function setState(StateInterface $state) {
+    $this->state = $state;
+    return $this;
   }
 
   /**

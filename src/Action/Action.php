@@ -113,6 +113,12 @@ class Action implements ActionInterface {
    */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
+    $minutes = $entity->get('field_signage_maximum_time')->getValue();
+    $seconds = (int) $minutes * 60;
+    $this->setMaximumTime($seconds);
+    $minutes = $entity->get('field_signage_minimum_time')->getValue();
+    $seconds = (int) $minutes * 60;
+    $this->setMinimumTime($seconds);
   }
 
   /**
@@ -134,14 +140,14 @@ class Action implements ActionInterface {
    * @inheritDoc
    */
   public function getMinimumTime() {
-    // TODO: Implement getMinimumTime() method.
+    return $this->minTime;
   }
 
   /**
    * @inheritDoc
    */
   public function getMaximumTime() {
-    // TODO: Implement getMaximumTime() method.
+    return $this->maxTime;
   }
 
   public function setMinimumTime($int) {
