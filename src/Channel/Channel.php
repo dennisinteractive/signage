@@ -99,6 +99,13 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function getCurrentUrl() {
+    // TODO: Implement getCurrentUrl() method.
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
     $this->setId($this->entity->id());

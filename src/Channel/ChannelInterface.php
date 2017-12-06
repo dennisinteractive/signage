@@ -60,6 +60,13 @@ interface ChannelInterface {
   public function setDefaultUrl($url);
 
   /**
+   * The url the channel is currently displaying.
+   *
+   * @return string
+   */
+  public function getCurrentUrl();
+
+  /**
    * The drupal entity, as returned by node_load().
    *
    * @param $entity
