@@ -11,29 +11,6 @@ function signage_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
  * Implements hook_cron().
  */
 function signage_cron() {
-
   $pending_service = Drupal::getContainer()->get('signage.pending.event.service');
-  $num = $pending_service->numberDue();
-  drupal_set_message(
-    sprintf(
-      'CRON Event %d',
-      $num
-    )
-  );
-
-  while ($item = $pending_service->claimItem()) {
-
-    $event = $item->data['event'];
-    drupal_set_message(
-      sprintf(
-        'CRON %s for channel: %s with url: %s ',
-        $event::name(),
-        $event->getChannel()->getName(),
-        $event->getUrl()
-      )
-    );
-
-    $pending_service->deleteItem($item);
-  }
-
+  $pending_service->cron();
 }

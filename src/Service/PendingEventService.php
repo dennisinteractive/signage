@@ -29,6 +29,26 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
   }
 
   /**
+   * @inheritDoc
+   */
+  public function cron() {
+    while ($item = $this->claimItem()) {
+
+      $event = $item->data['event'];
+      drupal_set_message(
+        sprintf(
+          'CRON %s for channel: %s with url: %s ',
+          $event::name(),
+          $event->getChannel()->getName(),
+          $event->getUrl()
+        )
+      );
+
+      $this->deleteItem($item);
+    }
+  }
+
+  /**
    * Set the name of the queue to use.
    * @param $name
    *
