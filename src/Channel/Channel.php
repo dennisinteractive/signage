@@ -104,7 +104,15 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function getCurrentUrl() {
-    // TODO: Implement getCurrentUrl() method.
+    // Read the state to get the current url.
+    $data = $this->getDispatched();
+    if (isset($data['signage.url']['payload'])) {
+      $payload = $data['signage.url']['payload'];
+      return $payload->getValue(0);
+    }
+
+    // No state so send the default.
+    return $this->getDefaultUrl();
   }
 
   /**

@@ -42,4 +42,15 @@ class EventPayload implements EventPayloadInterface {
     return $this->payload;
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function getValue($key) {
+    if (isset($this->payload[$key])) {
+      return $this->payload[$key];
+    }
+
+    return NULL;
+  }
+
 }
