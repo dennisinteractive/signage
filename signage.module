@@ -6,3 +6,11 @@ function signage_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
   $event = new \Drupal\signage\Event\EntityEvent($entity);
   $dispatcher->dispatch(\Drupal\signage\Event\EntityEvent::UPDATE, $event);
 }
+
+/**
+ * Implements hook_cron().
+ */
+function signage_cron() {
+  $pending_service = Drupal::getContainer()->get('signage.pending.event.service');
+  $pending_service->processQueue();
+}

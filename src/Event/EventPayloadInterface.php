@@ -38,4 +38,11 @@ interface EventPayloadInterface {
    */
   public function getValues();
 
+  /**
+   * @param $key
+   *
+   * @return string
+   */
+  public function getValue($key);
+
 }

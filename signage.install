@@ -5,52 +5,77 @@
  */
 function signage_install() {
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
+  $url_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_event_types',
     'name' => 'signage.url',
     'description' => 'Provides an object of \Drupal\signage\Event\UrlEventInterface',
   ]);
-  $term->save();
+  $url_term->save();
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
+  $msg_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_event_types',
     'name' => 'signage.message',
     'description' => 'Provides an object of \Drupal\signage\Event\MessageEventInterface',
   ]);
-  $term->save();
+  $msg_term->save();
 
-  // Create some example event terms.
+  // Create some initial content.
+  $demo_output_url_term = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'signage_output_events',
+    'name' => 'Demo url set',
+    'field_signage_output_event_type' => $url_term->id(),
+    'description' => '[url]?[key_1]=[value_1]&[key_2]=[value_2]',
+  ]);
+  $demo_output_url_term->save();
+
   $term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_events',
-    'name' => 'Debug url deploy success',
-    'field_signage_output_event_type' => [1], // signage.url HACK!
-    'description' => '[url]?[key_1]=[value_1]',
+    'name' => 'Debug message',
+    'field_signage_output_event_type' => $msg_term->id(),
+    'description' => 'Demo message for [site]',
   ]);
   $term->save();
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'signage_output_events',
-    'name' => 'Debug message deploy fail',
-    'field_signage_output_event_type' => [2], // signage.message HACK!
-    'description' => 'Deployment for [site] failed :(',
-  ]);
-  $term->save();
-
-  $term = \Drupal\taxonomy\Entity\Term::create([
+  $demo_input_url_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_input_events',
     'name' => 'demo.input.url',
   ]);
-  $term->save();
+  $demo_input_url_term->save();
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'signage_input_events',
-    'name' => 'jenkins.site.deploy.success',
+  // Demo action.
+  $demo_action_node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_action',
+    'title'  => 'Demo',
+    'field_signage_on_input_event' => [
+      'target_id' => $demo_input_url_term->id(),
+    ],
+    'field_signage_do_output_event' => [
+      'target_id' => $demo_output_url_term->id(),
+    ],
   ]);
-  $term->save();
+  $demo_action_node->save();
 
-  $term = \Drupal\taxonomy\Entity\Term::create([
-    'vid' => 'signage_input_events',
-    'name' => 'jenkins.site.deploy.fail',
+  // Dev channel
+  $demo_channel_node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_channel',
+    'title'  => 'devicexxx',
+    'field_signage_actions' => [
+      'target_id' => $demo_action_node->id(),
+    ],
+    'field_signage_default_url' => [
+      'value' => 'https://share.geckoboard.com/loop/DIQAES4JEAA2V2DA',
+    ],
   ]);
-  $term->save();
+  $demo_channel_node->save();
+
+  // Demo device
+  $demo_device_node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_device',
+    'title'  => 'Floor4_north',
+    'field_signage_channel' => [
+      'target_id' => $demo_channel_node->id(),
+    ],
+  ]);
+  $demo_device_node->save();
+
 }

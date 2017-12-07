@@ -30,7 +30,10 @@ class OutputEventFactory implements OutputEventFactoryInterface {
   public function getEvent($name) {
     if (isset($this->events[$name])) {
       // Send a copy of the blank event.
-      return clone $this->events[$name];
+      $event = clone $this->events[$name];
+      // Need to also clone the original paylaoad too.
+      $event->setPayload(clone $event->getPayload());
+      return $event;
     }
 
   }

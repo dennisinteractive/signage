@@ -77,6 +77,9 @@ class InputEventSubscriber implements EventSubscriberInterface {
       $channels = $this->channelService->getChannelsForActionId($action->getId());
       foreach ($channels as $channel) {
         $oe->setChannel($channel);
+        // @todo handle action field_signage_minimum_time
+        // no other action should be sent while within the minimum time.
+        // stored in the channel state?
         $this->dispatcher->dispatch($oe::name(), $oe);
       }
     }

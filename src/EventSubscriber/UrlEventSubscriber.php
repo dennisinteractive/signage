@@ -5,8 +5,9 @@
 
 namespace Drupal\signage\EventSubscriber;
 
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\UrlEvent;
 use Drupal\signage\Event\UrlEventInterface;
+use Drupal\signage\Service\PendingEventServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -15,6 +16,20 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
  * @package Drupal\signage\EventSubscriber
  */
 class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscriberInterface {
+
+  /**
+   * @var \Drupal\signage\Service\PendingEventServiceInterface
+   */
+  protected $pendingEventService;
+
+  /**
+   * UrlEventSubscriber constructor.
+   *
+   * @param \Drupal\signage\Service\PendingEventServiceInterface $pendingEventService
+   */
+  public function __construct(PendingEventServiceInterface $pendingEventService) {
+    $this->pendingEventService = $pendingEventService;
+  }
 
   /**
    * @inheritDoc
@@ -29,15 +44,29 @@ class UrlEventSubscriber implements EventSubscriberInterface, OutputEventSubscri
    * @param \Drupal\signage\Event\UrlEventInterface $event
    */
   public function handleOutputEvent(UrlEventInterface $event) {
-    $event->getChannel()->dispached($event);
+    $event->getChannel()->dispatched($event);
 
     // Update the current state.
     drupal_set_message(
       "handleOutputEvent: " . json_encode($event)
     );
 
-    //@todo PendingActionService that cron uses: event | payload | time
+    // Add a pending event for when this action times out.
+    if ($action = $event->getAction()) {
+      if ($max_time = $action->getMaximumTime()) {
+        $due = time() + $max_time;
 
+        // Build a new url output event to set the default url later.
+        $output_factory = \Drupal::getContainer()->get('signage.event.output.factory');
+        $url_event = $output_factory->getEvent($event::name());
+        $url_event->setUrl($event->getChannel()->getDefaultUrl());
+        $event->getChannel()->unsetNode();
+        $event->getChannel()->unsetSate();
+        $url_event->setChannel(clone $event->getChannel());
+
+        $this->pendingEventService->addEvent($url_event, $due);
+      }
+    }
   }
 
 }

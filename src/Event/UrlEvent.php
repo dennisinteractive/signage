@@ -12,6 +12,8 @@ namespace Drupal\signage\Event;
  */
 class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlEventInterface {
 
+  protected $url;
+
   /**
    * @inheritDoc
    */
@@ -23,8 +25,16 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
    * @inheritDoc
    */
   public function getUrl() {
-    $vals = $this->populatePayload()->getPayload()->getValues();
-    return reset($vals);
+    return $this->url;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function setUrl($url) {
+    $this->getPayload()->setValue(0, $url);
+    $this->url = $url;
+    return $this;
   }
 
   /**
@@ -48,8 +58,7 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
     foreach ($vals as $k => $v) {
       $value = str_replace("[$k]", $v, $value);
     }
-
-    $this->getPayload()->setValue(0, $value);
+    $this->setUrl($value);
 
     return $this;
 

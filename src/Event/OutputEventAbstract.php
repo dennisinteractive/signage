@@ -25,6 +25,8 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
    */
   protected $payload;
 
+  protected $channelName;
+
 
   /**
    * OutputEventAbstract constructor.
@@ -40,6 +42,7 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
    */
   public function setChannel(ChannelInterface $channel) {
     $this->channel = $channel;
+    //$this->channelName = $channel->getName();
 
     return $this;
   }
@@ -51,11 +54,16 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
     return $this->channel;
   }
 
+//  public function getChannelName() {
+//    return $this->channelName;
+//  }
+
   /**
    * @inheritDoc
    */
   public function setAction(ActionInterface $action) {
     $this->action = $action;
+    $this->populatePayload();
 
     return $this;
   }

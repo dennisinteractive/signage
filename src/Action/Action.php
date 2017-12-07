@@ -16,6 +16,10 @@ use Drupal\signage\Event\OutputEventFactoryInterface;
  */
 class Action implements ActionInterface {
 
+  protected $maxTime;
+
+  protected $minTime;
+
   /**
    * The input event.
    *
@@ -109,6 +113,12 @@ class Action implements ActionInterface {
    */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
+    $minutes = $entity->get('field_signage_maximum_time')->getValue();
+    $seconds = (int) $minutes * 60;
+    $this->setMaximumTime($seconds);
+    $minutes = $entity->get('field_signage_minimum_time')->getValue();
+    $seconds = (int) $minutes * 60;
+    $this->setMinimumTime($seconds);
   }
 
   /**
@@ -117,5 +127,38 @@ class Action implements ActionInterface {
   public function getNode() {
     return $this->entity;
   }
+
+  /**
+   * @inheritDoc
+   */
+  public function unsetNode() {
+    unset($this->entity);
+    return $this;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getMinimumTime() {
+    return $this->minTime;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getMaximumTime() {
+    return $this->maxTime;
+  }
+
+  public function setMinimumTime($int) {
+    $this->minTime = $int;
+    return $this;
+  }
+
+  public function setMaximumTime($int) {
+    $this->maxTime = $int;
+    return $this;
+  }
+
 
 }

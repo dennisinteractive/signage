@@ -28,14 +28,14 @@ class MessageEventSubscriber implements EventSubscriberInterface, OutputEventSub
    * @param \Drupal\signage\Event\MessageEventInterface $event
    */
   public function handleOutputEvent(MessageEventInterface $event) {
-    $event->getChannel()->dispached($event);
+    $event->getChannel()->dispatched($event);
 
     // Update the current state.
     drupal_set_message(
       "handleOutputEvent: " . json_encode($event)
     );
 
-    //@todo PendingActionService that cron uses: event | payload | time
+    //@todo PendingEventService that cron uses: event | payload | time
 
   }
 

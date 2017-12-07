@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Channel;
 
+use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
 use Drupal\signage\Event\OutputEventInterface;
 
@@ -16,11 +17,34 @@ use Drupal\signage\Event\OutputEventInterface;
 interface ChannelInterface {
 
   /**
+   * Allow the channel to be serialized but removing the drupal state.
+   *
+   * @return self
+   */
+  public function unsetSate();
+
+  /**
+   * Allows the sytem to keep track of the channel status.
+   *
+   * @param \Drupal\Core\State\StateInterface $state
+   *
+   * @return self
+   */
+  public function setState(StateInterface $state);
+
+  /**
+   * @return StateInterface
+   */
+  public function getState();
+
+  /**
    * The id of the channel.
    *
    * @return int
    */
   public function getId();
+
+  public function setId($id);
 
   /**
    * The channel name.
@@ -29,12 +53,23 @@ interface ChannelInterface {
    */
   public function getName();
 
+  public function setName($name);
+
   /**
    * The default url.
    *
    * @return string
    */
   public function getDefaultUrl();
+
+  public function setDefaultUrl($url);
+
+  /**
+   * The url the channel is currently displaying.
+   *
+   * @return string
+   */
+  public function getCurrentUrl();
 
   /**
    * The drupal entity, as returned by node_load().
@@ -53,13 +88,19 @@ interface ChannelInterface {
   public function getNode();
 
   /**
+   * So the channel can be serialized.
+   * @return self
+   */
+  public function unsetNode();
+
+  /**
    * Stores the dispatched output event, so the channel knows its current state.
    *
    * @param \Drupal\signage\Event\OutputEventInterface $event
    *
    * @return mixed
    */
-  public function dispached(OutputEventInterface $event);
+  public function dispatched(OutputEventInterface $event);
 
   /**
    * The dispatched data.
