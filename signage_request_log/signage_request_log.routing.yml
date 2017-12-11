@@ -1,0 +1,7 @@
+
+signage_request_log:
+  path: '/signage/request/log'
+  defaults:
+    _controller: '\Drupal\signage_request_log\Controller\RequestLogController::log'
+  requirements:
+      _permission: 'access content'

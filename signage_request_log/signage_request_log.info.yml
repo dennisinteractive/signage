@@ -1,0 +1,5 @@
+name: Signage Request Log
+type: module
+description: Record webhook requests for later anaylsis.
+core: 8.x
+package: Dennis

@@ -3,7 +3,7 @@
  * Log incomming webhooks.
  */
 
-namespace Drupal\signage\Controller;
+namespace Drupal\signage_request_log\Controller;
 
 
 use Drupal\Core\Controller\ControllerBase;
@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class WebhookLogController extends ControllerBase {
+class RequestLogController extends ControllerBase {
 
   /**
    * @var \Symfony\Component\HttpFoundation\RequestStack
@@ -19,7 +19,7 @@ class WebhookLogController extends ControllerBase {
   protected $requestStack;
 
   /**
-   * WebhookLogController constructor.
+   * RequestLogController constructor.
    *
    * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
    */
@@ -40,7 +40,7 @@ class WebhookLogController extends ControllerBase {
   public function log() {
     $req = $this->requestStack->getCurrentRequest();
 
-    \Drupal::logger('signage_webhook')->info(
+    \Drupal::logger('signage_request_log')->info(
       'Headers: %headers Content: %string',
       array('%headers' => $req->headers, '%string' => $req->getContent())
     );
