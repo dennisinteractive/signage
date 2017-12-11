@@ -13,3 +13,10 @@ signage.demo_message_input_event:
     _title: 'Demo Message Input Event Form'
   requirements:
     _permission: 'access administration pages'
+
+signage.webhook.log:
+  path: '/signage/webhook/log'
+  defaults:
+    _controller: '\Drupal\signage\Controller\WebhookLogController::log'
+  requirements:
+      _permission: 'access content'
