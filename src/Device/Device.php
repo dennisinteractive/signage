@@ -5,6 +5,7 @@
 
 namespace Drupal\signage\Device;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\NodeInterface;
 use Drupal\signage\Channel\ChannelInterface;
 
@@ -55,7 +56,7 @@ class Device implements DeviceInterface {
   /**
    * @inheritDoc
    */
-  public function setNode(NodeInterface $entity) {
+  public function setNode(EntityInterface $entity) {
     $this->entity = $entity;
   }
 

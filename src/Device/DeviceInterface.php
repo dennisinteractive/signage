@@ -5,7 +5,7 @@
 
 namespace Drupal\signage\Device;
 
-use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Interface DeviceInterface.
@@ -31,11 +31,11 @@ interface DeviceInterface {
   /**
    * The drupal entity, as returned by node_load().
    *
-   * @param NodeInterface $entity
+   * @param EntityInterface $entity
    *
    * @return self
    */
-  public function setNode(NodeInterface $entity);
+  public function setNode(EntityInterface $entity);
 
   /**
    * The url the device should show if it has nothing else to show.

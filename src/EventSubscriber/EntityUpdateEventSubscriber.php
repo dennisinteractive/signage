@@ -40,14 +40,18 @@ class EntityUpdateEventSubscriber implements EventSubscriberInterface  {
     return $events;
   }
 
+  /**
+   * Handle event: signage.entity.update
+   *
+   * @param \Drupal\signage\Event\EntityEvent $event
+   */
   public function changeChannel(EntityEvent $event) {
-    drupal_set_message('hello');
-//    if ($event->getEntityType() == 'signage_device') {
-//      $node = $event->getOriginal();
-//      $this->device->setNode($node);
-//      $channel_change = new ChannelChangeEvent($this->device);
-//      $this->dispatcher->dispatch($channel_change::name(), $channel_change);
-//    }
+    if ($event->getEntity()->getEntityType() == 'signage_device') {
+      $node = $event->getEntity();
+      $this->device->setNode($node);
+      $channel_change = new ChannelChangeEvent($this->device);
+      $this->dispatcher->dispatch($channel_change::name(), $channel_change);
+    }
   }
 
 }
