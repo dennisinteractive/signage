@@ -55,10 +55,10 @@ function signage_install() {
   ]);
   $demo_action_node->save();
 
-  // Dev channel
-  $demo_channel_node = Drupal\node\Entity\Node::create([
+  // Web Dev channel
+  $dev_channel_node = Drupal\node\Entity\Node::create([
     'type' => 'signage_channel',
-    'title'  => 'devicexxx',
+    'title'  => 'web_dev',
     'field_signage_actions' => [
       'target_id' => $demo_action_node->id(),
     ],
@@ -66,14 +66,34 @@ function signage_install() {
       'value' => 'https://share.geckoboard.com/loop/DIQAES4JEAA2V2DA',
     ],
   ]);
-  $demo_channel_node->save();
+  $dev_channel_node->save();
 
-  // Demo device
+  // Tube status channel
+  $tube_channel_node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_channel',
+    'title'  => 'tube_status',
+    'field_signage_default_url' => [
+      'value' => 'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
+    ],
+  ]);
+  $tube_channel_node->save();
+
+  // Forth floor device
   $demo_device_node = Drupal\node\Entity\Node::create([
     'type' => 'signage_device',
     'title'  => 'Floor4_north',
     'field_signage_channel' => [
-      'target_id' => $demo_channel_node->id(),
+      'target_id' => $dev_channel_node->id(),
+    ],
+  ]);
+  $demo_device_node->save();
+
+  // Another forth floor device
+  $demo_device_node = Drupal\node\Entity\Node::create([
+    'type' => 'signage_device',
+    'title'  => 'Floor4_south',
+    'field_signage_channel' => [
+      'target_id' => $dev_channel_node->id(),
     ],
   ]);
   $demo_device_node->save();
