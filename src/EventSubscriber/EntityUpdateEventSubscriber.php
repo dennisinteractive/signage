@@ -46,11 +46,11 @@ class EntityUpdateEventSubscriber implements EventSubscriberInterface  {
    * @param \Drupal\signage\Event\EntityEvent $event
    */
   public function changeChannel(EntityEvent $event) {
-    if ($event->getEntity()->getEntityType() == 'signage_device') {
+    if ($event->getEntity()->bundle() == 'signage_device') {
       $node = $event->getEntity();
       $this->device->setNode($node);
       $channel_change = new ChannelChangeEvent($this->device);
-      $this->dispatcher->dispatch($channel_change::name(), $channel_change);
+      $this->dispatcher->dispatch($channel_change::NAME, $channel_change);
     }
   }
 
