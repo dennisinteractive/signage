@@ -45,9 +45,9 @@ interface DeviceInterface {
   public function getDefaultUrl();
 
   /**
-   * The id of the channel the device is currently subscribed to.
-   * @return integer
+   * The channel the device is currently subscribed to.
+   * @return \Drupal\signage\Channel\ChannelInterface
    */
-  public function getChannelId();
+  public function getChannel();
 
 }

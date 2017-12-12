@@ -70,16 +70,7 @@ class Device implements DeviceInterface {
   /**
    * @inheritDoc
    */
-  public function getChannelId() {
-    return $this->getChannel()->getId();
-  }
-
-  /**
-   * Gets the current object for the device.
-   *
-   * @return \Drupal\signage\Channel\ChannelInterface
-   */
-  protected function getChannel() {
+  public function getChannel() {
     if (empty($this->channel->getNode())) {
       // Get the drupal channel node.
       $nid = $this->entity->get('field_signage_channel')->getValue()[0]['target_id'];
