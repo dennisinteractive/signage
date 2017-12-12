@@ -45,9 +45,9 @@ interface DeviceInterface {
   public function getDefaultUrl();
 
   /**
-   * The name of the channel the device is currently subscribed to.
-   * @return string
+   * The id of the channel the device is currently subscribed to.
+   * @return integer
    */
-  public function getChannelName();
+  public function getChannelId();
 
 }

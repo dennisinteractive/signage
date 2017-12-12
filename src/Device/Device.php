@@ -70,8 +70,8 @@ class Device implements DeviceInterface {
   /**
    * @inheritDoc
    */
-  public function getChannelName() {
-    return $this->getChannel()->getName();
+  public function getChannelId() {
+    return $this->getChannel()->getId();
   }
 
   /**
