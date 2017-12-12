@@ -4,29 +4,26 @@ dependencies:
   config:
     - field.field.taxonomy_term.signage_input_events.field_signage_subscribe_name
     - taxonomy.vocabulary.signage_input_events
-_core:
-  default_config_hash: KrMP_3Oo3f7DQpJ4m_UFms8Ew-ogYQeicb-HK7ZmgoM
+  module:
+    - text
 id: taxonomy_term.signage_input_events.default
 targetEntityType: taxonomy_term
 bundle: signage_input_events
 mode: default
 content:
-  field_signage_subscribe_name:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  name:
-    type: string_textfield
+  description:
+    label: hidden
+    type: text_default
     weight: 0
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-hidden:
-  description: true
-  path: true
+  field_signage_subscribe_name:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

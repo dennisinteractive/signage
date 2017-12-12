@@ -42,7 +42,7 @@ class ActionService implements ActionServiceInterface {
 
     // Get the tid for the incoming event.
     $event_tids = \Drupal::entityQuery('taxonomy_term')
-      ->condition('name', $event->getSource())
+      ->condition('field_signage_subscribe_name', $event->getSource())
       ->execute()
     ;
     if (empty($event_tids)) {
