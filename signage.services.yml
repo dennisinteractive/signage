@@ -21,7 +21,7 @@ services:
           - '@signage.event.output.message'
 
   signage.event.input.subscriber:
-    class: Drupal\signage\EventSubscriber\InputEventSubScriber
+    class: Drupal\signage\EventSubscriber\InputEventSubscriber
     arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
     tags:
       - { name: 'event_subscriber' }
