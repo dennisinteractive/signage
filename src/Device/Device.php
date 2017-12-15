@@ -75,7 +75,9 @@ class Device implements DeviceInterface {
       // Get the drupal channel node.
       $nid = $this->entity->get('field_signage_channel')->getValue()[0]['target_id'];
       $node = \Drupal\node\Entity\Node::load($nid);
-      $this->channel->setNode($node);
+      if (isset($node)) {
+        $this->channel->setNode($node);
+      }
     }
 
     return $this->channel;
