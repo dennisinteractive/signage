@@ -1,35 +1,3 @@
-Skip to main content Toolbar items
-Back to site
-Manage
-Administration menu
-Content
-Structure
-Appearance
-Extend
-Configuration
-People
-Reports
-Help
-Vertical orientation
-Shortcuts
-admin
-Single export
-Breadcrumb
-Home  Administration  Configuration  Development  Synchronize
-Primary tabs
-SYNCHRONIZE
-IMPORT
-EXPORT(ACTIVE TAB)
-Secondary tabs
-FULL ARCHIVE
-SINGLE ITEM(ACTIVE TAB)
-CONFIGURATION TYPE
-
-CONFIGURATION NAME
-
-HERE IS YOUR CONFIGURATION:
-
-uuid: 37e24ab3-ebf6-4806-a850-4ca63c92002e
 langcode: en
 status: true
 dependencies:
