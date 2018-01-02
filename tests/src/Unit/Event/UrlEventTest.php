@@ -4,6 +4,7 @@ namespace Drupal\Tests\signage\Unit;
 
 
 use Drupal\signage\Event\EventPayload;
+use Drupal\signage\Event\EventPayloadInterface;
 use Drupal\signage\Event\UrlEvent;
 use Drupal\Tests\UnitTestCase;
 
@@ -20,7 +21,9 @@ class UrlEventTest extends UnitTestCase {
    * @covers ::name
    */
   public function testName() {
-    $e = new UrlEvent();
+    $payload = $this->getMockBuilder(EventPayloadInterface::class)
+      ->getMock();
+    $e = new UrlEvent($payload);
     $this->assertEquals('signage.url', $e::name());
   }
 
@@ -28,12 +31,11 @@ class UrlEventTest extends UnitTestCase {
    * @covers ::getUrl
    */
   public function testGetUrl() {
-    // Populate an event payload.
+    // Create an event payload.
     $payload = new EventPayload();
-    $payload->setValue(0, 'http://www.example.com');
-
-    $e = new UrlEvent();
-    $e->setPayload($payload);
+    // Create a url event.
+    $e = new UrlEvent($payload);
+    $e->setUrl('http://www.example.com');
 
     $this->assertEquals('http://www.example.com', $e->getUrl());
   }
