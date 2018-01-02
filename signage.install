@@ -36,6 +36,23 @@ function signage_install() {
   ]);
   $term->save();
 
+  $input_tube = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'signage_input_events',
+    'name' => 'Time to show tube status',
+    'field_signage_subscribe_name' => [
+      'value' => 'signage.input.tube',
+    ],
+  ]);
+  $input_tube->save();
+
+  $output_tube = \Drupal\taxonomy\Entity\Term::create([
+    'vid' => 'signage_output_events',
+    'name' => 'Show tube status',
+    'field_signage_output_event_type' => $url_term->id(),
+    'description' => 'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
+  ]);
+  $output_tube->save();
+
   $demo_input_url_term = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_input_events',
     'name' => 'Demo Input Url',
@@ -58,12 +75,26 @@ function signage_install() {
   ]);
   $demo_action_node->save();
 
+  // Tube status action.
+  $tube_action = Drupal\node\Entity\Node::create([
+    'type' => 'signage_action',
+    'title'  => 'Tube status',
+    'field_signage_on_input_event' => [
+      'target_id' => $input_tube->id(),
+    ],
+    'field_signage_do_output_event' => [
+      'target_id' => $output_tube->id(),
+    ],
+  ]);
+  $tube_action->save();
+
   // Web Dev channel
   $dev_channel_node = Drupal\node\Entity\Node::create([
     'type' => 'signage_channel',
     'title'  => 'Web Dev',
     'field_signage_actions' => [
-      'target_id' => $demo_action_node->id(),
+      ['target_id' => $demo_action_node->id()],
+      ['target_id' => $tube_action->id()],
     ],
     'field_signage_default_url' => [
       'value' => 'https://share.geckoboard.com/loop/DIQAES4JEAA2V2DA',
@@ -71,15 +102,15 @@ function signage_install() {
   ]);
   $dev_channel_node->save();
 
-  // Tube status channel
-  $tube_channel_node = Drupal\node\Entity\Node::create([
-    'type' => 'signage_channel',
-    'title'  => 'Tube Status',
-    'field_signage_default_url' => [
-      'value' => 'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
-    ],
-  ]);
-  $tube_channel_node->save();
+//  // Tube status channel
+//  $tube_channel_node = Drupal\node\Entity\Node::create([
+//    'type' => 'signage_channel',
+//    'title'  => 'Tube Status',
+//    'field_signage_default_url' => [
+//      'value' => 'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
+//    ],
+//  ]);
+//  $tube_channel_node->save();
 
   // Forth floor device
   $demo_device_node = Drupal\node\Entity\Node::create([
