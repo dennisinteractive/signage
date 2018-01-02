@@ -5,6 +5,8 @@
 
 namespace Drupal\signage\Event;
 
+use Drupal\signage\Action\Action;
+
 
 /**
  * Class MessageEvent.
@@ -54,9 +56,13 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
    * @inheritDoc
    */
   public function populatePayload() {
-    // Get the payload key value pairs.
-    $vals = $this->getAction()->getInputEvent()->getPayload()->getValues();
-    $this->getPayload()->setValues($vals);
+    // If the action has been set use its input payload for values.
+    $action = $this->getAction();
+    if ($action instanceof Action) {
+      // Get the payload key value pairs.
+      $vals = $action->getInputEvent()->getPayload()->getValues();
+      $this->getPayload()->setValues($vals);
+    }
 
     return $this;
   }
