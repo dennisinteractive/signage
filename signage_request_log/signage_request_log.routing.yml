@@ -1,6 +1,6 @@
 
 signage_request_log:
-  path: '/signage/request/log'
+  path: '/signage/request/log/{origin}'
   defaults:
     _controller: '\Drupal\signage_request_log\Controller\RequestLogController::log'
   requirements:

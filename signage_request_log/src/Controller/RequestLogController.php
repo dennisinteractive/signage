@@ -37,12 +37,16 @@ class RequestLogController extends ControllerBase {
   /**
    * Log the request.
    */
-  public function log() {
+  public function log($origin) {
     $req = $this->requestStack->getCurrentRequest();
 
     \Drupal::logger('signage_request_log')->info(
-      'Headers: %headers Content: %string',
-      array('%headers' => $req->headers, '%string' => $req->getContent())
+      'Origin: %origin Headers: %headers Content: %string',
+      [
+        '%origin' => $origin,
+        '%headers' => $req->headers,
+        '%string' => $req->getContent(),
+      ]
     );
 
     return new JsonResponse('ok');
