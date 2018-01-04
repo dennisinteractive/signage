@@ -7,8 +7,8 @@ namespace Drupal\signage\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\signage\Event\InputEvent;
-use Drupal\signage\Event\EventPayload;
+use Drupal\signage\Event\Input\InputEvent;
+use Drupal\signage\Event\Payload\EventPayload;
 
 
 /**

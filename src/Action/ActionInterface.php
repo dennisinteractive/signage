@@ -6,8 +6,8 @@
 namespace Drupal\signage\Action;
 
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\InputEventInterface;
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\Input\InputEventInterface;
+
 
 /**
  * Interface ActionInterface.
