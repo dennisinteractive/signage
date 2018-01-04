@@ -39,6 +39,10 @@ class ActionService implements ActionServiceInterface {
 
     //@todo Names must be unique for input event terms.
 
+    // @todo handle action field_signage_minimum_time
+    // no other action should be sent while within the minimum time.
+    // stored in the channel state?
+
     // Get the tid for the incoming event.
     $event_tids = \Drupal::entityQuery('taxonomy_term')
       ->condition('field_signage_subscribe_name', $event->getSource())
