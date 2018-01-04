@@ -1,17 +1,21 @@
 services:
+
+  signage.message:
+    class: Drupal\signage\Message\Message
+
   signage.event.payload:
-    class: Drupal\signage\Event\EventPayload
+    class: Drupal\signage\Event\Payload\EventPayload
 
   signage.event.output.url:
-    class: Drupal\signage\Event\UrlEvent
+    class: Drupal\signage\Event\Output\UrlEvent
     arguments: ['@signage.event.payload']
 
   signage.event.output.message:
-    class: Drupal\signage\Event\MessageEvent
+    class: Drupal\signage\Event\Output\MessageEvent
     arguments: ['@signage.event.payload', '@signage.message']
 
   signage.event.output.factory:
-    class: Drupal\signage\Event\OutputEventFactory
+    class: Drupal\signage\Event\Output\OutputEventFactory
     calls:
       - method: addEvent
         arguments:
@@ -20,47 +24,44 @@ services:
         arguments:
           - '@signage.event.output.message'
 
-  signage.event.input.subscriber:
-    class: Drupal\signage\EventSubscriber\InputEventSubscriber
-    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
-    tags:
-      - { name: 'event_subscriber' }
-
-  signage.entity.update.subscriber:
-    class: Drupal\signage\EventSubscriber\EntityUpdateEventSubscriber
+  signage.event.subscriber.entity.update:
+    class: Drupal\signage\Event\Entity\EntityUpdateEventSubscriber
     arguments: ['@event_dispatcher', '@signage.device']
     tags:
       - { name: 'event_subscriber' }
 
   signage.event.subscriber.debug:
-    class: Drupal\signage\EventSubscriber\DrupalMessageEventSubscriber
+    class: Drupal\signage\Event\Output\DrupalMessageEventSubscriber
     tags:
       - { name: 'event_subscriber' }
 
-  signage.event.subscriber.url:
-    class: Drupal\signage\EventSubscriber\UrlEventSubscriber
+  signage.event.subscriber.input:
+    class: Drupal\signage\Event\Input\InputEventSubscriber
+    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
+    tags:
+      - { name: 'event_subscriber' }
+
+  signage.event.subscriber.output.url:
+    class: Drupal\signage\Event\Output\UrlEventSubscriber
     arguments: ['@signage.pending.event.service']
     tags:
       - { name: 'event_subscriber' }
 
-  signage.event.subscriber.message:
-    class: Drupal\signage\EventSubscriber\MessageEventSubscriber
+  signage.event.subscriber.output.message:
+    class: Drupal\signage\Event\Output\MessageEventSubscriber
     tags:
       - { name: 'event_subscriber' }
-
-  signage.message:
-    class: Drupal\signage\Event\Message
 
   signage.action:
     class: Drupal\signage\Action\Action
     arguments: ['@signage.event.output.factory']
 
   signage.action.service:
-    class: Drupal\signage\Service\ActionService
+    class: Drupal\signage\Action\ActionService
     arguments: ['@signage.action']
 
   signage.pending.event.service:
-    class: Drupal\signage\Service\PendingEventService
+    class: Drupal\signage\Event\Pending\PendingEventService
     arguments: ['@database', '@event_dispatcher', '@state']
 
   signage.channel:
@@ -71,7 +72,7 @@ services:
           - '@state'
 
   signage.channel.service:
-    class: Drupal\signage\Service\ChannelService
+    class: Drupal\signage\Channel\ChannelService
     arguments: ['@signage.channel']
 
   signage.device:

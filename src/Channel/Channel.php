@@ -7,7 +7,7 @@ namespace Drupal\signage\Channel;
 
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\Output\OutputEventInterface;
 
 /**
  * Class Channel.

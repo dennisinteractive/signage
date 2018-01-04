@@ -7,7 +7,7 @@ namespace Drupal\signage\Channel;
 
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\OutputEventInterface;
+use Drupal\signage\Event\Output\OutputEventInterface;
 
 /**
  * Interface ChannelInterface.
@@ -96,7 +96,7 @@ interface ChannelInterface {
   /**
    * Stores the dispatched output event, so the channel knows its current state.
    *
-   * @param \Drupal\signage\Event\OutputEventInterface $event
+   * @param OutputEventInterface $event
    *
    * @return mixed
    */

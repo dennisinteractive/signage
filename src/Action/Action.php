@@ -6,8 +6,8 @@
 namespace Drupal\signage\Action;
 
 use Drupal\node\NodeInterface;
-use Drupal\signage\Event\InputEventInterface;
-use Drupal\signage\Event\OutputEventFactoryInterface;
+use Drupal\signage\Event\Input\InputEventInterface;
+use Drupal\signage\Event\Output\OutputEventFactoryInterface;
 
 /**
  * Class Action.
@@ -23,21 +23,21 @@ class Action implements ActionInterface {
   /**
    * The input event.
    *
-   * @var \Drupal\signage\Event\InputEvent
+   * @var \Drupal\signage\Event\Input\InputEvent
    */
   protected $inputEvent;
 
   /**
    * The output event factory.
    *
-   * @var \Drupal\signage\Event\OutputEventFactoryInterface
+   * @var \Drupal\signage\Event\Output\OutputEventFactoryInterface
    */
   protected $outputEventFactory;
 
   /**
    * The event payload.
    *
-   * @var \Drupal\signage\Event\EventPayload
+   * @var \Drupal\signage\Event\Payload\EventPayload
    */
   protected $payload;
 
@@ -51,7 +51,7 @@ class Action implements ActionInterface {
   /**
    * Action constructor.
    *
-   * @param \Drupal\signage\Event\OutputEventFactoryInterface $factory
+   * @param \Drupal\signage\Event\Output\OutputEventFactoryInterface $factory
    */
   public function __construct(OutputEventFactoryInterface $factory) {
     $this->outputEventFactory = $factory;
