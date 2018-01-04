@@ -2,14 +2,14 @@
 
 namespace Drupal\Tests\signage\Unit;
 
-use Drupal\signage\Event\EventPayloadInterface;
-use Drupal\signage\Event\InputEvent;
+use Drupal\signage\Event\Payload\EventPayloadInterface;
+use Drupal\signage\Event\Input\InputEvent;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * InputEventTest
  *
- * @coversDefaultClass Drupal\signage\Event\InputEvent
+ * @coversDefaultClass Drupal\signage\Event\Input\InputEvent
  *
  * @group signage_test
  */

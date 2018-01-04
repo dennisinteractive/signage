@@ -3,15 +3,15 @@
 namespace Drupal\Tests\signage\Unit;
 
 
-use Drupal\signage\Event\EventPayloadInterface;
-use Drupal\signage\Event\OutputEventFactory;
-use Drupal\signage\Event\UrlEvent;
+use Drupal\signage\Event\Output\OutputEventFactory;
+use Drupal\signage\Event\Output\UrlEvent;
+use Drupal\signage\Event\Payload\EventPayloadInterface;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * OutputEventFactoryTest
  *
- * @coversDefaultClass Drupal\signage\Event\OutputEventFactory
+ * @coversDefaultClass Drupal\signage\Event\Output\OutputEventFactory
  *
  * @group signage_test
  */

@@ -3,13 +3,13 @@
 namespace Drupal\Tests\signage\Unit;
 
 
-use Drupal\signage\Event\Message;
+use Drupal\signage\Message\Message;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * MessageTest
  *
- * @coversDefaultClass Drupal\signage\Event\Message
+ * @coversDefaultClass Drupal\signage\Message\Message
  *
  * @group signage_test
  */

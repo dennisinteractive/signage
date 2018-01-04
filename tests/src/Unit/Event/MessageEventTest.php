@@ -2,21 +2,17 @@
 
 namespace Drupal\Tests\signage\Unit;
 
-
-use Drupal\signage\Action\Action;
-use Drupal\signage\Action\ActionInterface;
-use Drupal\signage\Event\EventPayload;
-use Drupal\signage\Event\EventPayloadInterface;
-use Drupal\signage\Event\InputEventInterface;
-use Drupal\signage\Event\Message;
-use Drupal\signage\Event\MessageEvent;
-use Drupal\signage\Event\MessageInterface;
+use Drupal\signage\Event\Payload\EventPayload;
+use Drupal\signage\Event\Payload\EventPayloadInterface;
+use Drupal\signage\Event\Output\MessageEvent;
+use Drupal\signage\Message\Message;
+use Drupal\signage\Message\MessageInterface;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * MessageEventTest
  *
- * @coversDefaultClass Drupal\signage\Event\MessageEvent
+ * @coversDefaultClass Drupal\signage\Event\Output\MessageEvent
  *
  * @group signage_test
  */

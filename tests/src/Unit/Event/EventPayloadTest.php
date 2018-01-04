@@ -2,13 +2,13 @@
 
 namespace Drupal\Tests\signage\Unit;
 
-use Drupal\signage\Event\EventPayload;
+use Drupal\signage\Event\Payload\EventPayload;
 use Drupal\Tests\UnitTestCase;
 
 /**
  * EventPayloadTest
  *
- * @coversDefaultClass Drupal\signage\Event\EventPayload
+ * @coversDefaultClass Drupal\signage\Event\Payload\EventPayload
  *
  * @group signage_test
  */
