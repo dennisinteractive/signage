@@ -35,6 +35,10 @@ class ChannelService implements ChannelServiceInterface {
     ;
     $rows = $query->execute();
 
+    // @todo handle action field_signage_minimum_time
+    // no other action should be sent while within the minimum time.
+    // stored in the channel state?
+
     $channels = [];
     foreach ($rows as $row) {
       $channel = clone $this->channel;

@@ -150,17 +150,16 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function dispatched(OutputEventInterface $event) {
-    // Only one of each time of output event can be active at a time.
-    // Merge with existing states.
     $data = $this->getDispatched();
-
     $state = [
       'event_name' => $event::name(),
-      'channel_id' => $event->getChannel()->getId(),
-      'channel_name' => $event->getChannel()->getName(),
+      'action' => $event->getAction()->toArray(),
+      'channel' => $event->getChannel()->toArray(),
       'payload' => $event->getPayload(),
       'timestamp' => time(),
     ];
+
+    // Only one of each type of output event can be active at a time.
     $data[$event::name()] = $state;
     $this->getState()->set($this->getStateKey(), $data);
   }
@@ -183,6 +182,13 @@ class Channel implements ChannelInterface {
    */
   public function delete() {
     $this->getState()->delete($this->getStateKey());
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function toArray() {
+    return $this->getNode()->toArray();
   }
 
   protected function getStateKey() {

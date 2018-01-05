@@ -115,4 +115,9 @@ interface ChannelInterface {
    * @return boolean
    */
   public function delete();
+
+  /**
+   * @return array
+   */
+  public function toArray();
 }
