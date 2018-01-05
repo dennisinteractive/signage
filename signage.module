@@ -13,4 +13,7 @@ function signage_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
 function signage_cron() {
   $pending_service = Drupal::getContainer()->get('signage.pending.event.service');
   $pending_service->processQueue();
+
+  $scheduled_service = Drupal::getContainer()->get('signage.scheduled.service');
+  $scheduled_service->processScheduledEvents();
 }

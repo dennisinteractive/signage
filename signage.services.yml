@@ -41,6 +41,12 @@ services:
     tags:
       - { name: 'event_subscriber' }
 
+  signage.event.subscriber.scheduled:
+    class: Drupal\signage\Event\Scheduled\ScheduledEventSubscriber
+    arguments: ['@event_dispatcher', '@signage.action.service', '@signage.channel.service']
+    tags:
+      - { name: 'event_subscriber' }
+
   signage.event.subscriber.output.url:
     class: Drupal\signage\Event\Output\UrlEventSubscriber
     arguments: ['@signage.pending.event.service']
@@ -59,6 +65,10 @@ services:
   signage.action.service:
     class: Drupal\signage\Action\ActionService
     arguments: ['@signage.action']
+
+  signage.scheduled.service:
+    class: Drupal\signage\Event\Scheduled\ScheduledEventService
+    arguments: ['@signage.action', '@signage.channel.service', '@event_dispatcher']
 
   signage.pending.event.service:
     class: Drupal\signage\Event\Pending\PendingEventService
