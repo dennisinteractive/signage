@@ -118,6 +118,25 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function getCurrentUrlMinTime() {
+    // Read the state to get the current url.
+    $data = $this->getDispatched();
+    if (isset($data['signage.url'])) {
+      $action_data = $data['signage.url']['action'];
+      if (isset($action_data['field_signage_minimum_time'][0])) {
+        $min = (int) $action_data['field_signage_minimum_time'][0];
+        $dispatched_time = $data['timestamp'];
+        // Add the minimum display time to the time it was dispatched.
+        return $dispatched_time + ($min * 60);
+      }
+    }
+
+    return 0;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
     $this->setId($this->entity->id());

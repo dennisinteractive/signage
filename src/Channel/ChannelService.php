@@ -35,16 +35,21 @@ class ChannelService implements ChannelServiceInterface {
     ;
     $rows = $query->execute();
 
-    // @todo handle action field_signage_minimum_time
-    // no other action should be sent while within the minimum time.
-    // stored in the channel state?
-
     $channels = [];
     foreach ($rows as $row) {
       $channel = clone $this->channel;
       $node =  Node::load($row);
       $channel->setNode($node);
-      $channels[] = $channel;
+
+      // Check for a minimum time on the action for the channel.
+      $min = $channel->getCurrentUrlMinTime();
+      if ($min > 0) {
+        // no other action should be sent while within the minimum time.
+        drupal_set_message("Action not sends as the minimum time requires another: $min seconds");
+      }
+      else {
+        $channels[] = $channel;
+      }
     }
 
     return $channels;

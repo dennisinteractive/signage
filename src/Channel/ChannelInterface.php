@@ -72,6 +72,13 @@ interface ChannelInterface {
   public function getCurrentUrl();
 
   /**
+   * The minimum time until which the current url should be shown.
+   *
+   * @return int
+   */
+  public function getCurrentUrlMinTime();
+
+  /**
    * The drupal entity, as returned by node_load().
    *
    * @param $entity
