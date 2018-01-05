@@ -8,9 +8,10 @@ dependencies:
     - field.field.node.signage_action.field_signage_minimum_time
     - field.field.node.signage_action.field_signage_on_input_event
     - field.field.node.signage_action.field_signage_priority
+    - field.field.node.signage_action.field_signage_scheduled_event
     - node.type.signage_action
 _core:
-  default_config_hash: pwJcDRZdd_J1iWUBDpOwXgODBTXgMFo5BEyJ-E1pOHg
+  default_config_hash: u-u5XwnmnZcHImpRGmHrF-18XK76IWpdzD5O-E4nZnc
 id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action
@@ -18,12 +19,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   field_signage_action_group:
-    weight: 6
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -32,37 +33,45 @@ content:
     type: entity_reference_autocomplete_tags
     region: content
   field_signage_do_output_event:
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_signage_maximum_time:
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_signage_minimum_time:
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_signage_on_input_event:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_signage_priority:
-    weight: 5
+    weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_signage_scheduled_event:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   title:
     type: string_textfield
@@ -74,7 +83,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60

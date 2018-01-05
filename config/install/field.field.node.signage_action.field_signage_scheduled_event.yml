@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_signage_scheduled_event
+    - node.type.signage_action
+id: node.signage_action.field_signage_scheduled_event
+field_name: field_signage_scheduled_event
+entity_type: node
+bundle: signage_action
+label: 'Scheduled Event'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

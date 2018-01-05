@@ -8,68 +8,89 @@ dependencies:
     - field.field.node.signage_action.field_signage_minimum_time
     - field.field.node.signage_action.field_signage_on_input_event
     - field.field.node.signage_action.field_signage_priority
+    - field.field.node.signage_action.field_signage_scheduled_event
     - node.type.signage_action
-  module:
-    - user
 _core:
-  default_config_hash: 0U32q4vpFjhFY438xtAZujq13LspMJTfri5CwStvRgo
+  default_config_hash: u-u5XwnmnZcHImpRGmHrF-18XK76IWpdzD5O-E4nZnc
 id: node.signage_action.default
 targetEntityType: node
 bundle: signage_action
 mode: default
 content:
-  field_signage_action_group:
-    weight: 101
-    label: above
-    settings:
-      link: true
+  created:
+    type: datetime_timestamp
+    weight: 9
+    region: content
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+  field_signage_action_group:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
     region: content
   field_signage_do_output_event:
-    weight: 102
-    label: above
-    settings:
-      link: true
+    weight: 3
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: options_select
     region: content
   field_signage_maximum_time:
-    weight: 103
-    label: above
+    weight: 5
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      placeholder: ''
     third_party_settings: {  }
-    type: number_integer
+    type: number
     region: content
   field_signage_minimum_time:
-    weight: 104
-    label: above
+    weight: 4
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      placeholder: ''
     third_party_settings: {  }
-    type: number_integer
+    type: number
     region: content
   field_signage_on_input_event:
-    weight: 105
-    label: above
-    settings:
-      link: true
+    weight: 2
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_label
+    type: options_select
     region: content
   field_signage_priority:
-    weight: 106
-    label: above
+    weight: 6
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      placeholder: ''
     third_party_settings: {  }
-    type: number_integer
+    type: number
     region: content
-  links:
-    weight: 100
+  field_signage_scheduled_event:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
-hidden: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  promote: true
+  sticky: true
