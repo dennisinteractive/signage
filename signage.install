@@ -36,6 +36,15 @@ function signage_install() {
   ]);
   $demo_output_msg->save();
 
+  /*
+{
+  "title": "Successfull CI for [Site]",
+  "body": "Build number [ART_BUILD_NUMBER], tag [ART_SITE_TAG]",
+  "notification_type": "success",
+  "timeout": "120000"
+}
+   */
+
   $output_tube = \Drupal\taxonomy\Entity\Term::create([
     'vid' => 'signage_output_events',
     'name' => 'Show tube status',
