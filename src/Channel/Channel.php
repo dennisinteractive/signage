@@ -120,18 +120,15 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function getCurrentActionMinTime(ActionInterface $action) {
+    $event = $action->getOutputEvent();
+    $event_name = $event::name();
 
-    //@todo check for states of all output event types.
-
-    //@todo move this code to a UrlEvent service
-    // as the channel should not be concerned with UrlEvent specifics.
-    // Read the state to get the current url.
     $data = $this->getDispatched();
-    if (isset($data['signage.url'])) {
-      $action_data = $data['signage.url']['action'];
+    if (isset($data[$event_name])) {
+      $action_data = $data[$event_name]['action'];
       if (isset($action_data['field_signage_minimum_time'][0])) {
         $min = (int) $action_data['field_signage_minimum_time'][0]["value"];
-        $dispatched_time = $data['signage.url']['timestamp'];
+        $dispatched_time = $data[$event_name]['timestamp'];
         // Add the minimum display time to the time it was dispatched.
         $clear_time = $dispatched_time + ($min * 60);
         $now = time();
