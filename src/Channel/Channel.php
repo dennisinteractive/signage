@@ -7,6 +7,7 @@ namespace Drupal\signage\Channel;
 
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
+use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Event\Output\OutputEventInterface;
 
 /**
@@ -118,7 +119,12 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
-  public function getCurrentUrlMinTime() {
+  public function getCurrentActionMinTime(ActionInterface $action) {
+
+    //@todo check for states of all output event types.
+
+    //@todo move this code to a UrlEvent service
+    // as the channel should not be concerned with UrlEvent specifics.
     // Read the state to get the current url.
     $data = $this->getDispatched();
     if (isset($data['signage.url'])) {

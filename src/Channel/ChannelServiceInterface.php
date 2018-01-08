@@ -5,6 +5,8 @@
 
 namespace Drupal\signage\Channel;
 
+use Drupal\signage\Action\ActionInterface;
+
 /**
  * Interface ChannelServiceInterface.
  *
@@ -15,9 +17,10 @@ interface ChannelServiceInterface {
   /**
    * A list of channels that show the action.
    *
-   * @param int $id
+   *
+   * @param ActionInterface $action
    *
    * @return array
    */
-  public function getChannelsForActionId($id);
+  public function getChannelsForAction(ActionInterface $action);
 }
