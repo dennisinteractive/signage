@@ -7,6 +7,7 @@ namespace Drupal\signage\Channel;
 
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
+use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Event\Output\OutputEventInterface;
 
 /**
@@ -118,6 +119,33 @@ class Channel implements ChannelInterface {
   /**
    * @inheritDoc
    */
+  public function getCurrentActionMinTime(ActionInterface $action) {
+    $event = $action->getOutputEvent();
+    $event_name = $event::name();
+
+    $data = $this->getDispatched();
+    if (isset($data[$event_name])) {
+      $action_data = $data[$event_name]['action'];
+      if (isset($action_data['field_signage_minimum_time'][0])) {
+        $min = (int) $action_data['field_signage_minimum_time'][0]["value"];
+        $dispatched_time = $data[$event_name]['timestamp'];
+        // Add the minimum display time to the time it was dispatched.
+        $clear_time = $dispatched_time + ($min * 60);
+        $now = time();
+        // Check whether the minimum time has passed.
+        if ($clear_time > $now) {
+          return $clear_time - $now;
+        }
+      }
+    }
+
+    // No minimum time in effect.
+    return 0;
+  }
+
+  /**
+   * @inheritDoc
+   */
   public function setNode(NodeInterface $entity) {
     $this->entity = $entity;
     $this->setId($this->entity->id());
@@ -150,17 +178,16 @@ class Channel implements ChannelInterface {
    * @inheritDoc
    */
   public function dispatched(OutputEventInterface $event) {
-    // Only one of each time of output event can be active at a time.
-    // Merge with existing states.
     $data = $this->getDispatched();
-
     $state = [
       'event_name' => $event::name(),
-      'channel_id' => $event->getChannel()->getId(),
-      'channel_name' => $event->getChannel()->getName(),
+      'action' => $event->getAction()->toArray(),
+      'channel' => $event->getChannel()->toArray(),
       'payload' => $event->getPayload(),
       'timestamp' => time(),
     ];
+
+    // Only one of each type of output event can be active at a time.
     $data[$event::name()] = $state;
     $this->getState()->set($this->getStateKey(), $data);
   }
@@ -183,6 +210,13 @@ class Channel implements ChannelInterface {
    */
   public function delete() {
     $this->getState()->delete($this->getStateKey());
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function toArray() {
+    return $this->getNode()->toArray();
   }
 
   protected function getStateKey() {

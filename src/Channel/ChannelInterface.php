@@ -7,6 +7,7 @@ namespace Drupal\signage\Channel;
 
 use Drupal\Core\State\StateInterface;
 use Drupal\node\NodeInterface;
+use Drupal\signage\Action\ActionInterface;
 use Drupal\signage\Event\Output\OutputEventInterface;
 
 /**
@@ -72,6 +73,15 @@ interface ChannelInterface {
   public function getCurrentUrl();
 
   /**
+   * The minimum time until which the current action should be shown.
+   *
+   * @param ActionInterface $action
+   *
+   * @return int
+   */
+  public function getCurrentActionMinTime(ActionInterface $action);
+
+  /**
    * The drupal entity, as returned by node_load().
    *
    * @param $entity
@@ -115,4 +125,9 @@ interface ChannelInterface {
    * @return boolean
    */
   public function delete();
+
+  /**
+   * @return array
+   */
+  public function toArray();
 }

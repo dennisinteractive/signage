@@ -6,6 +6,7 @@
 namespace Drupal\signage\Channel;
 
 use Drupal\node\Entity\Node;
+use Drupal\signage\Action\ActionInterface;
 
 /**
  * Class ChannelService.
@@ -27,11 +28,11 @@ class ChannelService implements ChannelServiceInterface {
   /**
    * @inheritDoc
    */
-  public function getChannelsForActionId($id) {
+  public function getChannelsForAction(ActionInterface $action) {
     // Find channel content with the action entity id
     // in field_signage_actions
     $query = \Drupal::entityQuery('node')
-      ->condition('field_signage_actions', $id)
+      ->condition('field_signage_actions', $action->getId())
     ;
     $rows = $query->execute();
 
@@ -40,7 +41,16 @@ class ChannelService implements ChannelServiceInterface {
       $channel = clone $this->channel;
       $node =  Node::load($row);
       $channel->setNode($node);
-      $channels[] = $channel;
+
+      // Check for a minimum time on the action for the channel.
+      $min = $channel->getCurrentActionMinTime($action);
+      if ($min > 0) {
+        // no other action should be sent while within the minimum time.
+        drupal_set_message("Action not sent as the minimum time requires another: $min seconds");
+      }
+      else {
+        $channels[] = $channel;
+      }
     }
 
     return $channels;
