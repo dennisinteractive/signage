@@ -86,4 +86,9 @@ interface ActionInterface {
 
   public function setMaximumTime($int);
 
+  /**
+   * @return array
+   */
+  public function toArray();
+
 }

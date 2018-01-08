@@ -160,5 +160,11 @@ class Action implements ActionInterface {
     return $this;
   }
 
+  /**
+   * @inheritDoc
+   */
+  public function toArray() {
+    return $this->getNode()->toArray();
+  }
 
 }
