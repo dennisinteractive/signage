@@ -34,8 +34,6 @@ class MessageEventSubscriber implements EventSubscriberInterface, OutputEventSub
       "handleOutputEvent: " . json_encode($event)
     );
 
-    //@todo PendingEventService that cron uses: event | payload | time
-
   }
 
 }
