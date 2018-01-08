@@ -45,7 +45,7 @@ class ChannelService implements ChannelServiceInterface {
       $min = $channel->getCurrentUrlMinTime();
       if ($min > 0) {
         // no other action should be sent while within the minimum time.
-        drupal_set_message("Action not sends as the minimum time requires another: $min seconds");
+        drupal_set_message("Action not sent as the minimum time requires another: $min seconds");
       }
       else {
         $channels[] = $channel;

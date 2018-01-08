@@ -124,13 +124,19 @@ class Channel implements ChannelInterface {
     if (isset($data['signage.url'])) {
       $action_data = $data['signage.url']['action'];
       if (isset($action_data['field_signage_minimum_time'][0])) {
-        $min = (int) $action_data['field_signage_minimum_time'][0];
-        $dispatched_time = $data['timestamp'];
+        $min = (int) $action_data['field_signage_minimum_time'][0]["value"];
+        $dispatched_time = $data['signage.url']['timestamp'];
         // Add the minimum display time to the time it was dispatched.
-        return $dispatched_time + ($min * 60);
+        $clear_time = $dispatched_time + ($min * 60);
+        $now = time();
+        // Check whether the minimum time has passed.
+        if ($clear_time > $now) {
+          return $clear_time - $now;
+        }
       }
     }
 
+    // No minimum time in effect.
     return 0;
   }
 
