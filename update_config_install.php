@@ -18,7 +18,7 @@ while (false !== ($entry = $export_dir->read())) {
 }
 $export_dir->close();
 
-
+// Strip UUIDs
 $d = dir('config/install');
 echo "Updating yml files in: " . $d->path . "\n";
 while (false !== ($entry = $d->read())) {
