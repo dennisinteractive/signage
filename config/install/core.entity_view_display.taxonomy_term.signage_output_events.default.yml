@@ -2,10 +2,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.signage_output_events.field_signage_output
     - field.field.taxonomy_term.signage_output_events.field_signage_output_event_type
     - taxonomy.vocabulary.signage_output_events
   module:
     - text
+_core:
+  default_config_hash: FF8SeHnsEQV10QtHgo0QNq4oteBsrcHWeeweaTd1hi4
 id: taxonomy_term.signage_output_events.default
 targetEntityType: taxonomy_term
 bundle: signage_output_events
@@ -18,6 +21,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_signage_output:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_signage_output_event_type:
     weight: 1
     label: above
@@ -27,3 +37,4 @@ content:
     type: entity_reference_label
     region: content
 hidden: {  }
+

@@ -2,31 +2,30 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.signage_output_events.field_signage_output
     - field.field.taxonomy_term.signage_output_events.field_signage_output_event_type
     - taxonomy.vocabulary.signage_output_events
-  module:
-    - text
 _core:
-  default_config_hash: M5Wkqnw6U6Tl8L_Kx4tTRODu2ODoG44XgnyfJa7gxFA
+  default_config_hash: 2D9I6veAgGHbmu8eZGTo-s63G9JkKHQj2r6XVr2VTrg
 id: taxonomy_term.signage_output_events.default
 targetEntityType: taxonomy_term
 bundle: signage_output_events
 mode: default
 content:
-  description:
-    type: text_textarea
-    weight: 1
-    region: content
+  field_signage_output:
+    weight: 2
     settings:
-      placeholder: ''
       rows: 5
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_signage_output_event_type:
-      weight: 3
-      settings: {  }
-      third_party_settings: {  }
-      type: options_select
-      region: content
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   name:
     type: string_textfield
     weight: 0
@@ -36,4 +35,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  description: true
   path: true

@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Signage Raw'
-format: signage_raw
-weight: 0
-filters: {  }
