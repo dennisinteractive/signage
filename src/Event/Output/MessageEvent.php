@@ -46,16 +46,6 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
    */
   public function getMessage() {
     $this->populatePayload()->getPayload();
-    //    $vals = $this->populatePayload()->getPayload()->getValues();
-    //
-    //
-    //
-    //
-    //    $this->message->setTitle($vals['title'])
-    //      ->setBody($vals['body'])
-    //      ->setNotificationType($vals['notification_type'])
-    //      ->setTimeout($vals['time_out'])
-    //    ;
     return $this->message;
   }
 
