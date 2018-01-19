@@ -24,7 +24,9 @@ function signage_install() {
     'vid' => 'signage_output_events',
     'name' => 'Demo url set',
     'field_signage_output_event_type' => $url_term->id(),
-    'description' => '[url]?[key_1]=[value_1]&[key_2]=[value_2]',
+    'field_signage_output' => [
+      '[url]?[key_1]=[value_1]&[key_2]=[value_2]',
+    ],
   ]);
   $demo_output_url_term->save();
 
@@ -32,7 +34,9 @@ function signage_install() {
     'vid' => 'signage_output_events',
     'name' => 'Debug message',
     'field_signage_output_event_type' => $msg_term->id(),
-    'description' => 'Demo message for [site]',
+    'field_signage_output' => [
+      'Demo message for [site]',
+    ],
   ]);
   $demo_output_msg->save();
 
@@ -49,7 +53,9 @@ function signage_install() {
     'vid' => 'signage_output_events',
     'name' => 'Show tube status',
     'field_signage_output_event_type' => $url_term->id(),
-    'description' => 'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
+    'field_signage_output' => [
+      'https://tfl.gov.uk/tfl/syndication/feeds/serviceboard-fullscreen.htm',
+    ],
   ]);
   $output_tube->save();
 

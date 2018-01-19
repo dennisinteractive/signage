@@ -12,4 +12,6 @@ interface ScheduledEventServiceInterface {
   public function processScheduledEvents();
 
   public function dispatchActions($actions);
+
+  public function actionDue($node);
 }

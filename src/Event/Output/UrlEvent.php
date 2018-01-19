@@ -51,7 +51,7 @@ class UrlEvent extends OutputEventAbstract implements OutputEventInterface, UrlE
     $output_term = \Drupal\taxonomy\Entity\Term::load($output_tid[0]['target_id']);
     // The description field has the content that is to be sent out,
     // but needs values replacing
-    $description = $output_term->get('description')->getValue();
+    $description = $output_term->get('field_signage_output')->getValue();
     $value = trim(strip_tags($description[0]['value']));
 
     // Replace the placeholders with their values from the payload.

@@ -55,9 +55,11 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     foreach ($scheduled_events as $nid) {
       $action = clone $this->action;
       if ($node = Node::load($nid)) {
-        $action->setNode($node);
-        $action->setInputEvent($event);
-        $actions[] = $action;
+        if ($this->actionDue($node)) {
+          $action->setNode($node);
+          $action->setInputEvent($event);
+          $actions[] = $action;
+        }
       }
     }
 
@@ -72,12 +74,20 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     foreach ($actions as $action) {
       $oe = $action->getOutputEvent();
       // Send the event to all the relevant channels.
-      $channels = $this->channelService->getChannelsForActionId($action->getId());
+      $channels = $this->channelService->getChannelsForAction($action);
       foreach ($channels as $channel) {
         $oe->setChannel($channel);
         $this->dispatcher->dispatch($oe::name(), $oe);
       }
     }
+  }
+
+  public function actionDue($node) {
+
+    $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
+    $cron = \Cron\CronExpression::factory($expression);
+    return $cron->isDue();
+
   }
 }
 
