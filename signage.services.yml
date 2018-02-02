@@ -62,7 +62,7 @@ services:
 
   signage.scheduled.service:
     class: Drupal\signage\Event\Scheduled\ScheduledEventService
-    arguments: ['@signage.action', '@signage.channel.service', '@event_dispatcher']
+    arguments: ['@signage.action', '@signage.channel.service', '@event_dispatcher', '@state']
 
   signage.pending.event.service:
     class: Drupal\signage\Event\Pending\PendingEventService

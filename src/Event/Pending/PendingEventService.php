@@ -59,7 +59,7 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
           $event->getUrl()
         )
       );
-
+      
       // Give the channel the state handler, which can't be serialized.
       $event->getChannel()->setState($this->state);
       // Dispatch the event.

@@ -85,8 +85,7 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
   public function actionDue($node) {
     $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
     $cron = \Cron\CronExpression::factory($expression);
-    $cron->getNextRunDate();
-    if ($cron->getNextRunDate() > 'now') {
+    if ($cron->isDue()) {
       return TRUE;
     }
     return FALSE;
