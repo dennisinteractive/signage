@@ -50,8 +50,17 @@ interface OutputEventInterface {
    * Gets the Action that called the event.
    *
    * @return \Drupal\signage\Action\ActionInterface
+   *
+   * @throws InvalidArgumentException
    */
   public function getAction();
+
+  /**
+   * Check if event has an action.
+   *
+   * @return boolean
+   */
+  public function hasAction();
 
   /**
    * Gets the event payload.

@@ -165,6 +165,7 @@ class PendingEventService extends DatabaseQueue implements PendingEventServiceIn
       }
       else {
         // No items currently available to claim.
+        // No items currently available to claim.
         return FALSE;
       }
     }

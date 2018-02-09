@@ -179,11 +179,16 @@ class Channel implements ChannelInterface {
    */
   public function dispatched(OutputEventInterface $event) {
     $data = $this->getDispatched();
+    $action = '';
+
+    if (!is_null($event->hasAction())) {
+      $action = $event->getAction()->toArray();
+    }
 
     $state = [
       'event_name' => $event::name(),
-      'action' => $event->getAction(),
-      'channel' => $event->getChannel(),
+      'action' => $action,
+      'channel' => $event->getChannel()->toArray(),
       'payload' => $event->getPayload(),
       'timestamp' => time(),
     ];

@@ -73,9 +73,22 @@ abstract class OutputEventAbstract extends Event implements OutputEventInterface
    * @inheritDoc
    */
   public function getAction() {
-    return $this->action;
+    if (!is_null($this->action)) {
+      return $this->action;
+    }
+
+    throw new \InvalidArgumentException('No action set.');
   }
 
+  /**
+   * @inheritdoc
+   */
+  public function hasAction() {
+    if ($this->action instanceof ActionInterface) {
+      return TRUE;
+    }
+    return FALSE;
+  }
   /**
    * @inheritDoc
    */
