@@ -57,8 +57,7 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     foreach ($scheduled_events as $nid) {
       $action = clone $this->action;
       if ($node = Node::load($nid)) {
-        $expression = $this->getCronExpression($node);
-        if ($this->actionDue($expression, $node)) {
+        if ($this->actionDue($node)) {
           $action->setNode($node);
           $action->setInputEvent($event);
           $actions[] = $action;
@@ -94,25 +93,14 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
   /**
    * @inheritDoc
    */
-  public function actionDue($cronExpression) {
+  public function actionDue($node) {
+    $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
+    $fieldFactory = new FieldFactory();
+    $cronExpression = new CronExpression($expression, $fieldFactory);
     if ($cronExpression->isDue()) {
       return TRUE;
     }
     return FALSE;
-  }
-
-  /**
-   * @inheritDoc
-   */
-  public function getCronExpression($node) {
-    $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
-    $fieldFactory = new FieldFactory();
-    $cronExpression = new CronExpression($expression, $fieldFactory);
-    $time = strtotime('+5 minutes');
-    $due = $cronExpression->getNextRunDate($time, $allowCurrentDate = true);
-    echo $due;
-    exit;
-    return $due;
   }
 }
 

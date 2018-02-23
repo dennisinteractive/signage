@@ -32,14 +32,6 @@ interface ScheduledEventServiceInterface {
    *
    * @return boolean
    */
-  public function actionDue($cronExpression);
+  public function actionDue($node);
 
-  /**
-   * Get the cron expression.
-   *
-   * @param $node
-   *
-   * @return $cronExpression
-   */
-  public function getCronExpression($node);
 }
