@@ -9,9 +9,37 @@ interface ScheduledEventServiceInterface {
    */
   public function getActions();
 
+  /**
+   * Process scheduled actions.
+   *
+   * @return mixed
+   */
   public function processScheduledEvents();
 
+  /**
+   * Dispatch the scheduled actions.
+   *
+   * @param $actions
+   *
+   * @return mixed
+   */
   public function dispatchActions($actions);
 
-  public function actionDue($node);
+  /**
+   * Check if the action is due.
+   *
+   * @param $node
+   *
+   * @return boolean
+   */
+  public function actionDue($cronExpression);
+
+  /**
+   * Get the cron expression.
+   *
+   * @param $node
+   *
+   * @return $cronExpression
+   */
+  public function getCronExpression($node);
 }

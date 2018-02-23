@@ -8,6 +8,8 @@ use Drupal\signage\Channel\ChannelServiceInterface;
 use Drupal\signage\Event\Input\InputEvent;
 use Drupal\signage\Event\Payload\EventPayload;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Cron\CronExpression;
+use Cron\FieldFactory;
 
 class ScheduledEventService implements ScheduledEventServiceInterface {
 
@@ -55,7 +57,8 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     foreach ($scheduled_events as $nid) {
       $action = clone $this->action;
       if ($node = Node::load($nid)) {
-        if ($this->actionDue($node)) {
+        $expression = $this->getCronExpression($node);
+        if ($this->actionDue($expression, $node)) {
           $action->setNode($node);
           $action->setInputEvent($event);
           $actions[] = $action;
@@ -66,10 +69,16 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     return $actions;
   }
 
+  /**
+   * @inheritDoc
+   */
   public function processScheduledEvents() {
    $this->dispatchActions($this->getActions());
   }
 
+  /**
+   * @inheritDoc
+   */
   public function dispatchActions($actions) {
     foreach ($actions as $action) {
       $oe = $action->getOutputEvent();
@@ -82,13 +91,28 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     }
   }
 
-  public function actionDue($node) {
-    $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
-    $cron = \Cron\CronExpression::factory($expression);
-    if ($cron->isDue()) {
+  /**
+   * @inheritDoc
+   */
+  public function actionDue($cronExpression) {
+    if ($cronExpression->isDue()) {
       return TRUE;
     }
     return FALSE;
+  }
+
+  /**
+   * @inheritDoc
+   */
+  public function getCronExpression($node) {
+    $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
+    $fieldFactory = new FieldFactory();
+    $cronExpression = new CronExpression($expression, $fieldFactory);
+    $time = strtotime('+5 minutes');
+    $due = $cronExpression->getNextRunDate($time, $allowCurrentDate = true);
+    echo $due;
+    exit;
+    return $due;
   }
 }
 
