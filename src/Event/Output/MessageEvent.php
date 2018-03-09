@@ -66,6 +66,7 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
       $output_term = \Drupal\taxonomy\Entity\Term::load($output_tid[0]['target_id']);
       // The field_signage_output field has the content that is to be sent out,
       // but needs values replacing
+
       $out = $output_term->get('field_signage_output')->getValue();
       $value = trim(strip_tags($out[0]['value']));
 

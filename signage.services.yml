@@ -6,6 +6,9 @@ services:
   signage.event.payload:
     class: Drupal\signage\Event\Payload\EventPayload
 
+  signage.event.input:
+    class: Drupal\signage\Event\Input\InputEvent
+
   signage.event.output.url:
     class: Drupal\signage\Event\Output\UrlEvent
     arguments: ['@signage.event.payload']
