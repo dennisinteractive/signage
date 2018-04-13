@@ -15,7 +15,8 @@
   ],
 
   "require": {
-    "dragonmantank/cron-expression": "2.0.0"
+    "dragonmantank/cron-expression": "2.0.0",
+    "drupal/default_content": "1.0-alpha7"
   },
 
   "require-dev": {
