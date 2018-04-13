@@ -21,3 +21,11 @@ signage.demo_tube_input_event_form:
     _title: 'Show tube status'
   requirements:
     _permission: 'access administration pages'
+
+signage.demo_content_create:
+  path: 'signage/demo/content/create'
+  defaults:
+    _form: '\Drupal\signage\Form\InitialContentForm'
+    _title: 'Create demo content'
+  requirements:
+    _permission: 'access administration pages'

@@ -86,3 +86,5 @@ services:
     class: Drupal\signage\Device\Device
     arguments: ['@signage.channel']
 
+  signage.content.demo:
+    class: Drupal\signage\Content\Demo
