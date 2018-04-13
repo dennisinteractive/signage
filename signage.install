@@ -130,7 +130,7 @@ function signage_install() {
       ['target_id' => $tube_action->id()],
     ],
     'field_signage_default_url' => [
-      'value' => 'https://share.geckoboard.com/loop/DIQAES4JEAA2V2DA',
+      'value' => 'http://www.drupal.org',
     ],
   ]);
   $dev_channel_node->save();
