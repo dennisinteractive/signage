@@ -29,30 +29,11 @@ class DemoMessageInputEventForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['title'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('title'),
-      '#description' => $this->t('The title of the message'),
-      '#size' => 64,
-    );
-
     $form['body'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('message body'),
-      '#description' => $this->t('The message'),
-      '#size' => 32,
-    );
-    $form['notification_type'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('notification_type'),
-      '#description' => $this->t('success|info|warning|error'),
-      '#size' => 32,
-    );
-
-    $form['time_out'] = array(
-      '#type' => 'textfield',
-      '#title' => $this->t('time_out'),
-      '#description' => $this->t('Milliseconds to show the message'),
+      '#type' => 'textarea',
+      '#title' => $this->t('keys & values json'),
+      '#description' => $this->t('keys that are used in the Demo message output term. 
+      for example: {"Site": "FakeSite","FOO":"is not bar","BAR":"is notFoo"} '),
       '#size' => 32,
     );
 
@@ -68,12 +49,9 @@ class DemoMessageInputEventForm extends FormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $dispatcher = \Drupal::service('event_dispatcher');
-
+    $vals = json_decode($form_state->getValue('body'));
     $payload = new EventPayload();
-    $payload->setValue('title', $form_state->getValue('title'));
-    $payload->setValue('body', $form_state->getValue('body'));
-    $payload->setValue('notification_type', $form_state->getValue('notification_type'));
-    $payload->setValue('time_out', $form_state->getValue('time_out'));
+    $payload->setValues($vals);
 
     $event = new InputEvent('demo.input.message');
     $event->setPayload($payload);
