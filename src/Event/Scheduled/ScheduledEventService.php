@@ -82,14 +82,25 @@ class ScheduledEventService implements ScheduledEventServiceInterface {
     }
   }
 
-  public function actionDue($node) {
+  /**
+   * @inheritDoc
+   */
+  public function actionDue(Node $node) {
     $expression = $node->get('field_signage_scheduled_event')->getValue()[0]['value'];
     $cron = \Cron\CronExpression::factory($expression);
+
+    // Cron is run every 5 minutes on the server, NOT every minute.
+    // So check isDue() for the current minute & the previous four.
+    // Expected to run once every 5 minutes.
+    for ($minutes = 4; $minutes > 0; $minutes--) {
+      if ($cron->isDue('-' . $minutes . ' minutes')) {
+        return TRUE;
+      }
+    }
+    // The current minute.
     if ($cron->isDue()) {
       return TRUE;
     }
     return FALSE;
   }
 }
-
-

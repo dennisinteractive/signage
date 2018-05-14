@@ -2,6 +2,8 @@
 
 namespace Drupal\signage\Event\Scheduled;
 
+use Drupal\node\Entity\Node;
+
 interface ScheduledEventServiceInterface {
 
   /**
@@ -13,5 +15,11 @@ interface ScheduledEventServiceInterface {
 
   public function dispatchActions($actions);
 
-  public function actionDue($node);
+  /**
+   * Checks for actions whose time it is to run.
+   * @param Node $node
+   *
+   * @return bool
+   */
+  public function actionDue(Node $node);
 }
