@@ -17,3 +17,13 @@ function signage_cron() {
   $scheduled_service = Drupal::getContainer()->get('signage.scheduled.service');
   $scheduled_service->processScheduledEvents();
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function signage_form_node_signage_action_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add a library which handles the crontab UI.
+  //@todo not use a new diff but use the Scheduled Event field and remove the cron form fields on submit.
+  $form['#prefix'] = '<div id="cron_selector"></div>';
+  $form['#attached']['library'][] = 'signage/cron';
+}

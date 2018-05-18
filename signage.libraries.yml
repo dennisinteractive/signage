@@ -1,0 +1,8 @@
+cron:
+  version: 1.x
+  js:
+    # From https://raw.githubusercontent.com/shawnchin/jquery-cron/master/cron/jquery-cron-min.js
+    cron/jquery-cron-min.js: {}
+    cron/component.js: {}
+  dependencies:
+    - core/jquery
