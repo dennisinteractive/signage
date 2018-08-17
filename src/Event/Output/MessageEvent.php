@@ -72,8 +72,8 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
 
       // Replace the placeholders with their values from the payload.
       foreach ($vals as $k => $v) {
-        // Only scalar keys can be used.
-        if (is_scalar($k)) {
+        // Only scalar keys & values can be used.
+        if (is_scalar($k) && is_scalar($v)) {
           $value = str_replace("[$k]", $v, $value);
         }
       }
