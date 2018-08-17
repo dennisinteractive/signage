@@ -68,7 +68,7 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
       // but needs values replacing
 
       $out = $output_term->get('field_signage_output')->getValue();
-      $value = trim(strip_tags($out[0]['value']));
+      $value = trim($out[0]['value']);
 
       // Replace the placeholders with their values from the payload.
       foreach ($vals as $k => $v) {
@@ -78,7 +78,7 @@ class MessageEvent extends OutputEventAbstract implements MessageEventInterface 
         }
       }
 
-      $json_vals = json_decode(str_replace('&nbsp;', '', strip_tags($value)));
+      $json_vals = json_decode(str_replace('&nbsp;', '', $value));
       $this->message->setTitle($json_vals->title)
         ->setBody($json_vals->body)
         ->setNotificationType($json_vals->notification_type)
